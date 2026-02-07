@@ -1,26 +1,86 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Base */
+    --bg: 48 20% 97%;        /* warm off-white */
+    --fg: 220 10% 10%;       /* near-black */
+    --muted: 220 6% 45%;
+    --border: 220 10% 90%;
+
+    /* Accent (swap later) */
+    --accent: 145 25% 36%;
+    --accent-fg: 0 0% 100%;
+
+    /* Surfaces */
+    --card: 0 0% 100%;
+    --shadow: 220 20% 10%;
+
+    /* Radius */
+    --r-sm: 10px;
+    --r-md: 14px;
+    --r-lg: 18px;
+
+    /* Rhythm */
+    --gutter: 16px;
+  }
+
+  @media (min-width: 768px) {
+    :root { --gutter: 24px; }
+  }
+
+  @media (min-width: 1024px) {
+    :root { --gutter: 48px; }
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    color: hsl(var(--fg));
+    background: hsl(var(--bg));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Subtle editorial texture (optional, safe default) */
+  .bg-grain {
+    background-image:
+      radial-gradient(hsl(var(--fg) / 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.20);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .hairline {
+    border-color: hsl(var(--border));
+  }
+
+  .text-muted {
+    color: hsl(var(--muted));
+  }
+
+  .shadow-soft {
+    box-shadow: 0 16px 40px hsl(var(--shadow) / 0.10);
+  }
+
+  .shadow-softer {
+    box-shadow: 0 10px 24px hsl(var(--shadow) / 0.08);
+  }
+
+  .container-pad {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .max-prose {
+    max-width: 68ch;
+  }
 }
