@@ -1,11 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { siteCopy } from "@/content/siteCopy";
 import { product } from "@/content/products";
 import { cimg } from "@/lib/cloudinary";
+import { scrollToId } from "@/lib/scroll";
 
-export function Hero({ onJump }: { onJump: (id: string) => void }) {
+export function Hero() {
   const heroUrl =
     cimg(product.media.heroPublicId, { w: 2000, q: 85, crop: "fill" }) ??
     product.media.heroFallback;
@@ -13,14 +16,7 @@ export function Hero({ onJump }: { onJump: (id: string) => void }) {
   return (
     <section className="relative min-h-[92vh] bg-grain">
       <div className="absolute inset-0">
-        <Image
-          src={heroUrl}
-          alt=""
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
+        <Image src={heroUrl} alt="" fill priority className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/50 to-bg" />
       </div>
 
@@ -39,21 +35,15 @@ export function Hero({ onJump }: { onJump: (id: string) => void }) {
           </p>
 
           <div className="mt-8 flex items-center gap-3">
-            <Button size="lg" onClick={() => onJump("buy")}>
+            <Button size="lg" onClick={() => scrollToId("buy")}>
               {siteCopy.hero.primaryCta}
             </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              onClick={() => onJump("ingredients")}
-            >
+            <Button size="lg" variant="secondary" onClick={() => scrollToId("ingredients")}>
               {siteCopy.hero.secondaryCta}
             </Button>
           </div>
 
-          <p className="mt-6 text-[13px] text-muted">
-            {siteCopy.hero.note}
-          </p>
+          <p className="mt-6 text-[13px] text-muted">{siteCopy.hero.note}</p>
         </div>
       </Container>
     </section>
