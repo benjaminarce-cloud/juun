@@ -1,9 +1,12 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { siteCopy } from "@/content/siteCopy";
 import { Reveal } from "@/components/motion/Reveal";
+import { scrollToId } from "@/lib/scroll";
 
-export function FinalCTA({ onJump }: { onJump: (id: string) => void }) {
+export function FinalCTA() {
   return (
     <section className="py-16 md:py-24">
       <Container>
@@ -17,7 +20,7 @@ export function FinalCTA({ onJump }: { onJump: (id: string) => void }) {
                 {siteCopy.finalCta.subhead}
               </p>
               <div className="mt-8">
-                <Button size="lg" onClick={() => onJump("buy")}>
+                <Button size="lg" onClick={() => scrollToId("buy")}>
                   {siteCopy.finalCta.cta}
                 </Button>
               </div>
