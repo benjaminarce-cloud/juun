@@ -84,3 +84,13 @@
     max-width: 68ch;
   }
 }
+
+@layer utilities {
+  .ui-border { border-color: hsl(var(--border)); }
+  .ui-muted { color: hsl(var(--muted)); }
+  .ui-bg { background: hsl(var(--bg)); }
+  .ui-card { background: hsl(var(--card)); }
+  .ui-accent { background: hsl(var(--accent)); color: hsl(var(--accent-fg)); }
+  .ui-shadow-soft { box-shadow: 0 16px 40px hsl(var(--shadow) / 0.10); }
+  .ui-shadow-softer { box-shadow: 0 10px 24px hsl(var(--shadow) / 0.08); }
+}
