@@ -13,16 +13,13 @@ export function Button({
 }: Props) {
   const base =
     "inline-flex items-center justify-center rounded-md font-medium transition " +
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 " +
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 " +
     "disabled:opacity-50 disabled:pointer-events-none";
 
   const variants: Record<string, string> = {
-    primary:
-      "bg-accent text-accent-fg hover:opacity-90 shadow-softer",
-    secondary:
-      "border border-border bg-card text-fg hover:bg-fg/5",
-    ghost:
-      "text-fg hover:bg-fg/5",
+    primary: "ui-accent ui-accent-hover ui-shadow-softer",
+    secondary: "ui-card ui-hairline ui-border hover:bg-black/5",
+    ghost: "hover:bg-black/5",
   };
 
   const sizes: Record<string, string> = {
@@ -31,9 +28,6 @@ export function Button({
   };
 
   return (
-    <button
-      className={cn(base, variants[variant], sizes[size], className)}
-      {...props}
-    />
+    <button className={cn(base, variants[variant], sizes[size], className)} {...props} />
   );
 }
