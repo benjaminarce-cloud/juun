@@ -86,11 +86,17 @@
 }
 
 @layer utilities {
-  .ui-border { border-color: hsl(var(--border)); }
-  .ui-muted { color: hsl(var(--muted)); }
   .ui-bg { background: hsl(var(--bg)); }
+  .ui-fg { color: hsl(var(--fg)); }
+  .ui-muted { color: hsl(var(--muted)); }
+  .ui-border { border-color: hsl(var(--border)); }
   .ui-card { background: hsl(var(--card)); }
+
   .ui-accent { background: hsl(var(--accent)); color: hsl(var(--accent-fg)); }
+  .ui-accent-hover:hover { background: hsl(var(--accent) / 0.92); }
+
   .ui-shadow-soft { box-shadow: 0 16px 40px hsl(var(--shadow) / 0.10); }
   .ui-shadow-softer { box-shadow: 0 10px 24px hsl(var(--shadow) / 0.08); }
+
+  .ui-hairline { border-width: 1px; }
 }
