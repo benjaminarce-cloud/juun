@@ -1,15 +1,19 @@
-import { cn } from "@/lib/cn";
+import { cn } from '@/lib/cn'
 
-export function Container({
+interface ContainerProps {
+  children: React.ReactNode
+  className?: string
+  as?: React.ElementType
+}
+
+export default function Container({
   children,
   className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+  as: Tag = 'div',
+}: ContainerProps) {
   return (
-    <div className={cn("mx-auto max-w-[1200px] container-pad", className)}>
+    <Tag className={cn('ui-container', className)}>
       {children}
-    </div>
-  );
+    </Tag>
+  )
 }

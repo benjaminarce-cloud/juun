@@ -1,47 +1,62 @@
-"use client";
+'use client'
 
-import { cn } from "@/lib/cn";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from 'react'
+import { cn } from '@/lib/cn'
 
-export function Reveal({
+interface RevealProps {
+  children: React.ReactNode
+  className?: string
+  delay?: 0 | 1 | 2 | 3 | 4
+  threshold?: number
+}
+
+const delayClass: Record<number, string> = {
+  0: '',
+  1: 'reveal-d1',
+  2: 'reveal-d2',
+  3: 'reveal-d3',
+  4: 'reveal-d4',
+}
+
+export default function Reveal({
   children,
   className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [on, setOn] = useState(false);
+  delay = 0,
+  threshold = 0.12,
+}: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const el = ref.current
+    if (!el) return
 
-    const obs = new IntersectionObserver(
+    // Respect reduced motion at the JS level too
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) {
+      el.classList.add('visible')
+      return
+    }
+
+    const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setOn(true);
-          obs.disconnect();
+          el.classList.add('visible')
+          observer.unobserve(el)
         }
       },
-      { threshold: 0.12 }
-    );
+      { threshold }
+    )
 
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [threshold])
 
   return (
     <div
       ref={ref}
-      className={cn(
-        "transition duration-700 will-change-transform",
-        on ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
-        "motion-reduce:transition-none motion-reduce:transform-none",
-        className
-      )}
+      className={cn('reveal', delayClass[delay], className)}
     >
       {children}
     </div>
-  );
+  )
 }

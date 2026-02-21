@@ -1,36 +1,121 @@
-import { Container } from "@/components/ui/Container";
-import { siteCopy } from "@/content/siteCopy";
-import { Reveal } from "@/components/motion/Reveal";
+import Reveal from '@/components/motion/Reveal'
+import { copy } from '@/content/siteCopy'
 
-export function ValueProps() {
+export default function ValueProps() {
+  const { eyebrow, titleLight, titleBold, subtitle, props } = copy.beneficios
+
   return (
-    <section className="py-12 md:py-16">
-      <Container>
+    <section
+      style={{
+        paddingTop: 'var(--s-pad)',
+        paddingBottom: 'var(--s-pad)',
+        paddingLeft: 'var(--gutter)',
+        paddingRight: 'var(--gutter)',
+      }}
+    >
+      <div className="ui-container" style={{ padding: 0 }}>
+
+        {/* Header row */}
         <Reveal>
-          <div className="-mx-4 md:mx-0">
-            <div className="no-scrollbar flex gap-3 overflow-x-auto px-4 pb-2 md:grid md:grid-cols-4 md:gap-6 md:overflow-visible md:px-0">
-              {siteCopy.valueProps.map((it) => (
-                <div
-                  key={it.title}
-                  className="min-w-[260px] rounded-lg ui-hairline ui-border ui-card p-5 ui-shadow-softer md:min-w-0 md:p-6 transition-transform duration-200 hover:-translate-y-[2px]"
-                >
-                  <div className="text-[16px] font-medium leading-6">
-                    {it.title}
-                  </div>
-                  <p className="mt-2 text-[14px] leading-6 ui-muted">
-                    {it.desc}
-                  </p>
-                </div>
-              ))}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'space-between',
+              marginBottom: '4rem',
+              gap: '2rem',
+              flexWrap: 'wrap',
+            }}
+          >
+            <div>
+              <span className="ui-eyebrow">{eyebrow}</span>
+              <h2
+                style={{
+                  fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+                  fontWeight: 900,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.05,
+                  marginTop: '0.75rem',
+                  maxWidth: '420px',
+                }}
+              >
+                <span style={{ fontWeight: 300 }}>{titleLight}</span>
+                {titleBold}
+              </h2>
             </div>
+            <p
+              style={{
+                fontSize: '0.62rem',
+                fontWeight: 300,
+                color: 'var(--muted)',
+                letterSpacing: '0.04em',
+                lineHeight: 1.9,
+                maxWidth: '320px',
+              }}
+            >
+              {subtitle}
+            </p>
           </div>
         </Reveal>
 
-        {/* hide scrollbar (webkit) */}
-        <style>{`
-          .no-scrollbar::-webkit-scrollbar { display: none; }
-        `}</style>
-      </Container>
+        {/* Grid */}
+        <div
+          className="ui-grid-border"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+          }}
+        >
+          {props.map((prop, i) => (
+            <Reveal
+              key={prop.name}
+              delay={(i + 1) as 1 | 2 | 3 | 4}
+            >
+              <div
+                className="ui-grid-cell"
+                style={{
+                  padding: '2.5rem 1.75rem',
+                  transition: 'background 0.25s',
+                }}
+                onMouseEnter={e => {
+                  ;(e.currentTarget as HTMLElement).style.background = '#f5f4e8'
+                }}
+                onMouseLeave={e => {
+                  ;(e.currentTarget as HTMLElement).style.background = 'var(--linen)'
+                }}
+              >
+                <span
+                  style={{ fontSize: '1.4rem', marginBottom: '1.5rem', display: 'block' }}
+                >
+                  {prop.icon}
+                </span>
+                <div
+                  style={{
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    letterSpacing: '-0.01em',
+                    marginBottom: '0.65rem',
+                  }}
+                >
+                  {prop.name}
+                </div>
+                <p
+                  style={{
+                    fontSize: '0.6rem',
+                    fontWeight: 300,
+                    letterSpacing: '0.05em',
+                    lineHeight: 1.8,
+                    color: 'var(--muted)',
+                  }}
+                >
+                  {prop.desc}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+      </div>
     </section>
-  );
+  )
 }

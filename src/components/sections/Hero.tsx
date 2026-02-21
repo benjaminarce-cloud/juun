@@ -1,51 +1,174 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { siteCopy } from "@/content/siteCopy";
-import { product } from "@/content/products";
-import { cimg } from "@/lib/cloudinary";
-import { scrollToId } from "@/lib/scroll";
+import { copy } from '@/content/siteCopy'
+import { scrollToId } from '@/lib/scroll'
 
-export function Hero() {
-  const heroUrl =
-    cimg(product.media.heroPublicId, { w: 2000, q: 85, crop: "fill" }) ??
-    product.media.heroFallback;
-
+export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] bg-grain">
-      <div className="absolute inset-0">
-        <Image src={heroUrl} alt="" fill priority className="object-cover" sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/50 to-bg" />
-      </div>
+    <section
+      style={{
+        position: 'relative',
+        minHeight: '100dvh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        padding: `0 var(--gutter) clamp(3.5rem, 8vh, 5.5rem)`,
+        overflow: 'hidden',
+        background: '#0e0c0b',
+      }}
+    >
+      {/* ── BACKGROUND ─────────────────────────────────────
+          Replace background-image with your Cloudinary URL:
+          backgroundImage: "url('https://res.cloudinary.com/YOUR_CLOUD/image/upload/YOUR_ID.jpg')"
+          or local: backgroundImage: "url('/placeholders/hero.jpg')"
+      ────────────────────────────────────────────────── */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `
+            url('/placeholders/hero.jpg'),
+            radial-gradient(ellipse 70% 60% at 80% 30%, rgba(80,55,40,0.45) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 50% at 20% 70%, rgba(30,20,15,0.8) 0%, transparent 60%),
+            linear-gradient(165deg, #1c1410 0%, #0e0c0b 55%, #16120f 100%)
+          `,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
 
-      <Container className="relative z-10 flex min-h-[92vh] flex-col justify-end pb-12 md:pb-16">
-        <div className="max-prose">
-          <div className="text-[13px] uppercase tracking-[0.16em] text-muted">
-            {siteCopy.hero.eyebrow}
-          </div>
+      {/* Gradient overlay — keeps text readable over any photo */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'linear-gradient(to top, rgba(14,12,11,0.88) 0%, rgba(14,12,11,0.35) 45%, rgba(14,12,11,0.1) 100%)',
+        }}
+      />
 
-          <h1 className="mt-4 text-[40px] leading-[1.05] md:text-[64px] md:leading-[1.02] font-semibold">
-            {siteCopy.hero.headline}
-          </h1>
+      {/* ── CONTENT ──────────────────────────────────────── */}
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: '780px' }}>
+        <span
+          style={{
+            display: 'block',
+            fontSize: '0.6rem',
+            fontWeight: 400,
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            color: 'rgba(252,251,240,0.45)',
+            marginBottom: '1.5rem',
+          }}
+        >
+          {copy.hero.eyebrow}
+        </span>
 
-          <p className="mt-4 text-[16px] leading-7 text-muted md:text-[18px]">
-            {siteCopy.hero.subhead}
-          </p>
+        <h1
+          style={{
+            lineHeight: 0.95,
+            marginBottom: '1.75rem',
+          }}
+        >
+          <span
+            style={{
+              display: 'block',
+              fontSize: 'clamp(3.2rem, 8.5vw, 7rem)',
+              fontWeight: 300,
+              color: 'rgba(252,251,240,0.9)',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            {copy.hero.headlineLight}
+          </span>
+          <span
+            style={{
+              display: 'block',
+              fontSize: 'clamp(3.2rem, 8.5vw, 7rem)',
+              fontWeight: 900,
+              color: 'var(--linen)',
+              letterSpacing: '-0.025em',
+            }}
+          >
+            {copy.hero.headlineBold}
+          </span>
+        </h1>
 
-          <div className="mt-8 flex items-center gap-3">
-            <Button size="lg" onClick={() => scrollToId("buy")}>
-              {siteCopy.hero.primaryCta}
-            </Button>
-            <Button size="lg" variant="secondary" onClick={() => scrollToId("ingredients")}>
-              {siteCopy.hero.secondaryCta}
-            </Button>
-          </div>
+        <p
+          style={{
+            fontSize: 'clamp(0.75rem, 1.4vw, 0.9rem)',
+            fontWeight: 300,
+            color: 'rgba(252,251,240,0.55)',
+            letterSpacing: '0.04em',
+            marginBottom: '2.5rem',
+            maxWidth: '460px',
+            lineHeight: 1.8,
+          }}
+        >
+          {copy.hero.subheadline}
+        </p>
 
-          <p className="mt-6 text-[13px] text-muted">{siteCopy.hero.note}</p>
+        {/* CTAs */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem',
+            flexWrap: 'wrap',
+            marginBottom: '3.5rem',
+          }}
+        >
+          <button
+            onClick={() => scrollToId('comprar')}
+            className="ui-btn-primary"
+          >
+            {copy.hero.ctaPrimary} ✦
+          </button>
+          <button
+            onClick={() => scrollToId('ingredientes')}
+            className="ui-btn-ghost"
+          >
+            {copy.hero.ctaSecondary} →
+          </button>
         </div>
-      </Container>
+
+        {/* Feature strip */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1.5rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          {copy.hero.strip.map((item, i) => (
+            <span
+              key={item}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.58rem',
+                fontWeight: 400,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: 'rgba(252,251,240,0.38)',
+              }}
+            >
+              {i > 0 && (
+                <span
+                  aria-hidden="true"
+                  style={{ fontSize: '0.45rem', color: 'rgba(252,251,240,0.2)' }}
+                >
+                  ✦
+                </span>
+              )}
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
     </section>
-  );
+  )
 }

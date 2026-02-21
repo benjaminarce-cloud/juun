@@ -1,33 +1,48 @@
-import { cn } from "@/lib/cn";
+import { cn } from '@/lib/cn'
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary" | "ghost";
-  size?: "md" | "lg";
-};
+type Variant = 'primary' | 'dark' | 'ghost'
+type Size    = 'sm' | 'md' | 'lg'
 
-export function Button({
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: Variant
+  size?: Size
+  asChild?: boolean
+  href?: string
+}
+
+const variantClasses: Record<Variant, string> = {
+  primary: 'ui-btn-primary',
+  dark:    'ui-btn-dark',
+  ghost:   'ui-btn-ghost',
+}
+
+const sizeClasses: Record<Size, string> = {
+  sm: 'text-[0.58rem] px-4 py-2',
+  md: '',   // base size defined in ui-btn-* utilities
+  lg: 'text-[0.72rem] px-8 py-5',
+}
+
+export default function Button({
+  variant = 'primary',
+  size = 'md',
   className,
-  variant = "primary",
-  size = "md",
+  children,
+  href,
   ...props
-}: Props) {
-  const base =
-    "inline-flex items-center justify-center rounded-md font-medium transition " +
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 " +
-    "disabled:opacity-50 disabled:pointer-events-none";
+}: ButtonProps) {
+  const classes = cn(variantClasses[variant], sizeClasses[size], className)
 
-  const variants: Record<string, string> = {
-    primary: "ui-accent ui-accent-hover ui-shadow-softer",
-    secondary: "ui-card ui-hairline ui-border hover:bg-black/5",
-    ghost: "hover:bg-black/5",
-  };
-
-  const sizes: Record<string, string> = {
-    md: "h-11 px-5 text-[15px]",
-    lg: "h-12 px-6 text-[15px]",
-  };
+  if (href) {
+    return (
+      <a href={href} className={classes}>
+        {children}
+      </a>
+    )
+  }
 
   return (
-    <button className={cn(base, variants[variant], sizes[size], className)} {...props} />
-  );
+    <button className={classes} {...props}>
+      {children}
+    </button>
+  )
 }
