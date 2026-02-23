@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { buildCheckoutUrl } from '@/lib/commerce'
+import { useCart } from '@/context/CartContext'
 
 const FLAVORS = {
   frambuesa: { from: '#c94b8b', to: '#7a1538', glow: 'rgba(201,75,139,0.10)', text: '#b03070', label: 'frambuesa · acai' },
@@ -14,8 +14,9 @@ type Pack = '1' | '6' | '12'
 
 export default function PurchaseModule() {
   const [flavor, setFlavor] = useState<FlavorKey>('frambuesa')
-  const [pack, setPack]     = useState<Pack>('6')
-  const [qty, setQty]       = useState(1)
+  const [pack,   setPack]   = useState<Pack>('6')
+  const [qty,    setQty]    = useState(1)
+  const { add } = useCart()
 
   const f = FLAVORS[flavor]
 
@@ -26,30 +27,24 @@ export default function PurchaseModule() {
     '--f-text': f.text,
   } as React.CSSProperties
 
-  const packLabel = pack === '1' ? '1 lata' : `${pack} Pack`
-  const summary   = `${packLabel} · ${f.label} · Qty ${qty} · Precio y envío en el checkout.`
+  const packLabel = pack === '1' ? '1 lata' : pack + ' Pack'
+  const summary = packLabel + ' · ' + f.label + ' · Qty ' + qty + ' · Precio y envío en el checkout.'
 
-  function handleBuy() {
-    const url = buildCheckoutUrl({ flavorKey: flavor, packKey: pack, qty })
-    if (url) window.location.href = url
+  function handleAdd() {
+    add({ flavorKey: flavor, flavorLabel: f.label, packKey: pack, qty })
   }
 
   return (
     <section id="comprar" style={cssVars}>
       <div className="buy-inner container">
 
-        {/* Photo slot — swap placeholder for Cloudinary img when ready */}
         <div className="product-photo-slot reveal">
-          {/* <img src="CLOUDINARY_URL" alt={f.label} /> */}
           <span className="photo-placeholder-text">
             Foto del producto<br />Cloudinary
           </span>
-          <span className="photo-flavor-label" id="photo-flavor-label">
-            {f.label}
-          </span>
+          <span className="photo-flavor-label">{f.label}</span>
         </div>
 
-        {/* Configurator */}
         <div className="config reveal reveal-d2">
           <div>
             <span className="ui-eyebrow">Primera edición</span>
@@ -65,7 +60,7 @@ export default function PurchaseModule() {
               {(Object.keys(FLAVORS) as FlavorKey[]).map((key) => (
                 <button
                   key={key}
-                  className={`flavor-pill${flavor === key ? ' active' : ''}`}
+                  className={'flavor-pill' + (flavor === key ? ' active' : '')}
                   onClick={() => setFlavor(key)}
                 >
                   {FLAVORS[key].label}
@@ -80,10 +75,10 @@ export default function PurchaseModule() {
               {(['1', '6', '12'] as Pack[]).map((p) => (
                 <button
                   key={p}
-                  className={`pack-pill${pack === p ? ' active' : ''}`}
+                  className={'pack-pill' + (pack === p ? ' active' : '')}
                   onClick={() => setPack(p)}
                 >
-                  {p === '1' ? 'Individual' : `${p} Pack`}
+                  {p === '1' ? 'Individual' : p + ' Pack'}
                   <span className="pack-note">
                     {p === '1' ? '1 lata' : p === '6' ? 'Más popular' : 'Mejor valor'}
                   </span>
@@ -95,28 +90,16 @@ export default function PurchaseModule() {
           <div className="config-group">
             <span className="config-label">Cantidad</span>
             <div className="qty-row">
-              <button
-                className="qty-btn"
-                onClick={() => setQty((q) => Math.max(1, q - 1))}
-                aria-label="Reducir cantidad"
-              >
-                −
-              </button>
+              <button className="qty-btn" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Reducir">-</button>
               <span className="qty-display">{qty}</span>
-              <button
-                className="qty-btn"
-                onClick={() => setQty((q) => Math.min(10, q + 1))}
-                aria-label="Aumentar cantidad"
-              >
-                +
-              </button>
+              <button className="qty-btn" onClick={() => setQty((q) => Math.min(10, q + 1))} aria-label="Aumentar">+</button>
             </div>
           </div>
 
           <div>
             <p className="config-summary">{summary}</p>
-            <button className="btn-buy" onClick={handleBuy}>
-              Comprar ahora
+            <button className="btn-buy" onClick={handleAdd}>
+              Agregar al carrito
             </button>
           </div>
 

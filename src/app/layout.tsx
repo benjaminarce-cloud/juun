@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   },
 }
 
+import { CartProvider } from '@/context/CartContext'
+import CartDrawer from '@/components/CartDrawer'
 import RevealObserver from '@/components/RevealObserver'
 
 export default function RootLayout({
@@ -37,7 +39,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={unbounded.className}>{children}  <RevealObserver />
+      <body className={unbounded.className}><CartProvider>{children}<CartDrawer /></CartProvider>  <RevealObserver />
     </body>
     </html>
   )
