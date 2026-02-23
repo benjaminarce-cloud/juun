@@ -544,3 +544,15 @@ body::before {
 .btn-checkout:hover { opacity: 0.85; }
 .cart-clear-btn { background: none; border: none; cursor: pointer; font-size: 0.50rem; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted, #8a857f); text-align: center; padding: 0.25rem; transition: color 0.2s; }
 .cart-clear-btn:hover { color: var(--black, #231f20); }
+
+/* ── HEADER LAYOUT FIX ── */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 90;
+  padding: 1.25rem var(--gutter, clamp(1.25rem, 5vw, 4rem));
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
+}
