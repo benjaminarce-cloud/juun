@@ -206,7 +206,7 @@ export const copy = {
     stars: '✦ ✧ ✦',
     titleLight: 'Hazlo ',
     titleBold: 'ritual.',
-    subtitle: cta: 'Comprar ahora',
+    subtitle: 'Comprar ahora',
     strip: ['Hecho en México 🇲🇽', '@juun.wellnessmty',
 ],
   },
