@@ -207,6 +207,7 @@ export const copy = {
     titleLight: 'Hazlo ',
     titleBold: 'ritual.',
     subtitle: 'Comprar ahora',
+    cta: 'Comprar ahora',
     strip: ['Hecho en México 🇲🇽', '@juun.wellnessmty',
 ],
   },
