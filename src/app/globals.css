@@ -586,3 +586,22 @@ body::before {
   position: relative;
   top: -0.1em;
 }
+
+/* ── HERO LOGO LARGE ── */
+.hero-logo-large {
+  font-size: clamp(5rem, 20vw, 17rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--linen, #fcfbf0);
+  margin-bottom: 1.75rem;
+  display: inline-block;
+  position: relative;
+}
+.hero-logo-star {
+  font-size: 0.38em;
+  font-weight: 900;
+  position: relative;
+  top: -0.55em;
+  margin: 0 0.02em;
+}
