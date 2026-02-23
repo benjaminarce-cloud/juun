@@ -423,3 +423,66 @@ body::before {
 
 /* ── FINAL CTA update ── */
 .cta-rule { width: 1px; height: 3.5rem; background: var(--border,rgba(35,31,32,0.10)); margin: 0 auto 3rem; }
+
+/* ── PURCHASE CONFIGURATOR ── */
+#comprar {
+  padding: var(--s-pad) var(--gutter);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+#comprar::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--f-glow, rgba(201,75,139,0.10)) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.buy-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: center;
+  max-width: var(--max-w, 1160px);
+  margin: 0 auto;
+}
+@media (max-width: 720px) { .buy-inner { grid-template-columns: 1fr; } }
+.config { display: flex; flex-direction: column; gap: 2.25rem; }
+.config-group { display: flex; flex-direction: column; }
+.config-title { font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 900; letter-spacing: -0.025em; line-height: 1.1; }
+.config-title span { font-weight: 300; }
+.config-sub { font-size: 0.58rem; font-weight: 300; letter-spacing: 0.04em; color: var(--muted, #8a857f); line-height: 1.8; margin-top: 0.6rem; }
+.config-label { font-size: 0.52rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted, #8a857f); margin-bottom: 0.8rem; display: block; }
+.flavor-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.flavor-pill { padding: 0.6rem 1.1rem; border-radius: 99px; border: 1px solid var(--border); font-family: 'Unbounded', sans-serif; font-size: 0.56rem; font-weight: 400; letter-spacing: 0.06em; background: transparent; color: var(--muted, #8a857f); cursor: pointer; transition: all 0.2s; }
+.flavor-pill:hover { color: var(--black, #231f20); border-color: rgba(35,31,32,0.35); }
+.flavor-pill.active { background: var(--black, #231f20); color: var(--linen, #fcfbf0); border-color: var(--black, #231f20); }
+.pack-pills { display: flex; gap: 0.5rem; }
+.pack-pill { flex: 1; padding: 0.75rem 0.5rem; border-radius: 3px; border: 1px solid var(--border); font-family: 'Unbounded', sans-serif; font-size: 0.56rem; font-weight: 400; letter-spacing: 0.04em; background: transparent; color: var(--muted, #8a857f); cursor: pointer; text-align: center; transition: all 0.2s; }
+.pack-pill:hover { color: var(--black, #231f20); border-color: rgba(35,31,32,0.32); }
+.pack-pill.active { background: var(--black, #231f20); color: var(--linen, #fcfbf0); border-color: var(--black, #231f20); }
+.pack-note { display: block; font-size: 0.42rem; margin-top: 0.3rem; opacity: 0.55; }
+.qty-row { display: flex; align-items: center; gap: 1.25rem; }
+.qty-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: transparent; font-family: 'Unbounded', sans-serif; font-size: 1rem; color: var(--black, #231f20); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; line-height: 1; }
+.qty-btn:hover { background: var(--black, #231f20); color: var(--linen, #fcfbf0); }
+.qty-display { font-size: 1.1rem; font-weight: 700; min-width: 2ch; text-align: center; }
+.config-summary { font-size: 0.52rem; font-weight: 300; letter-spacing: 0.06em; color: var(--muted, #8a857f); }
+.btn-buy { width: 100%; padding: 1.2rem 2rem; background: var(--black, #231f20); color: var(--linen, #fcfbf0); font-family: 'Unbounded', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; border: none; border-radius: 99px; cursor: pointer; transition: opacity 0.2s, transform 0.2s; margin-top: 1.25rem; }
+.btn-buy:hover { opacity: 0.86; transform: translateY(-1px); }
+.buy-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
+.buy-footer-item { font-size: 0.50rem; font-weight: 300; letter-spacing: 0.08em; color: var(--muted, #8a857f); }
+
+/* ── FINAL CTA ── */
+.final-cta { padding: var(--s-pad) var(--gutter); display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; background: var(--linen, #fcfbf0); }
+.final-cta::before { content: 'JUUN'; position: absolute; font-size: clamp(8rem, 26vw, 22rem); font-weight: 900; letter-spacing: -0.05em; color: rgba(35,31,32,0.026); pointer-events: none; top: 50%; left: 50%; transform: translate(-50%, -50%); white-space: nowrap; user-select: none; }
+.cta-inner { position: relative; z-index: 1; }
+.cta-title { font-size: clamp(2.4rem, 7vw, 5.5rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.0; margin-bottom: 0.6rem; }
+.cta-title span { font-weight: 300; }
+.cta-sub { font-size: clamp(0.60rem, 1.2vw, 0.76rem); font-weight: 300; letter-spacing: 0.12em; color: var(--muted, #8a857f); margin-bottom: 3.25rem; line-height: 1.8; text-transform: uppercase; }
+.cta-strip { margin-top: 3.5rem; display: flex; align-items: center; gap: 0; justify-content: center; flex-wrap: wrap; }
+.cta-strip-item { font-size: 0.52rem; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(35,31,32,0.30); padding: 0 2rem; }
+.cta-strip-item + .cta-strip-item { border-left: 1px solid var(--border); }
