@@ -113,7 +113,7 @@ export default function Hero() {
         <div
           style={{
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-end',
             gap: '1rem',
             flexWrap: 'wrap',
             marginBottom: '3.5rem',
@@ -137,7 +137,7 @@ export default function Hero() {
         <div
           style={{
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-end',
             gap: '1.5rem',
             flexWrap: 'wrap',
           }}
@@ -147,7 +147,7 @@ export default function Hero() {
               key={item}
               style={{
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: 'flex-end',
                 gap: '0.5rem',
                 fontSize: '0.58rem',
                 fontWeight: 400,
