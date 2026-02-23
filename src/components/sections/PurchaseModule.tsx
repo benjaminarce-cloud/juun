@@ -39,7 +39,7 @@ export default function PurchaseModule() {
       <div className="buy-inner container">
 
         <div className="product-photo-slot reveal">
-          <img src="https://res.cloudinary.com/dzjcndphq/image/upload//1A7A1849_ladeq8.jpg" alt="JUUN wellness" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879034/1A7A2258_lpbzr1.jpg" alt="JUUN wellness" style={{width:"100%",height:"100%",objectFit:"cover"}} />
           <span className="photo-flavor-label">{f.label}</span>
         </div>
 

@@ -19,8 +19,8 @@ export default function Hero() {
     >
       {/* ── BACKGROUND ─────────────────────────────────────
           Replace background-image with your Cloudinary URL:
-          backgroundImage: "url('https://res.cloudinary.com/YOUR_CLOUD/image/upload/YOUR_ID.jpg')"
-          or local: backgroundImage: "url('/placeholders/hero.jpg')"
+          backgroundImage: "url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879360/1A7A1582_y26zsm.jpg')"
+          or local: backgroundImage: "url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879360/1A7A1582_y26zsm.jpg')"
       ────────────────────────────────────────────────── */}
       <div
         aria-hidden="true"
@@ -28,13 +28,13 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879295/1A7A1849-2_bn9pv9.jpg'),
+            url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879360/1A7A1582_y26zsm.jpg'),
             radial-gradient(ellipse 70% 60% at 80% 30%, rgba(80,55,40,0.45) 0%, transparent 70%),
             radial-gradient(ellipse 50% 50% at 20% 70%, rgba(30,20,15,0.8) 0%, transparent 60%),
             linear-gradient(165deg, #1c1410 0%, #0e0c0b 55%, #16120f 100%)
           `,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 30%',
         }}
       />
 

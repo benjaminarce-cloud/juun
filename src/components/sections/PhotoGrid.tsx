@@ -26,7 +26,7 @@ export default function PhotoGrid() {
       {/* Row A: cinematic full-width */}
       <div className="photos-row-a">
         <div className="photo-cell photo-cell--hero reveal">
-          <img src="https://res.cloudinary.com/dzjcndphq/image/upload//1A7A1849_ladeq8.jpg" alt="JUUN grupo en pista" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879321/1A7A1920_w4e5fq.jpg" alt="JUUN grupo en pista" />
         </div>
       </div>
 
@@ -36,7 +36,7 @@ export default function PhotoGrid() {
           <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879163/1A7A1317_mvd47a.jpg" alt="JUUN mujer con lata" />
         </div>
         <div className="photo-cell photo-cell--mid reveal reveal-d2">
-          <img src="https://res.cloudinary.com/dzjcndphq/image/upload//1A7A1849_ladeq8.jpg" alt="JUUN grupo" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879321/1A7A1920_w4e5fq.jpg" alt="JUUN grupo" />
         </div>
         <div className="photo-cell photo-cell--port reveal reveal-d3">
           <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879148/1A7A2447_pcwzk5.jpg" alt="JUUN atleta" />
