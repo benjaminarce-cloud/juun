@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   },
 }
 
+import RevealObserver from '@/components/RevealObserver'
+
 export default function RootLayout({
   children,
 }: {
@@ -35,7 +37,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={unbounded.className}>{children}</body>
+      <body className={unbounded.className}>{children}  <RevealObserver />
+    </body>
     </html>
   )
 }
