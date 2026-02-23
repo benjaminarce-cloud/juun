@@ -50,7 +50,7 @@ export default function Hero() {
       />
 
       {/* ── CONTENT ──────────────────────────────────────── */}
-      <div style={{ position: 'relative', zIndex: 2, maxWidth: '780px' }}>
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: '780px', marginLeft: 'auto', textAlign: 'right' as const }}>
         <span
           style={{
             display: 'block',
@@ -102,7 +102,6 @@ export default function Hero() {
             color: 'rgba(252,251,240,0.55)',
             letterSpacing: '0.04em',
             marginBottom: '2.5rem',
-            maxWidth: '460px',
             lineHeight: 1.8,
           }}
         >
@@ -117,6 +116,7 @@ export default function Hero() {
             gap: '1rem',
             flexWrap: 'wrap',
             marginBottom: '3.5rem',
+            justifyContent: 'flex-end',
           }}
         >
           <button
