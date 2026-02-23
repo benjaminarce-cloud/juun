@@ -65,35 +65,20 @@ export default function Hero() {
           {copy.hero.eyebrow}
         </span>
 
-        <h1
+                <div
+          aria-label="JUUN wellness"
           style={{
-            lineHeight: 0.95,
+            fontSize: 'clamp(5rem, 20vw, 16rem)',
+            fontWeight: 900,
+            letterSpacing: '-0.04em',
+            lineHeight: 0.88,
+            color: 'var(--linen, #fcfbf0)',
             marginBottom: '1.75rem',
+            display: 'inline-block',
           }}
         >
-          <span
-            style={{
-              display: 'block',
-              fontSize: 'clamp(3.2rem, 8.5vw, 7rem)',
-              fontWeight: 300,
-              color: 'rgba(252,251,240,0.9)',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            {copy.hero.headlineLight}
-          </span>
-          <span
-            style={{
-              display: 'block',
-              fontSize: 'clamp(3.2rem, 8.5vw, 7rem)',
-              fontWeight: 900,
-              color: 'var(--linen)',
-              letterSpacing: '-0.025em',
-            }}
-          >
-            {copy.hero.headlineBold}
-          </span>
-        </h1>
+          JÜUN
+        </div>
 
         <p
           style={{

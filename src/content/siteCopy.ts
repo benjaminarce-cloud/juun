@@ -28,7 +28,6 @@ export const copy = {
     strip: [
       '0g azúcar',
       'Sin taurina',
-      'Sin sellos de advertencia',
       'Cafeína natural',
     ],
   },
@@ -157,7 +156,7 @@ export const copy = {
       {
         quote: 'Se siente premium — no empalagosa, no intensa.',
         highlight: 'Justo limpia.',
-        author: 'Beta tester · Monterrey',
+        author: 'Beta tester · México',
       },
       {
         quote: 'El tipo de energía que puedo',
@@ -185,7 +184,7 @@ export const copy = {
       },
       {
         q: '¿Cuándo llega mi pedido?',
-        a: 'Estamos en primera edición. Los tiempos de entrega se muestran en el checkout con base en tu ubicación. Enviamos desde Monterrey, México.',
+        a: 'Estamos en primera edición. Los tiempos de entrega se muestran en el checkout con base en tu ubicación. Enviamos desde México.',
       },
       {
         q: '¿Es dulce?',
@@ -209,16 +208,17 @@ export const copy = {
     titleBold: 'ritual.',
     subtitle: 'Primera edición limitada. Mientras haya.',
     cta: 'Comprar ahora',
-    strip: ['Hecho en México 🇲🇽', '@juun.wellnessmty', 'Sin sellos de advertencia'],
+    strip: ['Hecho en México 🇲🇽', '@juun.wellnessmty',
+],
   },
 
   // ── FOOTER ────────────────────────────────────────────
   footer: {
-    copy: '© 2025 JUUN wellness. Monterrey, México.',
+    copy: '© 2025 JUUN wellness. México.',
     links: [
       { label: 'Contacto',   href: '#' },
       { label: 'Privacidad', href: '#' },
-      { label: 'Instagram',  href: 'https://instagram.com/drinkjuun' },
+      { label: 'Instagram',  href: 'https://www.instagram.com/drinkjuun/' },
     ],
   },
 }
