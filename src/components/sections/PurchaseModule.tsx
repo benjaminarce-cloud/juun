@@ -39,9 +39,7 @@ export default function PurchaseModule() {
       <div className="buy-inner container">
 
         <div className="product-photo-slot reveal">
-          <span className="photo-placeholder-text">
-            Foto del producto<br />Cloudinary
-          </span>
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload//1A7A1849_ladeq8.jpg" alt="JUUN wellness" />
           <span className="photo-flavor-label">{f.label}</span>
         </div>
 

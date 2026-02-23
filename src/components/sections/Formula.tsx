@@ -76,7 +76,7 @@ export default function Formula() {
 
       {/* Photo strip — swap placeholder for Cloudinary img when ready */}
       <div className="formula-photo-strip reveal">
-        <span className="formula-photo-label">Foto de producto · Cloudinary</span>
+        <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879295/1A7A1849-2_bn9pv9.jpg" alt="JUUN en acción" />
         <span className="formula-photo-caption">México · Primera edición</span>
       </div>
 

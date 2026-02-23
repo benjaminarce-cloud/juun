@@ -34,28 +34,23 @@ export default function PhotoGrid() {
       {/* Row B: portrait · landscape · portrait */}
       <div className="photos-row-b">
         <div className="photo-cell photo-cell--port reveal reveal-d1">
-          {/* <img src="CLOUDINARY_URL" alt="" /> */}
-          <Placeholder num="02" hint="Retrato · mujer con lata" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879163/1A7A1317_mvd47a.jpg" alt="JUUN mujer con lata" />
         </div>
         <div className="photo-cell photo-cell--mid reveal reveal-d2">
-          {/* <img src="CLOUDINARY_URL" alt="" /> */}
-          <Placeholder num="03" hint="Grupo en color" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload//1A7A1849_ladeq8.jpg" alt="JUUN grupo" />
         </div>
         <div className="photo-cell photo-cell--port reveal reveal-d3">
-          {/* <img src="CLOUDINARY_URL" alt="" /> */}
-          <Placeholder num="04" hint="Retrato · atlético" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879148/1A7A2447_pcwzk5.jpg" alt="JUUN atleta" />
         </div>
       </div>
 
       {/* Row C: wide pair */}
       <div className="photos-row-c">
         <div className="photo-cell photo-cell--wide reveal reveal-d1">
-          {/* <img src="CLOUDINARY_URL" alt="" /> */}
-          <Placeholder num="05" hint="Acción · bebiendo en pista" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879236/1A7A1501_gl2s01.jpg" alt="JUUN bebiendo" />
         </div>
         <div className="photo-cell photo-cell--wide reveal reveal-d2">
-          {/* <img src="CLOUDINARY_URL" alt="" /> */}
-          <Placeholder num="06" hint="Retrato · lente de sol, lata" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879033/1A7A2184_bm4koh.jpg" alt="JUUN lentes lata" />
         </div>
       </div>
 
