@@ -51,19 +51,6 @@ export default function Hero() {
 
       {/* ── CONTENT ──────────────────────────────────────── */}
       <div style={{ position: 'relative', zIndex: 2, maxWidth: '780px', marginLeft: 'auto', textAlign: 'right' as const }}>
-        <span
-          style={{
-            display: 'block',
-            fontSize: 'clamp(0.7rem, 1.2vw, 0.85rem)',
-            fontWeight: 300,
-            letterSpacing: '0.04em',
-            color: 'rgba(252,251,240,0.55)',
-            marginBottom: '1.75rem',
-            lineHeight: 1.7,
-          }}
-        >
-          La bebida que tu cuerpo entiende. Sin química, sin consecuencias.
-        </span>
 
                         <h1
           style={{
@@ -97,15 +84,15 @@ export default function Hero() {
 
         <p
           style={{
-            fontSize: 'clamp(0.75rem, 1.4vw, 0.9rem)',
-            fontWeight: 300,
-            color: 'rgba(252,251,240,0.55)',
-            letterSpacing: '0.04em',
+            fontSize: '0.65rem',
+            fontWeight: 400,
+            color: 'rgba(252,251,240,0.45)',
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase' as const,
             marginBottom: '2.5rem',
-            lineHeight: 1.8,
           }}
         >
-          {copy.hero.subheadline}
+          ✦ Energía funcional · Hecho en México
         </p>
 
         {/* CTAs */}
