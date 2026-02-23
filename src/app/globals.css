@@ -567,3 +567,22 @@ body::before {
 .header.scrolled .logo-sub { color: #8a857f; }
 .nav-cta { display: inline-flex; align-items: center; padding: 0.55rem 1.3rem; font-family: 'Unbounded', sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: #231f20; background: #fcfbf0; border: 1px solid rgba(252,251,240,0.25); border-radius: 99px; transition: background 0.3s, color 0.3s; cursor: pointer; }
 .header.scrolled .nav-cta { background: #231f20; color: #fcfbf0; border-color: #231f20; }
+
+/* ── HERO LOGO LARGE ── */
+.hero-logo-large {
+  font-size: clamp(5rem, 18vw, 16rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--linen, #fcfbf0);
+  margin-bottom: 1.75rem;
+  position: relative;
+  display: inline-block;
+}
+.hero-logo-star {
+  font-size: 0.45em;
+  font-weight: 900;
+  vertical-align: super;
+  position: relative;
+  top: -0.1em;
+}

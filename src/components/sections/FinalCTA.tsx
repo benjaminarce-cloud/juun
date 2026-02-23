@@ -15,7 +15,7 @@ export default function FinalCTA() {
         <div className="cta-strip">
           <span className="cta-strip-item">Hecho en México</span>
           <span className="cta-strip-item">@drinkjuun</span>
-          <span className="cta-strip-item">Sin sellos de advertencia</span>
+          
         </div>
       </div>
     </section>
