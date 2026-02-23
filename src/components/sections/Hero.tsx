@@ -17,137 +17,125 @@ export default function Hero() {
         background: '#0e0c0b',
       }}
     >
-      {/* ── BACKGROUND ─────────────────────────────────────
-          Replace background-image with your Cloudinary URL:
-          backgroundImage: "url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879360/1A7A1582_y26zsm.jpg')"
-          or local: backgroundImage: "url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879360/1A7A1582_y26zsm.jpg')"
-      ────────────────────────────────────────────────── */}
+      {/* ── PHOTO BACKGROUND ── */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `
-            url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879360/1A7A1582_y26zsm.jpg'),
-            radial-gradient(ellipse 70% 60% at 80% 30%, rgba(80,55,40,0.45) 0%, transparent 70%),
-            radial-gradient(ellipse 50% 50% at 20% 70%, rgba(30,20,15,0.8) 0%, transparent 60%),
-            linear-gradient(165deg, #1c1410 0%, #0e0c0b 55%, #16120f 100%)
-          `,
+          backgroundImage: `url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879360/1A7A1582_y26zsm.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center 60%',
         }}
       />
 
-      {/* Gradient overlay — keeps text readable over any photo */}
+      {/* ── CINEMATIC GRADIENT ── */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
-          background:
-            'linear-gradient(to top, rgba(14,12,11,0.88) 0%, rgba(14,12,11,0.35) 45%, rgba(14,12,11,0.1) 100%)',
+          background: 'linear-gradient(to top, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.5) 40%, rgba(10,9,8,0.15) 100%)',
         }}
       />
 
-      {/* ── CONTENT ──────────────────────────────────────── */}
-      <div style={{ position: 'relative', zIndex: 2, maxWidth: '780px', marginLeft: 'auto', textAlign: 'right' as const }}>
+      {/* ── FILM GRAIN ── */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '200px 200px',
+          opacity: 0.04,
+          mixBlendMode: 'overlay',
+          pointerEvents: 'none',
+        }}
+      />
 
-                        <h1
-          style={{
-            lineHeight: 0.92,
-            marginBottom: '1.75rem',
-          }}
-        >
-          <span
-            style={{
-              display: 'block',
-              fontSize: 'clamp(3.8rem, 10vw, 8.5rem)',
-              fontWeight: 300,
-              color: 'rgba(252,251,240,0.9)',
-              letterSpacing: '-0.025em',
-            }}
-          >
+      {/* ── CONTENT — right aligned ── */}
+      <div style={{
+        position: 'relative',
+        zIndex: 2,
+        maxWidth: '820px',
+        marginLeft: 'auto',
+        textAlign: 'right' as const,
+      }}>
+
+        {/* Tagline */}
+        <span style={{
+          display: 'block',
+          fontSize: '0.6rem',
+          fontWeight: 400,
+          letterSpacing: '0.25em',
+          textTransform: 'uppercase' as const,
+          color: 'rgba(252,251,240,0.4)',
+          marginBottom: '1.75rem',
+        }}>
+          ✦ Energía funcional · Hecho en México
+        </span>
+
+        {/* Headline */}
+        <h1 style={{ lineHeight: 0.9, marginBottom: '2rem' }}>
+          <span style={{
+            display: 'block',
+            fontSize: 'clamp(4rem, 10.5vw, 9rem)',
+            fontWeight: 300,
+            color: 'rgba(252,251,240,0.88)',
+            letterSpacing: '-0.025em',
+          }}>
             Energía
           </span>
-          <span
-            style={{
-              display: 'block',
-              fontSize: 'clamp(3.8rem, 10vw, 8.5rem)',
-              fontWeight: 900,
-              color: 'var(--linen, #fcfbf0)',
-              letterSpacing: '-0.03em',
-            }}
-          >
+          <span style={{
+            display: 'block',
+            fontSize: 'clamp(4rem, 10.5vw, 9rem)',
+            fontWeight: 900,
+            color: 'var(--linen, #fcfbf0)',
+            letterSpacing: '-0.035em',
+          }}>
             natural.
           </span>
         </h1>
 
-        <p
-          style={{
-            fontSize: '0.65rem',
-            fontWeight: 400,
-            color: 'rgba(252,251,240,0.45)',
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase' as const,
-            marginBottom: '2.5rem',
-          }}
-        >
-          ✦ Energía funcional · Hecho en México
-        </p>
-
         {/* CTAs */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'flex-end',
-            gap: '1rem',
-            flexWrap: 'wrap',
-            marginBottom: '3.5rem',
-            justifyContent: 'flex-end',
-          }}
-        >
-          <button
-            onClick={() => scrollToId('comprar')}
-            className="ui-btn-primary"
-          >
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1rem',
+          flexWrap: 'wrap' as const,
+          marginBottom: '3rem',
+          justifyContent: 'flex-end',
+        }}>
+          <button onClick={() => scrollToId('comprar')} className="ui-btn-primary">
             {copy.hero.ctaPrimary} ✦
           </button>
-          <button
-            onClick={() => scrollToId('ingredientes')}
-            className="ui-btn-ghost"
-          >
+          <button onClick={() => scrollToId('ingredientes')} className="ui-btn-ghost">
             {copy.hero.ctaSecondary} →
           </button>
         </div>
 
         {/* Feature strip */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'flex-end',
-            gap: '1.5rem',
-            flexWrap: 'wrap',
-          }}
-        >
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1.5rem',
+          flexWrap: 'wrap' as const,
+          justifyContent: 'flex-end',
+        }}>
           {copy.hero.strip.map((item, i) => (
-            <span
-              key={item}
-              style={{
-                display: 'flex',
-                alignItems: 'flex-end',
-                gap: '0.5rem',
-                fontSize: '0.58rem',
-                fontWeight: 400,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'rgba(252,251,240,0.38)',
-              }}
-            >
+            <span key={item} style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              fontSize: '0.58rem',
+              fontWeight: 400,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase' as const,
+              color: 'rgba(252,251,240,0.35)',
+            }}>
               {i > 0 && (
-                <span
-                  aria-hidden="true"
-                  style={{ fontSize: '0.45rem', color: 'rgba(252,251,240,0.2)' }}
-                >
+                <span aria-hidden="true" style={{ fontSize: '0.4rem', color: 'rgba(252,251,240,0.18)' }}>
                   ✦
                 </span>
               )}
