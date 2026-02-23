@@ -34,7 +34,7 @@ export default function Hero() {
             linear-gradient(165deg, #1c1410 0%, #0e0c0b 55%, #16120f 100%)
           `,
           backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
+          backgroundPosition: 'center 60%',
         }}
       />
 

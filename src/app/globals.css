@@ -624,3 +624,17 @@ body::before {
   top: -0.55em;
   margin: 0 0.02em;
 }
+
+/* ── PHOTO GRID IMG FILL ── */
+.photo-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.formula-photo-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
