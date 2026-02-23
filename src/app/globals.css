@@ -556,3 +556,14 @@ body::before {
   justify-content: space-between;
   transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
 }
+
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 90; padding: 1.25rem clamp(1.25rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; transition: background 0.4s; }
+.header.scrolled { background: rgba(252,251,240,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(35,31,32,0.10); }
+.logo { display: flex; align-items: baseline; gap: 0.4rem; text-decoration: none; color: inherit; }
+.logo-mark { font-size: clamp(1rem,2vw,1.15rem); font-weight: 900; letter-spacing: -0.01em; color: #fcfbf0; transition: color 0.4s; position: relative; }
+.logo-star { position: absolute; top: -0.52em; left: 0.34em; font-size: 0.6em; font-weight: 900; }
+.header.scrolled .logo-mark { color: #231f20; }
+.logo-sub { font-size: 0.42rem; font-weight: 300; letter-spacing: 0.22em; text-transform: lowercase; color: rgba(252,251,240,0.45); transition: color 0.4s; align-self: center; }
+.header.scrolled .logo-sub { color: #8a857f; }
+.nav-cta { display: inline-flex; align-items: center; padding: 0.55rem 1.3rem; font-family: 'Unbounded', sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: #231f20; background: #fcfbf0; border: 1px solid rgba(252,251,240,0.25); border-radius: 99px; transition: background 0.3s, color 0.3s; cursor: pointer; }
+.header.scrolled .nav-cta { background: #231f20; color: #fcfbf0; border-color: #231f20; }
