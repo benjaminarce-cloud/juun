@@ -68,7 +68,7 @@ export default function Hero() {
                 <div
           aria-label="JUUN wellness"
           style={{
-            fontSize: 'clamp(5rem, 20vw, 16rem)',
+            fontSize: 'clamp(3rem, 11vw, 8rem)',
             fontWeight: 900,
             letterSpacing: '-0.04em',
             lineHeight: 0.88,
