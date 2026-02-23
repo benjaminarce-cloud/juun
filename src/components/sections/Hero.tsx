@@ -54,15 +54,15 @@ export default function Hero() {
         <span
           style={{
             display: 'block',
-            fontSize: '0.6rem',
-            fontWeight: 400,
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            color: 'rgba(252,251,240,0.45)',
-            marginBottom: '1.5rem',
+            fontSize: 'clamp(0.7rem, 1.2vw, 0.85rem)',
+            fontWeight: 300,
+            letterSpacing: '0.04em',
+            color: 'rgba(252,251,240,0.55)',
+            marginBottom: '1.75rem',
+            lineHeight: 1.7,
           }}
         >
-          {copy.hero.eyebrow}
+          La bebida que tu cuerpo entiende. Sin química, sin consecuencias.
         </span>
 
                         <h1
