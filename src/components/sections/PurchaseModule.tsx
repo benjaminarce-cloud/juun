@@ -30,7 +30,7 @@ export default function PurchaseModule() {
   const summary   = `${packLabel} · ${f.label} · Qty ${qty} · Precio y envío en el checkout.`
 
   function handleBuy() {
-    const url = buildCheckoutUrl({ pack, flavor, qty: String(qty) })
+    const url = buildCheckoutUrl({ pack, flavor, qty })
     if (url) window.location.href = url
   }
 
