@@ -1,120 +1,61 @@
-import Reveal from '@/components/motion/Reveal'
-import { copy } from '@/content/siteCopy'
+'use client'
 
 export default function ValueProps() {
-  const { eyebrow, titleLight, titleBold, subtitle, props } = copy.beneficios
-
   return (
-    <section
-      style={{
-        paddingTop: 'var(--s-pad)',
-        paddingBottom: 'var(--s-pad)',
-        paddingLeft: 'var(--gutter)',
-        paddingRight: 'var(--gutter)',
-      }}
-    >
-      <div className="ui-container" style={{ padding: 0 }}>
+    <section className="beneficios">
+      <div className="beneficios-header reveal">
+        <div>
+          <span className="ui-eyebrow">Por qué JUUN</span>
+          <h2 className="beneficios-title" style={{ marginTop: '1rem' }}>
+            <span>Energía que </span>dura.
+          </h2>
+        </div>
+        <p className="beneficios-header-sub">
+          Formulada para enfoque sostenido. Sin el crash, sin el nerviosismo,
+          sin los ingredientes que no reconoces.
+        </p>
+      </div>
 
-        {/* Header row */}
-        <Reveal>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'flex-end',
-              justifyContent: 'space-between',
-              marginBottom: '4rem',
-              gap: '2rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            <div>
-              <span className="ui-eyebrow">{eyebrow}</span>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-                  fontWeight: 900,
-                  letterSpacing: '-0.02em',
-                  lineHeight: 1.05,
-                  marginTop: '0.75rem',
-                  maxWidth: '420px',
-                }}
-              >
-                <span style={{ fontWeight: 300 }}>{titleLight}</span>
-                {titleBold}
-              </h2>
-            </div>
-            <p
-              style={{
-                fontSize: '0.62rem',
-                fontWeight: 300,
-                color: 'var(--muted)',
-                letterSpacing: '0.04em',
-                lineHeight: 1.9,
-                maxWidth: '320px',
-              }}
-            >
-              {subtitle}
+      <div className="prop-rows">
+        <div className="prop-row reveal reveal-d1">
+          <span className="prop-num">01</span>
+          <div className="prop-title-cell">
+            <div className="prop-name">Energía limpia</div>
+          </div>
+          <div className="prop-desc-cell">
+            <p className="prop-desc">
+              Cafeína de guaraná y té verde. Sin taurina, sin estimulantes de
+              laboratorio. El tipo de energía que no necesita explicación al día
+              siguiente.
             </p>
           </div>
-        </Reveal>
-
-        {/* Grid */}
-        <div
-          className="ui-grid-border"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-          }}
-        >
-          {props.map((prop, i) => (
-            <Reveal
-              key={prop.name}
-              delay={(i + 1) as 1 | 2 | 3 | 4}
-            >
-              <div
-                className="ui-grid-cell"
-                style={{
-                  padding: '2.5rem 1.75rem',
-                  transition: 'background 0.25s',
-                }}
-                onMouseEnter={e => {
-                  ;(e.currentTarget as HTMLElement).style.background = '#f5f4e8'
-                }}
-                onMouseLeave={e => {
-                  ;(e.currentTarget as HTMLElement).style.background = 'var(--linen)'
-                }}
-              >
-                <span
-                  style={{ fontSize: '1.4rem', marginBottom: '1.5rem', display: 'block' }}
-                >
-                  {prop.icon}
-                </span>
-                <div
-                  style={{
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
-                    letterSpacing: '-0.01em',
-                    marginBottom: '0.65rem',
-                  }}
-                >
-                  {prop.name}
-                </div>
-                <p
-                  style={{
-                    fontSize: '0.6rem',
-                    fontWeight: 300,
-                    letterSpacing: '0.05em',
-                    lineHeight: 1.8,
-                    color: 'var(--muted)',
-                  }}
-                >
-                  {prop.desc}
-                </p>
-              </div>
-            </Reveal>
-          ))}
         </div>
 
+        <div className="prop-row reveal reveal-d2">
+          <span className="prop-num">02</span>
+          <div className="prop-title-cell">
+            <div className="prop-name">Claridad mental</div>
+          </div>
+          <div className="prop-desc-cell">
+            <p className="prop-desc">
+              L-teanina 128 mg para enfoque sin ansiedad. La combinación que
+              usan los nootrópicos premium. Aquí, en una lata.
+            </p>
+          </div>
+        </div>
+
+        <div className="prop-row reveal reveal-d3">
+          <span className="prop-num">03</span>
+          <div className="prop-title-cell">
+            <div className="prop-name">Ingredientes reales</div>
+          </div>
+          <div className="prop-desc-cell">
+            <p className="prop-desc">
+              Sin conservadores, sin colorantes, sin saborizantes artificiales.
+              Lo que dice la etiqueta, eso lleva. No más, no menos.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   )
