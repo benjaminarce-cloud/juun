@@ -26,8 +26,7 @@ export default function PhotoGrid() {
       {/* Row A: cinematic full-width */}
       <div className="photos-row-a">
         <div className="photo-cell photo-cell--hero reveal">
-          {/* <img src="CLOUDINARY_URL" alt="" /> */}
-          <Placeholder num="01" hint="Hero · grupo en pista / corredor solo" />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload//1A7A1849_ladeq8.jpg" alt="JUUN grupo en pista" />
         </div>
       </div>
 
