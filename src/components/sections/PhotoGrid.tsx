@@ -36,7 +36,7 @@ export default function PhotoGrid() {
           <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879163/1A7A1317_mvd47a.jpg" alt="JUUN mujer con lata" style={{objectPosition:"center 30%"}} />
         </div>
         <div className="photo-cell photo-cell--mid reveal reveal-d2">
-          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879321/1A7A1920_w4e5fq.jpg" alt="JUUN grupo" style={{objectPosition:"center 80%"}} />
+          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879321/1A7A1920_w4e5fq.jpg" alt="JUUN grupo" style={{objectPosition:"center 80%", width:"100%", height:"100%", objectFit:"cover", display:"block"}} />
         </div>
         <div className="photo-cell photo-cell--port reveal reveal-d3">
           <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879148/1A7A2447_pcwzk5.jpg" alt="JUUN atleta" style={{objectPosition:"center top"}} />
