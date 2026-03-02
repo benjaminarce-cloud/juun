@@ -1,5 +1,5 @@
-import AuthModal from '@/components/AuthModal'
 'use client'
+import AuthModal from '@/components/AuthModal'
 
 import { useEffect, useState } from 'react'
 import { useCart } from '@/context/CartContext'
