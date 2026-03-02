@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
 const FLAVORS = {
-  frambuesa: { from: '#c94b8b', to: '#7a1538', glow: 'rgba(201,75,139,0.10)', text: '#b03070', label: 'frambuesa · acai' },
-  fresa:     { from: '#dba0b8', to: '#5a9e72', glow: 'rgba(90,158,114,0.09)',  text: '#3e8055', label: 'fresa · menta' },
-  naranja:   { from: '#f5a623', to: '#c97c10', glow: 'rgba(245,166,35,0.10)',  text: '#b06010', label: 'naranja · mango' },
+  frambuesa: { from: '#c94b8b', to: '#7a1538', glow: 'rgba(201,75,139,0.25)', text: '#b03070', label: 'frambuesa · acai' },
+  fresa:     { from: '#dba0b8', to: '#5a9e72', glow: 'rgba(90,158,114,0.25)',  text: '#3e8055', label: 'fresa · menta' },
+  naranja:   { from: '#f5a623', to: '#c97c10', glow: 'rgba(245,166,35,0.25)',  text: '#b06010', label: 'naranja · mango' },
 } as const
 
 type FlavorKey = keyof typeof FLAVORS

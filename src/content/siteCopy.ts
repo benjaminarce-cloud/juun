@@ -37,7 +37,7 @@ export const copy = {
   sines: [
     { label: 'L-teanina',          positive: true  },
     { label: 'Sin taurina',        positive: false },
-    { label: 'Probióticos',        positive: true  },
+    { label: 'Prebióticos',        positive: true  },
     { label: 'Sin azúcar añadida', positive: false },
     { label: 'Cafeína de guaraná', positive: true  },
     { label: 'Sin colorantes',     positive: false },
@@ -129,9 +129,10 @@ export const copy = {
       items: [
         { name: 'L-teanina · 128 mg',    note: 'Aminoácido del té verde. Enfoque sin nerviosismo.',              icon: '🧠' },
         { name: 'Cafeína natural · 127 mg', note: 'De guaraná y té verde. Liberación más gradual.',              icon: '⚡' },
-        { name: 'Probióticos',             note: 'Fibra prebiótica (inulina) para tu microbioma.',               icon: '🌱' },
-        { name: '9 vitaminas',             note: 'Premezcla completa incluyendo ácido ascórbico.',               icon: '💊' },
+        { name: 'Prebióticos',             note: 'Fibra prebiótica (inulina) para tu microbioma.',               icon: '🌱' },
+        { name: 'Vitamina A, complejo B y C', note: 'Premezcla completa de vitaminas esenciales.',              icon: '💊' },
         { name: 'Saborizantes naturales',  note: 'Nada artificial. El sabor viene de ingredientes reales.',      icon: '🍓' },
+        { name: 'Fibra prebiótica',          note: 'Inulina de agave. Alimenta tu microbioma intestinal.',         icon: '🌱' },
       ],
     },
     no: {
@@ -180,7 +181,7 @@ export const copy = {
     items: [
       {
         q: '¿Qué es JUUN exactamente?',
-        a: 'Una bebida energética funcional carbonatada formulada con ingredientes naturales. Cafeína de guaraná, L-teanina, probióticos y vitaminas — sin taurina, sin azúcar, sin sellos de advertencia. Primera edición limitada, hecha en México.',
+        a: 'Una bebida energética funcional carbonatada formulada con ingredientes naturales. Cafeína de guaraná, L-teanina, prebióticos y vitaminas — sin taurina, sin azúcar, sin sellos de advertencia. Primera edición limitada, hecha en México.',
       },
       {
         q: '¿Cuándo llega mi pedido?',
@@ -208,7 +209,7 @@ export const copy = {
     titleBold: 'ritual.',
     subtitle: 'Comprar ahora',
     cta: 'Comprar ahora',
-    strip: ['Hecho en México 🇲🇽', '@juun.wellnessmty',
+    strip: ['Hecho en México 🇲🇽', '@drinkjuun',
 ],
   },
 

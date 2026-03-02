@@ -1,3 +1,4 @@
+import AuthModal from '@/components/AuthModal'
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -25,7 +26,8 @@ export default function Header() {
 
       <div className="header-actions">
         <button
-          className="cart-btn"
+          className="<AuthModal />
+        cart-btn"
           onClick={openCart}
           aria-label={'Carrito ' + itemCount + ' items'}
         >

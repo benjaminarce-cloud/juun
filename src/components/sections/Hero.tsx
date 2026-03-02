@@ -66,8 +66,8 @@ export default function Hero() {
         position: 'relative',
         zIndex: 2,
         maxWidth: '820px',
-        marginLeft: 'auto',
-        textAlign: 'right' as const,
+        marginLeft: '0',
+        textAlign: 'left' as const,
       }}>
 
         {/* Tagline */}
@@ -112,7 +112,7 @@ export default function Hero() {
           gap: '1rem',
           flexWrap: 'wrap' as const,
           marginBottom: '3rem',
-          justifyContent: 'flex-end',
+          justifyContent: 'flex-start',
         }}>
           <button onClick={() => scrollToId('comprar')} className="ui-btn-primary">
             {copy.hero.ctaPrimary} ✦
@@ -128,7 +128,7 @@ export default function Hero() {
           alignItems: 'center',
           gap: '1.5rem',
           flexWrap: 'wrap' as const,
-          justifyContent: 'flex-end',
+          justifyContent: 'flex-start',
         }}>
           {copy.hero.strip.map((item, i) => (
             <span key={item} style={{
