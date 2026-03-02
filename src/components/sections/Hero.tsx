@@ -17,17 +17,24 @@ export default function Hero() {
         background: '#0e0c0b',
       }}
     >
-      {/* ── PHOTO BACKGROUND ── */}
-      <div
+      {/* ── VIDEO BACKGROUND ── */}
+      <video
         aria-hidden="true"
+        autoPlay
+        muted
+        loop
+        playsInline
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `url('https://res.cloudinary.com/dzjcndphq/image/upload/v1771879360/1A7A1582_y26zsm.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 60%',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center center',
         }}
-      />
+      >
+        <source src="https://res.cloudinary.com/dzjcndphq/video/upload/v1772489175/BUD_HORIZONTAL_DRINK_a0ephg.mov" type="video/mp4" />
+      </video>
 
       {/* ── CINEMATIC GRADIENT ── */}
       <div
