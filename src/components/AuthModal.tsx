@@ -13,7 +13,7 @@ interface Profile {
   orders: number
 }
 
-export default function AuthModal() {
+export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) {
   const [open, setOpen]       = useState(false)
   const [tab, setTab]         = useState<Tab>('login')
   const [user, setUser]       = useState<User | null>(null)
@@ -83,20 +83,36 @@ export default function AuthModal() {
   return (
     <>
       {/* Icon */}
-      <button onClick={() => setOpen(true)} aria-label="Mi cuenta" style={{
-        background:'none', border:'none', cursor:'pointer',
-        padding:'0.25rem', color:'inherit',
-        display:'flex', alignItems:'center', position:'relative',
-      }}>
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <button
+        onClick={() => setOpen(true)}
+        aria-label="Mi cuenta"
+        style={{
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+          gap: '0.4rem',
+          padding: '0.55rem 1rem',
+          fontFamily: "'Unbounded', sans-serif",
+          fontSize: '0.58rem', fontWeight: 600,
+          letterSpacing: '0.14em', textTransform: 'uppercase' as const,
+          border: '1px solid rgba(252,251,240,0.25)',
+          borderRadius: '99px',
+          cursor: 'pointer',
+          transition: 'background 0.3s, color 0.3s, border-color 0.3s',
+          position: 'relative',
+          background: scrolled ? '#fcfbf0' : 'transparent',
+          color: scrolled ? '#231f20' : '#fcfbf0',
+          borderColor: scrolled ? '#231f20' : 'rgba(252,251,240,0.25)',
+        }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="8" r="4"/>
           <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
         </svg>
+        {user ? 'Mi cuenta' : 'Entrar'}
         {user && (
           <span style={{
-            position:'absolute', top:'-2px', right:'-2px',
-            width:'7px', height:'7px', borderRadius:'50%',
-            background:'#c8f04a', border:'1.5px solid #0e0c0b',
+            position:'absolute', top:'2px', right:'2px',
+            width:'6px', height:'6px', borderRadius:'50%',
+            background:'#c8f04a', border:'1.5px solid currentColor',
           }}/>
         )}
       </button>
@@ -125,7 +141,8 @@ export default function AuthModal() {
           }}>✕</button>
 
           <div style={{ marginBottom:'1.75rem' }}>
-            <img src="/logo-juun.jpg" alt="JUUN wellness" style={{ height:'32px', width:'auto', filter:'invert(1)' }} />
+            <span style={{ fontSize:'1rem', fontWeight:900, letterSpacing:'-0.03em' }}>JÜUN</span>
+            <span style={{ fontSize:'0.55rem', letterSpacing:'0.15em', marginLeft:'0.4rem', opacity:0.35, textTransform:'uppercase' as const }}>wellness</span>
           </div>
 
           {user && profile ? (
