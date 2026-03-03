@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
 const FLAVORS = {
-  frambuesa: { from: '#c94b8b', to: '#7a1538', glow: 'rgba(201,75,139,0.25)', text: '#b03070', label: 'frambuesa · acai' },
-  fresa:     { from: '#dba0b8', to: '#5a9e72', glow: 'rgba(90,158,114,0.25)',  text: '#3e8055', label: 'fresa · menta' },
-  naranja:   { from: '#f5a623', to: '#c97c10', glow: 'rgba(245,166,35,0.25)',  text: '#b06010', label: 'naranja · mango' },
+  frambuesa: { from: '#c94b8b', to: '#7a1538', glow: 'rgba(201,75,139,0.25)', text: '#b03070', label: 'frambuesa · acai', photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1771879078/1A7A1536_d2prez.jpg' },
+  fresa:     { from: '#dba0b8', to: '#5a9e72', glow: 'rgba(90,158,114,0.25)',  text: '#3e8055', label: 'fresa · menta',    photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1772579093/LAU02926_yevizb.jpg' },
+  naranja:   { from: '#f5a623', to: '#c97c10', glow: 'rgba(245,166,35,0.25)',  text: '#b06010', label: 'naranja · mango',  photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1771879034/1A7A2258_lpbzr1.jpg' },
 } as const
 
 type FlavorKey = keyof typeof FLAVORS
@@ -38,8 +38,22 @@ export default function PurchaseModule() {
     <section id="comprar" style={cssVars}>
       <div className="buy-inner container">
 
-        <div className="product-photo-slot reveal">
-          <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879034/1A7A2258_lpbzr1.jpg" alt="JUUN wellness" style={{width:"100%",height:"100%",objectFit:"cover"}} />
+        <div className="product-photo-slot reveal" style={{position:"relative"}}>
+          {(Object.keys(FLAVORS) as FlavorKey[]).map(key => (
+            <img
+              key={key}
+              src={FLAVORS[key].photo}
+              alt={FLAVORS[key].label}
+              style={{
+                position:'absolute', inset:0,
+                width:'100%', height:'100%',
+                objectFit:'contain', objectPosition:'center',
+                opacity: flavor === key ? 1 : 0,
+                transition:'opacity 0.4s ease',
+                pointerEvents:'none',
+              }}
+            />
+          ))}
           <span className="photo-flavor-label">{f.label}</span>
         </div>
 
