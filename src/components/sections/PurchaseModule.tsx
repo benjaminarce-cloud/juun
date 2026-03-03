@@ -38,7 +38,7 @@ export default function PurchaseModule() {
     <section id="comprar" style={cssVars}>
       <div className="buy-inner container">
 
-        <div className="product-photo-slot reveal" style={{position:"relative"}}>
+        <div className="product-photo-slot reveal" style={{position:"relative", overflow:"hidden"}}>
           {(Object.keys(FLAVORS) as FlavorKey[]).map(key => (
             <img
               key={key}
@@ -47,7 +47,7 @@ export default function PurchaseModule() {
               style={{
                 position:'absolute', inset:0,
                 width:'100%', height:'100%',
-                objectFit:'contain', objectPosition:'center',
+                objectFit:'cover', objectPosition:'center top',
                 opacity: flavor === key ? 1 : 0,
                 transition:'opacity 0.4s ease',
                 pointerEvents:'none',
