@@ -10,7 +10,7 @@ const FLAVORS = {
 } as const
 
 type FlavorKey = keyof typeof FLAVORS
-type Pack = '1' | '6' | '12'
+type Pack = '6' | '12' | '24'
 
 export default function PurchaseModule() {
   const [flavor, setFlavor] = useState<FlavorKey>('frambuesa')
@@ -27,7 +27,7 @@ export default function PurchaseModule() {
     '--f-text': f.text,
   } as React.CSSProperties
 
-  const packLabel = pack === '1' ? '1 lata' : pack + ' Pack'
+  const packLabel = pack + ' Pack'
   const summary = packLabel + ' · ' + f.label + ' · Qty ' + qty + ' · Precio y envío en el checkout.'
 
   function handleAdd() {
@@ -70,15 +70,15 @@ export default function PurchaseModule() {
           <div className="config-group">
             <span className="config-label">Pack</span>
             <div className="pack-pills">
-              {(['1', '6', '12'] as Pack[]).map((p) => (
+              {(['6', '12', '24'] as Pack[]).map((p) => (
                 <button
                   key={p}
                   className={'pack-pill' + (pack === p ? ' active' : '')}
                   onClick={() => setPack(p)}
                 >
-                  {p === '1' ? 'Individual' : p + ' Pack'}
+                  {p + ' Pack'}
                   <span className="pack-note">
-                    {p === '1' ? '1 lata' : p === '6' ? 'Más popular' : 'Mejor valor'}
+                    {p === '6' ? 'Más popular' : p === '12' ? 'Mejor valor' : 'El ritual'}
                   </span>
                 </button>
               ))}

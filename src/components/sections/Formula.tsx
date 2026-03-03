@@ -33,9 +33,9 @@ export default function Formula() {
           {[
             { name: 'L-teanina · 128 mg',           note: 'Aminoácido del té verde. Enfoque sin nerviosismo.' },
             { name: 'Cafeína de guaraná · 120 mg',   note: 'Liberación gradual. Sin el pico abrupto del café.' },
-            { name: 'Probióticos · 1B UFC',           note: 'Bacillus coagulans. Microbioma primero.' },
-            { name: 'Vitaminas B3, B6, B12, C, D',   note: 'El complejo que el cuerpo usa de verdad.' },
-            { name: 'Fibra de agave · 3 g',           note: 'Prebiótico de origen mexicano. Alimenta lo bueno.' },
+            { name: 'Prebióticos · 1B UFC',           note: 'Bacillus coagulans. Microbioma primero.' },
+            { name: 'Vitamina A, complejo B y C',     note: 'El complejo que el cuerpo usa de verdad.' },
+            { name: 'Saborizantes naturales',          note: 'Nada artificial. El sabor viene de ingredientes reales.' },
             { name: 'Alulosa',                        note: 'Dulzura real. Sin impacto glucémico.' },
           ].map(({ name, note }) => (
             <div className="formula-row" key={name}>

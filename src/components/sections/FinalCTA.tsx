@@ -8,7 +8,6 @@ export default function FinalCTA() {
         <h2 className="cta-title">
           <span>Hazlo </span>ritual.
         </h2>
-        <p className="cta-sub">Primera edición limitada. Mientras haya.</p>
         <a href="#comprar" className="btn-primary" style={{ margin: '0 auto' }}>
           Comprar ahora
         </a>
