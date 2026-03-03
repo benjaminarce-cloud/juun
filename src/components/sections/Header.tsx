@@ -16,14 +16,20 @@ export default function Header() {
 
   return (
     <header className={'header' + (scrolled ? ' scrolled' : '')}>
-      <a href="#" className="logo" aria-label="JUUN wellness">
-        <span className="logo-mark">
-          JÜ<span className="logo-star">✦</span>UN
-        </span>
-        <span className="logo-sub">wellness</span>
+      <a href="#" className="logo" aria-label="JUUN wellness" style={{ display: 'flex', alignItems: 'center' }}>
+        <img
+          src="/logo-juun.jpg"
+          alt="JUUN wellness"
+          style={{
+            height: '36px',
+            width: 'auto',
+            mixBlendMode: 'screen',
+            filter: 'brightness(1)',
+          }}
+        />
       </a>
 
-      <div className="header-actions">
+      <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
         <AuthModal />
 
         <button
