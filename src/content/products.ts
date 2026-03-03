@@ -13,6 +13,7 @@ export interface Flavor {
   }
   glow: string          // rgba for ambient glow behind can
   accentText: string    // text color for flavor name
+  photo: string         // product photo URL
 }
 
 export interface Pack {
@@ -32,6 +33,7 @@ export const FLAVORS: Flavor[] = [
     },
     glow: 'rgba(201, 75, 139, 0.10)',
     accentText: '#b03070',
+    photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1771879078/1A7A1536_d2prez.jpg',
   },
   {
     key: 'fresa',
@@ -43,6 +45,7 @@ export const FLAVORS: Flavor[] = [
     },
     glow: 'rgba(90, 158, 114, 0.09)',
     accentText: '#3e8055',
+    photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1772579093/LAU02926_yevizb.jpg',
   },
   {
     key: 'naranja',
@@ -54,13 +57,14 @@ export const FLAVORS: Flavor[] = [
     },
     glow: 'rgba(245, 166, 35, 0.10)',
     accentText: '#b06010',
+    photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1771879034/1A7A2258_lpbzr1.jpg',
   },
 ]
 
 export const PACKS: Pack[] = [
-  { key: '1',  label: 'Individual', note: '1 lata'       },
-  { key: '6',  label: '6 Pack',     note: 'Más popular'  },
-  { key: '12', label: '12 Pack',    note: 'Mejor valor'  },
+  { key: '6',  label: '6 Pack',  note: 'Más popular' },
+  { key: '12', label: '12 Pack', note: 'Mejor valor' },
+  { key: '24', label: '24 Pack', note: 'El ritual'   },
 ]
 
 export const DEFAULT_FLAVOR_KEY = 'frambuesa'
