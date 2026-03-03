@@ -1,6 +1,5 @@
 'use client'
 import AuthModal from '@/components/AuthModal'
-
 import { useEffect, useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
@@ -25,9 +24,10 @@ export default function Header() {
       </a>
 
       <div className="header-actions">
+        <AuthModal />
+
         <button
-          className="<AuthModal />
-        cart-btn"
+          className="cart-btn"
           onClick={openCart}
           aria-label={'Carrito ' + itemCount + ' items'}
         >
