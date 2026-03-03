@@ -87,7 +87,7 @@ export default function Hero() {
         <h1 style={{ lineHeight: 0.9, marginBottom: '2rem' }}>
           <span style={{
             display: 'block',
-            fontSize: 'clamp(4rem, 10.5vw, 9rem)',
+            fontSize: 'clamp(2.4rem, 6vw, 5.5rem)',
             fontWeight: 300,
             color: 'rgba(252,251,240,0.88)',
             letterSpacing: '-0.025em',
@@ -96,7 +96,7 @@ export default function Hero() {
           </span>
           <span style={{
             display: 'block',
-            fontSize: 'clamp(4rem, 10.5vw, 9rem)',
+            fontSize: 'clamp(2.4rem, 6vw, 5.5rem)',
             fontWeight: 900,
             color: 'var(--linen, #fcfbf0)',
             letterSpacing: '-0.035em',
