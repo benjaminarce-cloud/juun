@@ -20,7 +20,7 @@ export default function Header() {
         <img
           src={scrolled ? '/logo-black.png' : '/logo-white.png'}
           alt="JUUN wellness"
-          style={{ height:'72px', width:'auto', transition:'opacity 0.3s' }}
+          style={{ height:'88px', width:'auto', transition:'opacity 0.3s' }}
         />
       </a>
 

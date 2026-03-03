@@ -141,7 +141,7 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
           }}>✕</button>
 
           <div style={{ marginBottom:'1.75rem' }}>
-            <img src="/logo-black.png" alt="JUUN wellness" style={{ height:'30px', width:'auto' }} />
+            <img src="/logo-black.png" alt="JUUN wellness" style={{ height:'48px', width:'auto' }} />
           </div>
 
           {user && profile ? (
