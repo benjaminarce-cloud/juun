@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import LaunchBanner from '@/components/LaunchBanner'
 import { Unbounded } from 'next/font/google'
 import './globals.css'
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={unbounded.className}><CartProvider>{children}<CartDrawer /></CartProvider>  <RevealObserver />
+          <LaunchBanner />
     </body>
     </html>
   )
