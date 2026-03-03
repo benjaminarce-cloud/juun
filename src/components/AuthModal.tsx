@@ -22,6 +22,7 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
   const [password, setPassword] = useState('')
   const [name, setName]       = useState('')
   const [loading, setLoading] = useState(false)
+  const [emailSent, setEmailSent] = useState(false)
   const [error, setError]     = useState('')
 
   // ── Check session on mount ──
@@ -52,7 +53,11 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
     setError('')
     try {
       if (tab === 'signup') {
-        const { data, error: err } = await supabase.auth.signUp({ email, password })
+        const { data, error: err } = await supabase.auth.signUp({
+            email,
+            password,
+            options: { emailRedirectTo: window.location.origin + '/account' }
+          })
         if (err) throw err
         if (data.user) {
           await supabase.from('profiles').insert({
@@ -67,6 +72,7 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
         const { error: err } = await supabase.auth.signInWithPassword({ email, password })
         if (err) throw err
       }
+      if (tab === 'signup') setEmailSent(true)
       setEmail(''); setPassword(''); setName('')
     } catch (err: any) {
       setError(err.message || 'Error. Intenta de nuevo.')
@@ -84,7 +90,7 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
     <>
       {/* Icon */}
       <button
-        onClick={() => setOpen(true)}
+        onClick={() => { if (user) { window.location.href = '/account' } else { setOpen(true) } }}
         aria-label="Mi cuenta"
         style={{
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
@@ -144,7 +150,19 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
             <img src="/logo-black.png" alt="JUUN wellness" style={{ height:'48px', width:'auto' }} />
           </div>
 
-          {user && profile ? (
+          {emailSent ? (
+            <div style={{ textAlign:'center' as const, padding:'1rem 0' }}>
+              <p style={{ fontSize:'2rem', marginBottom:'1rem' }}>📬</p>
+              <p style={{ fontWeight:700, marginBottom:'0.5rem' }}>Revisa tu correo</p>
+              <p style={{ fontSize:'0.75rem', opacity:0.5, marginBottom:'1.5rem', lineHeight:1.6 }}>Te enviamos un link de confirmación a <strong>{email || 'tu correo'}</strong>. Confirma y luego inicia sesión.</p>
+              <button onClick={() => { setEmailSent(false); setTab('login') }} style={{
+                background:'#0e0c0b', color:'#f5f3ec', border:'none',
+                borderRadius:'2px', padding:'0.75rem 2rem',
+                fontSize:'0.65rem', fontWeight:700, letterSpacing:'0.15em',
+                textTransform:'uppercase' as const, cursor:'pointer',
+              }}>Iniciar sesión</button>
+            </div>
+          ) : user && profile ? (
             /* ── LOGGED IN ── */
             <div>
               <p style={{ fontSize:'0.65rem', opacity:0.4, letterSpacing:'0.1em', textTransform:'uppercase' as const, marginBottom:'0.25rem' }}>Bienvenido</p>
@@ -248,6 +266,7 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
                 Lanzamiento · Viernes 6 de febrero
               </p>
             </div>
+          )}
           )}
         </div>
       )}
