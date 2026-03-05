@@ -125,12 +125,23 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
       {/* Modal */}
       {open && (
         <div style={{
-          position:'fixed', top:'50%', left:'50%',
-          transform:'translate(-50%,-50%)',
-          zIndex:1000, background:'#f5f3ec', color:'#0e0c0b',
+          position:'fixed',
+          top:0, left:0, right:0, bottom:0,
+          zIndex:1000,
+          display:'flex',
+          alignItems:'center',
+          justifyContent:'center',
+          pointerEvents:'none',
+        }}>
+        <div style={{
+          pointerEvents:'all',
+          background:'#f5f3ec', color:'#0e0c0b',
           borderRadius:'2px', padding:'clamp(2rem,5vw,2.75rem)',
           width:'min(440px,93vw)',
           boxShadow:'0 40px 100px rgba(0,0,0,0.5)',
+          position:'relative',
+          maxHeight:'90vh',
+          overflowY:'auto',
         }}>
           <button onClick={() => setOpen(false)} style={{
             position:'absolute', top:'1.25rem', right:'1.25rem',
@@ -218,6 +229,7 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
             </div>
           )}
         </div>
+      </div>
       )}
     </>
   )
