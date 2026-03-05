@@ -33,7 +33,8 @@ export default function Hero() {
           objectPosition: 'center center',
         }}
       >
-        <source src="https://res.cloudinary.com/dzjcndphq/video/upload/v1772489175/BUD_HORIZONTAL_DRINK_a0ephg.mov" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dzjcndphq/video/upload/f_webm,q_auto,vc_vp9/v1772489175/BUD_HORIZONTAL_DRINK_a0ephg.mov" type="video/webm" />
+        <source src="https://res.cloudinary.com/dzjcndphq/video/upload/f_mp4,q_auto,vc_h264/v1772489175/BUD_HORIZONTAL_DRINK_a0ephg.mov" type="video/mp4" />
       </video>
 
       {/* ── CINEMATIC GRADIENT ── */}
