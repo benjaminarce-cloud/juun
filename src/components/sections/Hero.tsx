@@ -1,9 +1,33 @@
 'use client'
 
 import { copy } from '@/content/siteCopy'
+import { useEffect, useRef } from 'react'
 import { scrollToId } from '@/lib/scroll'
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // Try to play immediately
+    const tryPlay = () => {
+      video.play().catch(() => {})
+    }
+
+    tryPlay()
+
+    // iOS Safari fallback — play on first touch anywhere
+    const onTouch = () => {
+      tryPlay()
+      document.removeEventListener('touchstart', onTouch)
+    }
+    document.addEventListener('touchstart', onTouch, { passive: true })
+
+    return () => document.removeEventListener('touchstart', onTouch)
+  }, [])
+
   return (
     <section
       style={{
@@ -19,6 +43,7 @@ export default function Hero() {
     >
       {/* ── VIDEO BACKGROUND ── */}
       <video
+        ref={videoRef}
         aria-hidden="true"
         autoPlay
         muted
