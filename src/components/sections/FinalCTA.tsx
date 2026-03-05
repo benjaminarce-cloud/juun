@@ -22,22 +22,22 @@ export default function FinalCTA() {
               alignItems: 'center',
               gap: '0.5rem',
               padding: '0.55rem 1.1rem',
-              border: '1px solid rgba(252,251,240,0.25)',
+              border: '1px solid rgba(14,12,11,0.2)',
               borderRadius: '99px',
               textDecoration: 'none',
-              color: '#fcfbf0',
+              color: '#0e0c0b',
               fontSize: '0.62rem',
               fontWeight: 600,
               letterSpacing: '0.1em',
               transition: 'background 0.3s, border-color 0.3s',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(252,251,240,0.08)'
-              ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(252,251,240,0.5)'
+              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(14,12,11,0.06)'
+              ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(14,12,11,0.4)'
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'
-              ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(252,251,240,0.25)'
+              ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(14,12,11,0.2)'
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
