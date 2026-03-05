@@ -31,8 +31,8 @@ export default function Formula() {
             <span className="formula-col-sub">Funcional. Reconocible.</span>
           </div>
           {[
-            { name: 'L-teanina · 128 mg',           note: 'Aminoácido del té verde. Enfoque sin nerviosismo.' },
-            { name: 'Cafeína de guaraná · 120 mg',   note: 'Liberación gradual. Sin el pico abrupto del café.' },
+            { name: 'L-teanina · 130 mg',           note: 'Aminoácido del té verde. Enfoque sin nerviosismo.' },
+            { name: 'Cafeína de guaraná · 130 mg',   note: 'Liberación gradual. Sin el pico abrupto del café.' },
             { name: 'Prebióticos · 1B UFC',           note: 'Bacillus coagulans. Microbioma primero.' },
             { name: 'Vitamina A, complejo B y C',     note: 'El complejo que el cuerpo usa de verdad.' },
             { name: 'Saborizantes naturales',          note: 'Nada artificial. El sabor viene de ingredientes reales.' },

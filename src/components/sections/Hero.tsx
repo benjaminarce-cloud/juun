@@ -117,9 +117,9 @@ export default function Hero() {
           <button onClick={() => scrollToId('comprar')} className="ui-btn-primary">
             {copy.hero.ctaPrimary} ✦
           </button>
-          <button onClick={() => scrollToId('ingredientes')} className="ui-btn-ghost">
+          <a href="#ingredientes" className="ui-btn-ghost" style={{textDecoration:'none'}}>
             {copy.hero.ctaSecondary} →
-          </button>
+          </a>
         </div>
 
         {/* Feature strip */}
