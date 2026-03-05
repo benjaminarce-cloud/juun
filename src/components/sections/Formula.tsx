@@ -76,7 +76,7 @@ export default function Formula() {
 
       {/* Photo strip — swap placeholder for Cloudinary img when ready */}
       <div className="formula-photo-strip reveal">
-        <img src="https://res.cloudinary.com/dzjcndphq/image/upload/v1771879252/1A7A1582_y26zsm.jpg" alt="JUUN en acción" style={{objectPosition:"center 70%", width:"100%", height:"100%", objectFit:"cover", display:"block"}} />
+        <img src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879252/1A7A1582_y26zsm.jpg" alt="JUUN en acción" style={{objectPosition:"center 70%", width:"100%", height:"100%", objectFit:"cover", display:"block"}} />
         <span className="formula-photo-caption">México · Primera edición</span>
       </div>
 
