@@ -12,15 +12,33 @@ const unbounded = Unbounded({
 
 export const metadata: Metadata = {
   title: 'JUUN wellness — Energía natural',
-  description:
-    'Bebida energética funcional. Sin taurina, sin azúcar añadida, sin sellos de advertencia. Cafeína natural, L-teanina, probióticos y 9 vitaminas. Hecho en México.',
-  keywords: ['bebida energética', 'funcional', 'sin azúcar', 'sin taurina', 'México', 'wellness'],
+  description: 'Naturalmente funcional. Energía limpia, sin consecuencias.',
+  metadataBase: new URL('https://juunwellness.com'),
   openGraph: {
-    title: 'JUUN wellness',
+    title: 'JUUN wellness — Energía natural',
     description: 'Naturalmente funcional. Energía limpia, sin consecuencias.',
+    url: 'https://juunwellness.com',
     siteName: 'JUUN wellness',
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1771879078/1A7A1536_d2prez.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'JUUN wellness — Energía natural',
+      },
+    ],
     locale: 'es_MX',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JUUN wellness — Energía natural',
+    description: 'Naturalmente funcional. Energía limpia, sin consecuencias.',
+    images: ['https://res.cloudinary.com/dzjcndphq/image/upload/v1771879078/1A7A1536_d2prez.jpg'],
+  },
+  icons: {
+    icon: '/logo-black.png',
+    apple: '/logo-black.png',
   },
 }
 
