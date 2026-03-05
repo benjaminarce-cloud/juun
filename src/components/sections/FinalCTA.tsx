@@ -13,7 +13,40 @@ export default function FinalCTA() {
         </a>
         <div className="cta-strip">
           <span className="cta-strip-item">Hecho en México</span>
-          <span className="cta-strip-item">@drinkjuun</span>
+          <a
+            href="https://www.instagram.com/drinkjuun/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.55rem 1.1rem',
+              border: '1px solid rgba(252,251,240,0.25)',
+              borderRadius: '99px',
+              textDecoration: 'none',
+              color: '#fcfbf0',
+              fontSize: '0.62rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              transition: 'background 0.3s, border-color 0.3s',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(252,251,240,0.08)'
+              ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(252,251,240,0.5)'
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'
+              ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(252,251,240,0.25)'
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+            @drinkjuun
+          </a>
           
         </div>
       </div>
