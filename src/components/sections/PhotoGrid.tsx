@@ -5,10 +5,10 @@ export default function PhotoGrid() {
       <div className="photos-row-a">
         <div className="photo-cell photo-cell--hero reveal">
           <img
-            src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879321/1A7A1920_w4e5fq.jpg"
+            src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879034/1A7A2258_lpbzr1.jpg"
             alt="JUUN grupo en pista"
             loading="eager"
-            style={{objectPosition:'center 40%'}}
+            style={{objectPosition:'center 30%'}}
           />
         </div>
       </div>
