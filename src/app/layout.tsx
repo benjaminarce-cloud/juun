@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'JUUN wellness',
     images: [
       {
-        url: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1771879078/1A7A1536_d2prez.jpg',
+        url: 'https://res.cloudinary.com/dzjcndphq/image/upload/w_1200,h_630,c_fill,g_face,f_jpg,q_80/v1771879078/1A7A1536_d2prez.jpg',
         width: 1200,
         height: 630,
         alt: 'JUUN wellness — Energía natural',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'JUUN wellness — Energía natural',
     description: 'Naturalmente funcional. Energía limpia, sin consecuencias.',
-    images: ['https://res.cloudinary.com/dzjcndphq/image/upload/v1771879078/1A7A1536_d2prez.jpg'],
+    images: ['https://res.cloudinary.com/dzjcndphq/image/upload/w_1200,h_630,c_fill,g_face,f_jpg,q_80/v1771879078/1A7A1536_d2prez.jpg'],
   },
   icons: {
     icon: '/logo-black.png',
