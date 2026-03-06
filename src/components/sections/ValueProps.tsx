@@ -20,8 +20,7 @@ export default function ValueProps() {
           </div>
           <div className="prop-desc-cell">
             <p className="prop-desc">
-              Impulso natural con cafeína de guaraná. Sin químicos
-              impronunciables, solo energía fluida que no te abandona.
+              Cafeína de guaraná. Energía que dura, sin bajón.
             </p>
           </div>
         </div>
@@ -33,8 +32,7 @@ export default function ValueProps() {
           </div>
           <div className="prop-desc-cell">
             <p className="prop-desc">
-              Enfoque profundo sin ansiedad. Formulado con L-teanina para que
-              tu mente trabaje a su máximo nivel.
+              L-teanina 130 mg. Enfoque claro, sin ansiedad.
             </p>
           </div>
         </div>
@@ -46,8 +44,7 @@ export default function ValueProps() {
           </div>
           <div className="prop-desc-cell">
             <p className="prop-desc">
-              Lo que ves es lo que bebes. Sin conservadores ni trucos
-              artificiales, solo elementos que tu cuerpo reconoce.
+              Sin conservadores ni artificiales. Etiqueta clara, fórmula real.
             </p>
           </div>
         </div>

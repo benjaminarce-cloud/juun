@@ -2,15 +2,12 @@
 import AuthModal from '@/components/AuthModal'
 import { useEffect, useState } from 'react'
 import { useCart } from '@/context/CartContext'
-import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { items, openCart } = useCart()
-  const pathname = usePathname()
   const itemCount = items.reduce((sum, i) => sum + i.qty, 0)
-  const comprarHref = pathname === '/' ? '#comprar' : '/#comprar'
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60)
@@ -46,7 +43,18 @@ export default function Header() {
           </svg>
           {itemCount > 0 && <span className="cart-badge">{itemCount}</span>}
         </button>
-        <a href={comprarHref} className="nav-cta">Comprar</a>
+        <a href="#comprar" className="nav-cta">Comprar</a>
+      </div>
+
+      <div className="header-mobile-cart">
+        <button className="cart-btn cart-btn-mobile" onClick={openCart} aria-label={'Carrito ' + itemCount + ' items'}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          {itemCount > 0 && <span className="cart-badge">{itemCount}</span>}
+        </button>
       </div>
 
       <div className="header-mobile-controls">
@@ -56,9 +64,7 @@ export default function Header() {
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(open => !open)}
         >
-          <span />
-          <span />
-          <span />
+          ☰
         </button>
       </div>
 
@@ -70,15 +76,7 @@ export default function Header() {
         </div>
         <div className="mobile-nav-actions">
           <AuthModal scrolled />
-          <a href={comprarHref} className="nav-cta" onClick={() => setMenuOpen(false)}>Comprar</a>
-          <button className="cart-btn cart-btn-mobile" onClick={() => { openCart(); setMenuOpen(false) }} aria-label={'Carrito ' + itemCount + ' items'}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <path d="M16 10a4 4 0 01-8 0"/>
-            </svg>
-            {itemCount > 0 && <span className="cart-badge">{itemCount}</span>}
-          </button>
+          <a href="#comprar" className="nav-cta" onClick={() => setMenuOpen(false)}>Comprar</a>
         </div>
       </aside>
     </header>
