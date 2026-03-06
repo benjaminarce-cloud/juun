@@ -1,25 +1,25 @@
 import Header         from '@/components/sections/Header'
+import SectionTabs    from '@/components/sections/SectionTabs'
 import Hero           from '@/components/sections/Hero'
-import SinesMarquee   from '@/components/sections/SinesMarquee'
-import ValueProps     from '@/components/sections/ValueProps'
 import PurchaseModule from '@/components/sections/PurchaseModule'
-import Formula        from '@/components/sections/Formula'
-import SocialProof    from '@/components/sections/SocialProof'
-import PhotoGrid      from '@/components/sections/PhotoGrid'
 import FinalCTA       from '@/components/sections/FinalCTA'
 
 export default function Page() {
   return (
     <>
       <Header />
+      <SectionTabs />
       <main>
         <Hero />
-        <SinesMarquee />
-        <ValueProps />
+        <section className="tab-photo-break reveal">
+          <img
+            src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879034/1A7A2258_lpbzr1.jpg"
+            alt="Comunidad JUUN en movimiento"
+            loading="eager"
+            style={{ objectPosition: 'center 18%' }}
+          />
+        </section>
         <PurchaseModule />
-        <Formula />
-        <SocialProof />
-        <PhotoGrid />
         <FinalCTA />
       </main>
     </>

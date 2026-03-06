@@ -1,4 +1,9 @@
+'use client'
+
+import { useState } from 'react'
+
 export default function Formula() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
   const ingredients = [
     {
       name: 'L-teanina · 130 mg',
@@ -44,16 +49,21 @@ export default function Formula() {
             <span className="formula-col-sub">Funcional. Reconocible.</span>
           </div>
           <div className="formula-list-grid">
-            {ingredients.map(({ name, note }) => (
+            {ingredients.map(({ name, note }, idx) => (
               <div className="formula-row" key={name}>
                 <div>
                   <div className="formula-ing-name">{name}</div>
-                  <details className="formula-note-toggle">
-                    <summary aria-label={'Ver detalle de ' + name}>i</summary>
+                  <div className={'formula-note-wrap' + (openIndex === idx ? ' open' : '')}>
                     <p className="formula-ing-note">{note}</p>
-                  </details>
+                  </div>
                 </div>
-                <span className="formula-marker yes">+</span>
+                <button
+                  className={'formula-toggle-btn' + (openIndex === idx ? ' open' : '')}
+                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                  aria-label={'Expandir detalle de ' + name}
+                >
+                  +
+                </button>
               </div>
             ))}
           </div>
