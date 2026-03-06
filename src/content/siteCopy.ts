@@ -136,7 +136,7 @@ export const copy = {
     no: {
       heading: '',
       badge: '',
-      items: [],
+      items: [] as Array<{ name: string; note: string; icon: string }>,
     },
   },
 

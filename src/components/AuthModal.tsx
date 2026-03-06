@@ -4,13 +4,11 @@ import { supabase } from '@/lib/supabase'
 import type { User } from '@supabase/supabase-js'
 
 type Tab = 'login' | 'signup'
-interface Profile { id:string; name:string; email:string; points:number; orders:number }
 
 export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) {
   const [open, setOpen]           = useState(false)
   const [tab, setTab]             = useState<Tab>('login')
   const [user, setUser]           = useState<User | null>(null)
-  const [profile, setProfile]     = useState<Profile | null>(null)
   const [email, setEmail]         = useState('')
   const [password, setPassword]   = useState('')
   const [name, setName]           = useState('')
@@ -21,20 +19,12 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null)
-      if (session?.user) fetchProfile(session.user.id)
     })
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
       setUser(session?.user ?? null)
-      if (session?.user) fetchProfile(session.user.id)
-      else setProfile(null)
     })
     return () => subscription.unsubscribe()
   }, [])
-
-  async function fetchProfile(uid: string) {
-    const { data } = await supabase.from('profiles').select('*').eq('id', uid).single()
-    if (data) setProfile(data)
-  }
 
   async function handleAuth() {
     setLoading(true); setError('')
@@ -59,8 +49,9 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
         setOpen(false)
       }
       setEmail(''); setPassword(''); setName('')
-    } catch (err: any) {
-      setError(err.message || 'Error. Intenta de nuevo.')
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Error. Intenta de nuevo.'
+      setError(message)
     } finally {
       setLoading(false)
     }

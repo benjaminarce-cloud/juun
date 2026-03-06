@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import Link from 'next/link'
 
 interface Profile {
   id: string
@@ -48,11 +49,11 @@ export default function AccountPage() {
     <div style={{ minHeight:'100vh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', background:'#f5f3ec', gap:'1.5rem' }}>
       <img src="/logo-black.png" alt="JUUN" style={{ height:'48px' }} />
       <p style={{ fontSize:'0.75rem', opacity:0.5 }}>Necesitas iniciar sesión para ver tu cuenta.</p>
-      <a href="/" style={{
+      <Link href="/" style={{
         padding:'0.75rem 2rem', background:'#0e0c0b', color:'#f5f3ec',
         textDecoration:'none', borderRadius:'2px',
         fontSize:'0.65rem', fontWeight:700, letterSpacing:'0.15em', textTransform:'uppercase',
-      }}>Volver al inicio</a>
+      }}>Volver al inicio</Link>
     </div>
   )
 
@@ -79,9 +80,9 @@ export default function AccountPage() {
         padding:'1rem clamp(1.5rem,5vw,4rem)',
         display:'flex', alignItems:'center', justifyContent:'space-between',
       }}>
-        <a href="/" style={{ textDecoration:'none' }}>
+        <Link href="/" style={{ textDecoration:'none' }}>
           <img src="/logo-black.png" alt="JUUN" style={{ height:'40px', width:'auto' }} />
-        </a>
+        </Link>
         <button onClick={handleLogout} style={{
           background:'none', border:'1px solid rgba(14,12,11,0.15)',
           borderRadius:'99px', padding:'0.45rem 1.25rem',
@@ -176,12 +177,12 @@ export default function AccountPage() {
             <p style={{ fontSize:'2.5rem', marginBottom:'0.75rem' }}>📦</p>
             <p style={{ fontWeight:700, marginBottom:'0.5rem' }}>Sin pedidos aún</p>
             <p style={{ fontSize:'0.75rem', opacity:0.4, marginBottom:'1.75rem' }}>Tus pedidos aparecerán aquí.</p>
-            <a href="/#comprar" style={{
+            <Link href="/#comprar" style={{
               display:'inline-block', padding:'0.75rem 2rem',
               background:'#0e0c0b', color:'#f5f3ec', textDecoration:'none',
               borderRadius:'2px', fontSize:'0.65rem', fontWeight:700,
               letterSpacing:'0.15em', textTransform:'uppercase',
-            }}>Comprar ahora</a>
+            }}>Comprar ahora</Link>
           </div>
         )}
 
