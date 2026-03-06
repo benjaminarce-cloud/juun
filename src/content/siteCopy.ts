@@ -6,9 +6,9 @@
 export const copy = {
   // ── META ──────────────────────────────────────────────
   meta: {
-    title: 'JUUN wellness — Energía natural',
+    title: 'JUUN wellness — Bebida funcional',
     description:
-      'Bebida energética funcional. Sin taurina, sin azúcar añadida, sin sellos de advertencia.',
+      'Bebida energética funcional. Sin taurina, sin azúcar, sin sellos de advertencia.',
   },
 
   // ── HEADER ────────────────────────────────────────────
@@ -18,15 +18,15 @@ export const copy = {
 
   // ── HERO ──────────────────────────────────────────────
   hero: {
-    eyebrow: '✦ Energía funcional · Hecho en México',
-    headlineLight: 'Naturalmente',
+    eyebrow: '✦ Energía natural · Hecho en México',
+    headlineLight: 'Bebida',
     headlineBold: 'funcional.',
     subheadline:
       'La bebida que tu cuerpo entiende. Sin química, sin consecuencias.',
     ctaPrimary: 'Comprar ahora',
     ctaSecondary: 'Ver ingredientes',
     strip: [
-      '0g azúcar',
+      'Sin azúcar',
       'Sin taurina',
       'Cafeína natural',
     ],
@@ -38,13 +38,11 @@ export const copy = {
     { label: 'L-teanina',          positive: true  },
     { label: 'Sin taurina',        positive: false },
     { label: 'Prebióticos',        positive: true  },
-    { label: 'Sin azúcar añadida', positive: false },
+    { label: 'Sin azúcar',         positive: false },
     { label: 'Cafeína de guaraná', positive: true  },
     { label: 'Sin colorantes',     positive: false },
-    { label: '9 vitaminas',        positive: true  },
+    { label: '10 vitaminas',       positive: true  },
     { label: 'Sin conservadores',  positive: false },
-    { label: 'Fibra prebiótica',   positive: true  },
-    { label: 'Sin aspartame',      positive: false },
   ],
 
   // ── VALUE PROPS ───────────────────────────────────────
@@ -58,12 +56,12 @@ export const copy = {
       {
         icon: '⚡',
         name: 'Energía limpia',
-        desc: 'Cafeína de guaraná y té verde. Sin taurina, sin estimulantes artificiales.',
+        desc: 'Cafeína de guaraná. Sin taurina, sin estimulantes artificiales.',
       },
       {
         icon: '🧠',
         name: 'Claridad mental',
-        desc: 'L-teanina 128mg para enfoque sin ansiedad. La combinación que usan los nootrópicos premium.',
+        desc: 'L-teanina 130mg para enfoque sin ansiedad. La combinación que usan los nootrópicos premium.',
       },
       {
         icon: '🌱',
@@ -124,27 +122,21 @@ export const copy = {
     titleLight: 'Lo que hay ',
     titleBold: 'adentro.',
     yes: {
-      heading: 'Lo que SÍ lleva',
+      heading: 'Lo que lleva',
       badge: 'Limpio',
       items: [
-        { name: 'L-teanina · 128 mg',    note: 'Aminoácido del té verde. Enfoque sin nerviosismo.',              icon: '🧠' },
-        { name: 'Cafeína natural · 127 mg', note: 'De guaraná y té verde. Liberación más gradual.',              icon: '⚡' },
-        { name: 'Prebióticos',             note: 'Fibra prebiótica (inulina) para tu microbioma.',               icon: '🌱' },
-        { name: 'Vitamina A, complejo B y C', note: 'Premezcla completa de vitaminas esenciales.',              icon: '💊' },
+        { name: 'L-teanina · 130 mg',    note: 'Aminoácido funcional. Enfoque sin nerviosismo.',                 icon: '🧠' },
+        { name: 'Cafeína natural · 130 mg', note: 'De guaraná. Liberación más gradual.',                          icon: '⚡' },
+        { name: 'Prebióticos',             note: 'Promueve el crecimiento y equilibrio de microbiota.',          icon: '🌱' },
+        { name: 'Vitamina D, complejo B y C', note: 'Premezcla completa de vitaminas esenciales.',              icon: '💊' },
         { name: 'Saborizantes naturales',  note: 'Nada artificial. El sabor viene de ingredientes reales.',      icon: '🍓' },
-        { name: 'Fibra prebiótica',          note: 'Inulina de agave. Alimenta tu microbioma intestinal.',         icon: '🌱' },
+        { name: 'Alulosa + Stevia',          note: 'Dulzura limpia con un perfil más balanceado.',                icon: '🍃' },
       ],
     },
     no: {
-      heading: 'Lo que NO lleva',
-      badge: 'Sin esto',
-      items: [
-        { name: 'Sin taurina',              note: 'El ingrediente más cuestionado de las energéticas convencionales. Fuera.',  icon: '🚫' },
-        { name: 'Sin azúcar añadida',       note: '0g. Sin jeringas de glucosa, sin crash post-bebida.',                       icon: '🚫' },
-        { name: 'Sin colorantes artificiales', note: 'El color viene del saborizante natural, no de FD&C.',                  icon: '🚫' },
-        { name: 'Sin conservadores',        note: 'Formulada para ser limpia de etiqueta a etiqueta.',                        icon: '🚫' },
-        { name: 'Sin aspartame',            note: 'Sin edulcorantes polémicos. Dulzura de alulosa.',                          icon: '🚫' },
-      ],
+      heading: '',
+      badge: '',
+      items: [],
     },
   },
 

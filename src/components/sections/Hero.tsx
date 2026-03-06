@@ -106,7 +106,7 @@ export default function Hero() {
           color: 'rgba(252,251,240,0.4)',
           marginBottom: '1.75rem',
         }}>
-          ✦ Energía funcional · Hecho en México
+          ✦ Energía natural · Hecho en México
         </span>
 
         {/* Headline */}
@@ -118,7 +118,7 @@ export default function Hero() {
             color: 'rgba(252,251,240,0.88)',
             letterSpacing: '-0.025em',
           }}>
-            Energía
+            Bebida
           </span>
           <span style={{
             display: 'block',
@@ -127,7 +127,7 @@ export default function Hero() {
             color: 'var(--linen, #fcfbf0)',
             letterSpacing: '-0.035em',
           }}>
-            natural.
+            funcional.
           </span>
         </h1>
 

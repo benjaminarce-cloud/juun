@@ -9,6 +9,14 @@ export default function ValueProps() {
           <h2 className="beneficios-title" style={{ marginTop: '1rem' }}>
             <span>Energía que </span>dura.
           </h2>
+          <details className="title-footnote">
+            <summary aria-label="Ver notas de energía y fórmula">i</summary>
+            <div className="title-footnote-panel">
+              <p><strong>Prebióticos:</strong> Promueve el crecimiento y equilibrio de microbiota.</p>
+              <p><strong>L-teanina:</strong> Promueve la concentración y potencia el rendimiento cognitivo.</p>
+              <p><strong>Cafeína de guaraná:</strong> Aumenta la energía, alerta y concentración mental, de manera natural.</p>
+            </div>
+          </details>
         </div>
         <p className="beneficios-header-sub">
           Formulada para enfoque sostenido. Sin el crash, sin el nerviosismo,
@@ -24,7 +32,7 @@ export default function ValueProps() {
           </div>
           <div className="prop-desc-cell">
             <p className="prop-desc">
-              Cafeína de guaraná y té verde. Sin taurina, sin estimulantes de
+              Cafeína de guaraná. Sin taurina, sin estimulantes de
               laboratorio. El tipo de energía que no necesita explicación al día
               siguiente.
             </p>
@@ -38,7 +46,7 @@ export default function ValueProps() {
           </div>
           <div className="prop-desc-cell">
             <p className="prop-desc">
-              L-teanina 128 mg para enfoque sin ansiedad. La combinación que
+              L-teanina 130 mg para enfoque sin ansiedad. La combinación que
               usan los nootrópicos premium. Aquí, en una lata.
             </p>
           </div>
