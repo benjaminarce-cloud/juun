@@ -28,7 +28,10 @@ export default function Page() {
           </div>
         </div>
 
-        {activeTab === 'comprar' && (
+        <section
+          aria-hidden={activeTab !== 'comprar'}
+          style={{ display: activeTab === 'comprar' ? 'block' : 'none' }}
+        >
           <>
             <ValueProps />
             <section className="tab-photo-break reveal">
@@ -42,16 +45,22 @@ export default function Page() {
             <PurchaseModule />
             <FinalCTA />
           </>
-        )}
+        </section>
 
-        {activeTab === 'formula' && (
+        <section
+          aria-hidden={activeTab !== 'formula'}
+          style={{ display: activeTab === 'formula' ? 'block' : 'none' }}
+        >
           <>
             <Formula />
             <FinalCTA />
           </>
-        )}
+        </section>
 
-        {activeTab === 'voces' && (
+        <section
+          aria-hidden={activeTab !== 'voces'}
+          style={{ display: activeTab === 'voces' ? 'block' : 'none' }}
+        >
           <>
             <SocialProof />
             <section className="tab-photo-break reveal">
@@ -64,7 +73,7 @@ export default function Page() {
             </section>
             <FinalCTA />
           </>
-        )}
+        </section>
       </main>
     </>
   )
