@@ -79,8 +79,8 @@ export default function Header({ onSelectTab }: { onSelectTab?: (tab: TabKey) =>
         </div>
         <div className="mobile-nav-links">
           <button className="mobile-nav-link" onClick={() => selectTab('comprar')}>COMPRAR</button>
-          <button className="mobile-nav-link" onClick={() => selectTab('formula')}>LA FÓRMULA</button>
-          <button className="mobile-nav-link" onClick={() => selectTab('voces')}>LA GENTE HABLA</button>
+          <button className="mobile-nav-link" onClick={() => selectTab('formula')}>FÓRMULA</button>
+          <button className="mobile-nav-link" onClick={() => selectTab('voces')}>HABLAN</button>
           <div className="mobile-nav-divider" />
           <AuthModal />
         </div>
