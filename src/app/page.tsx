@@ -15,6 +15,7 @@ export default function Page() {
         <Hero />
         <SinesMarquee />
         <ValueProps />
+        <PurchaseModule />
         <section className="tab-photo-break reveal">
           <img
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879034/1A7A2258_lpbzr1.jpg"
@@ -23,7 +24,6 @@ export default function Page() {
             style={{ width: '100%', height: '65vh', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
           />
         </section>
-        <PurchaseModule />
         <Formula />
         <SocialProof />
         <section className="tab-photo-break reveal">
@@ -31,8 +31,16 @@ export default function Page() {
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879033/1A7A2184_bm4koh.jpg"
             alt="JUUN community"
             loading="eager"
-            style={{ width: '100%', height: '65vh', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }}
+            style={{ width: '100%', height: '65vh', objectFit: 'cover', objectPosition: 'center 25%', display: 'block' }}
           />
+        </section>
+        <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px', width: '100%' }}>
+          <div style={{ overflow: 'hidden', height: '60vh' }}>
+            <img src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879163/1A7A1317_mvd47a.jpg" alt="JUUN" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 70%', display: 'block' }} />
+          </div>
+          <div style={{ overflow: 'hidden', height: '60vh' }}>
+            <img src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879236/1A7A1501_gl2s01.jpg" alt="JUUN" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 50%', display: 'block' }} />
+          </div>
         </section>
         <FinalCTA />
       </main>

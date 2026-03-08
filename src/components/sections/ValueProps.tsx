@@ -43,13 +43,12 @@ export default function ValueProps() {
         .value-props-split {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          align-items: start;
+          align-items: stretch;
           gap: 0;
         }
         .value-props-photo-wrap {
-          position: sticky;
-          top: 80px;
-          height: 70vh;
+          height: 100%;
+          min-height: 60vh;
           overflow: hidden;
         }
         @media (max-width: 768px) {
@@ -57,9 +56,8 @@ export default function ValueProps() {
             grid-template-columns: 1fr;
           }
           .value-props-photo-wrap {
-            position: relative;
-            top: 0;
             height: 60vh;
+            min-height: 60vh;
           }
         }
       `}</style>
