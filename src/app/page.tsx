@@ -38,7 +38,7 @@ export default function Page() {
         </section>
         <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px', width: '100%' }}>
           <div style={{ overflow: 'hidden', height: '60vh' }}>
-            <img src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879033/1A7A2184_bm4koh.jpg" alt="JUUN" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 25%', display: 'block' }} />
+            <img src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879033/1A7A2184_bm4koh.jpg" alt="JUUN" loading="eager" className="diptych-left-img" />
           </div>
           <div style={{ overflow: 'hidden', height: '60vh' }}>
             <img src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879148/1A7A2447_pcwzk5.jpg" alt="JUUN" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />

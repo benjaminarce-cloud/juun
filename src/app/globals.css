@@ -567,6 +567,18 @@ body::before {
 .header.scrolled .logo-sub { color: #8a857f; }
 .nav-cta { display: inline-flex; align-items: center; padding: 0.55rem 1.3rem; font-family: 'Unbounded', sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: #231f20; background: #fcfbf0; border: 1px solid rgba(252,251,240,0.25); border-radius: 99px; transition: background 0.3s, color 0.3s; cursor: pointer; }
 .header.scrolled .nav-cta { background: #231f20; color: #fcfbf0; border-color: #231f20; }
+.diptych-left-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+@media (max-width: 768px) {
+  .diptych-left-img {
+    object-position: center 60%;
+  }
+}
 
 html, body { margin-top: 0; padding-top: 0; }
 
