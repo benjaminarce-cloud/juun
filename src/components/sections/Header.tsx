@@ -75,7 +75,7 @@ export default function Header() {
 
         <a href="#" aria-label="JUUN wellness" className="header-logo-link header-logo-mobile" style={{ display:'flex', alignItems:'center', textDecoration:'none' }}>
           <img
-            src="/logo-black.png"
+            src={scrolled ? '/logo-black.png' : '/logo-white.png'}
             alt="JUUN wellness"
             style={{ height:'88px', width:'auto', transition:'opacity 0.3s' }}
           />
