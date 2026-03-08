@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 export default function Formula() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
   const ingredients = [
     { name: 'L-teanina · 130 mg', note: 'Promueve la concentración y potencia el rendimiento cognitivo.' },
     { name: 'Cafeína de guaraná · 130 mg', note: 'Aumenta la energía, alerta y concentración mental, de manera natural.' },
