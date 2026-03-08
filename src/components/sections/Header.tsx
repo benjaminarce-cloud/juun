@@ -1,13 +1,19 @@
 'use client'
 import AuthModal from '@/components/AuthModal'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const authTriggerRef = useRef<HTMLDivElement | null>(null)
   const { items, openCart } = useCart()
   const itemCount = items.reduce((sum, i) => sum + i.qty, 0)
+
+  function handleAuthClick() {
+    setMenuOpen(false)
+    authTriggerRef.current?.querySelector('button')?.click()
+  }
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60)
@@ -34,7 +40,9 @@ export default function Header() {
       </a>
 
       <div className="header-actions header-actions-desktop">
-        <AuthModal scrolled={scrolled} />
+        <div ref={authTriggerRef}>
+          <AuthModal scrolled={scrolled} />
+        </div>
         <button className="cart-btn" onClick={openCart} aria-label={'Carrito ' + itemCount + ' items'}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
@@ -80,19 +88,17 @@ export default function Header() {
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="header-mobile-menu">
-          <a href="#comprar" className="nav-cta" onClick={() => setMenuOpen(false)}>Comprar</a>
-          <button className="cart-btn cart-btn-mobile" onClick={() => { openCart(); setMenuOpen(false) }} aria-label={'Carrito ' + itemCount + ' items'}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <path d="M16 10a4 4 0 01-8 0"/>
-            </svg>
-            {itemCount > 0 && <span className="cart-badge">{itemCount}</span>}
-          </button>
+      <div className={'header-mobile-menu' + (menuOpen ? ' open' : '')}>
+        <button className="header-mobile-menu-close" aria-label="Cerrar menú" onClick={() => setMenuOpen(false)}>✕</button>
+        <div className="header-mobile-menu-primary">
+          <a href="#comprar" onClick={() => setMenuOpen(false)}>COMPRAR</a>
+          <button type="button" onClick={handleAuthClick}>ENTRAR</button>
         </div>
-      )}
+        <div className="header-mobile-menu-secondary">
+          <a href="#formula" onClick={() => setMenuOpen(false)}>Fórmula</a>
+          <a href="#hablan" onClick={() => setMenuOpen(false)}>Hablan</a>
+        </div>
+      </div>
     </header>
   )
 }

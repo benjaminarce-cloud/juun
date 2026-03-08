@@ -627,6 +627,8 @@ body::before {
 .header-mobile-controls { display: none; }
 .header-mobile-cart { display: none; }
 .header-mobile-menu { display: none; }
+.header-mobile-menu-primary,
+.header-mobile-menu-secondary { display: none; }
 .menu-btn {
   width: 38px;
   height: 38px;
@@ -686,16 +688,65 @@ body::before {
   }
   .header-mobile-menu {
     display: flex;
-    align-items: center;
-    gap: 0.6rem;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 200;
+    background: #0e0c0b;
+    padding: 5rem clamp(2rem, 8vw, 4rem) 2rem;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    pointer-events: none;
+  }
+  .header-mobile-menu.open {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .header-mobile-menu-close {
     position: absolute;
-    right: var(--gutter);
-    top: calc(100% + 0.55rem);
-    padding: 0.75rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: rgba(252,251,240,0.96);
-    backdrop-filter: blur(8px);
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--linen, #fcfbf0);
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .header-mobile-menu-primary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .header-mobile-menu-primary a,
+  .header-mobile-menu-primary button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    font-weight: 900;
+    color: var(--linen, #fcfbf0);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+  .header-mobile-menu-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+  }
+  .header-mobile-menu-secondary a {
+    text-decoration: none;
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
+    font-weight: 400;
+    color: var(--linen, #fcfbf0);
+    opacity: 0.45;
   }
 }
 
