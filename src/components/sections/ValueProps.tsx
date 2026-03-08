@@ -33,9 +33,9 @@ export default function ValueProps() {
         </div>
         <div className="value-props-photo-wrap">
           <img
-            src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879163/1A7A1317_mvd47a.jpg"
+            src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879236/1A7A1501_gl2s01.jpg"
             alt="JUUN lifestyle"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 50%' }}
           />
         </div>
       </div>
