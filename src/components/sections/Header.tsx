@@ -112,7 +112,7 @@ export default function Header() {
           <p className="header-mobile-menu-foot">@drinkjuun</p>
         </div>
       </div>
-      <div ref={authTriggerRef}>
+      <div ref={authTriggerRef} style={{ position: 'absolute', opacity: 0, pointerEvents: 'none', width: 0, height: 0, overflow: 'hidden' }}>
         <AuthModal scrolled={scrolled} />
       </div>
     </header>
