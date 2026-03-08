@@ -47,6 +47,7 @@ export default function Header() {
       </a>
 
       <div className="header-actions header-actions-desktop">
+        <AuthModal scrolled={scrolled} />
         <button className="cart-btn" onClick={openCart} aria-label={'Carrito ' + itemCount + ' items'}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
@@ -112,7 +113,7 @@ export default function Header() {
           <p className="header-mobile-menu-foot">@drinkjuun</p>
         </div>
       </div>
-      <div ref={authTriggerRef} style={{ position: 'absolute', opacity: 0, pointerEvents: 'none', width: 0, height: 0, overflow: 'hidden' }}>
+      <div ref={authTriggerRef} style={{ position:'absolute', left:'-9999px', top:'-9999px', width:'1px', height:'1px' }}>
         <AuthModal scrolled={scrolled} />
       </div>
     </header>
