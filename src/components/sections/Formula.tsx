@@ -33,7 +33,15 @@ export default function Formula() {
               <div className="formula-row" key={name}>
                 <div>
                   <div className="formula-ing-name">{name}</div>
-                  <div className={'formula-note-wrap' + (openIndex === idx ? ' open' : '')}>
+                  <div
+                    className={'formula-note-wrap' + (openIndex === idx ? ' open' : '')}
+                    style={{
+                      maxHeight: openIndex === idx ? '120px' : '0',
+                      overflow: 'hidden',
+                      opacity: openIndex === idx ? 1 : 0,
+                      transition: 'max-height 0.35s ease, opacity 0.25s ease',
+                    }}
+                  >
                     <p className="formula-ing-note">{note}</p>
                   </div>
                 </div>
@@ -41,6 +49,7 @@ export default function Formula() {
                   className={'formula-toggle-btn' + (openIndex === idx ? ' open' : '')}
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                   aria-label={'Expandir detalle de ' + name}
+                  style={{ transform: openIndex === idx ? 'rotate(45deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
                 >+</button>
               </div>
             ))}
