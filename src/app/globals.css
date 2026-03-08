@@ -551,14 +551,12 @@ body::before {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 90;
-  padding: 1.25rem var(--gutter, clamp(1.25rem, 5vw, 4rem));
-  display: flex !important;
+  padding: calc(env(safe-area-inset-top) + 1.25rem) clamp(1.25rem,5vw,4rem) 1.25rem;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
 }
-
-.header { position: fixed; top: 0; left: 0; right: 0; z-index: 90; padding: 1.25rem clamp(1.25rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; transition: background 0.4s; }
 .header.scrolled { background: rgba(252,251,240,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(35,31,32,0.10); }
 .logo { display: flex; align-items: baseline; gap: 0.4rem; text-decoration: none; color: inherit; }
 .logo-mark { font-size: clamp(1rem,2vw,1.15rem); font-weight: 900; letter-spacing: -0.01em; color: #fcfbf0; transition: color 0.4s; position: relative; }
@@ -570,7 +568,6 @@ body::before {
 .header.scrolled .nav-cta { background: #231f20; color: #fcfbf0; border-color: #231f20; }
 
 html, body { margin-top: 0; padding-top: 0; }
-.header { top: 0; margin-top: 0; padding-top: env(safe-area-inset-top); }
 
 /* ── Current overrides ── */
 .formula-body { grid-template-columns: 1fr; }
@@ -669,7 +666,12 @@ html, body { margin-top: 0; padding-top: 0; }
 
 @media (max-width: 900px) {
   .header {
+    background: var(--linen, #f5f3ec);
     justify-content: center;
+  }
+  .header.scrolled {
+    background: rgba(252,251,240,0.92);
+    backdrop-filter: blur(14px);
   }
   .header-logo-desktop {
     display: none !important;
@@ -897,7 +899,6 @@ html, body { margin-top: 0; padding-top: 0; }
   display: block;
 }
 
-.header { position: fixed; top: 0; left: 0; right: 0; z-index: 90; padding: 1.25rem clamp(1.25rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; transition: background 0.4s; }
 .header.scrolled { background: rgba(252,251,240,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(35,31,32,0.10); }
 .logo { display: flex; align-items: baseline; gap: 0.4rem; text-decoration: none; color: inherit; }
 .logo-mark { font-size: clamp(1rem,2vw,1.15rem); font-weight: 900; letter-spacing: -0.01em; color: #fcfbf0; transition: color 0.4s; position: relative; }
