@@ -45,6 +45,7 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: #f5f3ec;
   }
 
   body {
@@ -679,6 +680,14 @@ html, body { margin-top: 0; padding-top: 0; }
   .header-mobile-row .cart-btn {
     color: var(--black, #0e0c0b);
     border-color: rgba(35,31,32,0.20);
+  }
+  .header:not(.scrolled) .header-mobile-row .menu-btn {
+    color: #fcfbf0;
+    border-color: rgba(252,251,240,0.35);
+  }
+  .header:not(.scrolled) .header-mobile-row .cart-btn {
+    color: #fcfbf0;
+    border-color: rgba(252,251,240,0.35);
   }
   .header-logo-desktop {
     display: none !important;
