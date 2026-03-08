@@ -151,7 +151,7 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
 
             {/* Logo */}
             <div style={{ marginBottom:'1.75rem' }}>
-              <img src="/logo-black.png" alt="JUUN wellness" style={{ height:'30px', width:'auto' }} />
+              <img src="/logo-black.png" alt="JUUN wellness" style={{ height:'88px', width:'auto' }} />
             </div>
 
             {emailSent ? (
@@ -225,9 +225,6 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
                   </p>
                 )}
 
-                <p style={{ textAlign:'center' as const, marginTop:'1.75rem', fontSize:'0.58rem', opacity:0.22, letterSpacing:'0.08em', textTransform:'uppercase' as const }}>
-                  Lanzamiento · Viernes 6 de febrero
-                </p>
               </>
             )}
           </div>
