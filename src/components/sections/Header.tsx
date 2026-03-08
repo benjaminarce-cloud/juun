@@ -15,6 +15,13 @@ export default function Header() {
     authTriggerRef.current?.querySelector('button')?.click()
   }
 
+  function handleNavLink(id: string) {
+    setMenuOpen(false)
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }, 350)
+  }
+
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', handler, { passive: true })
@@ -40,9 +47,6 @@ export default function Header() {
       </a>
 
       <div className="header-actions header-actions-desktop">
-        <div ref={authTriggerRef}>
-          <AuthModal scrolled={scrolled} />
-        </div>
         <button className="cart-btn" onClick={openCart} aria-label={'Carrito ' + itemCount + ' items'}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
@@ -97,16 +101,19 @@ export default function Header() {
           </div>
           <div className="header-mobile-menu-mid">
             <div className="header-mobile-menu-primary">
-              <a href="#comprar" onClick={() => setMenuOpen(false)}>COMPRAR</a>
+              <a href="#comprar" onClick={(e) => { e.preventDefault(); handleNavLink('comprar') }}>COMPRAR</a>
               <button type="button" onClick={handleAuthClick}>ENTRAR</button>
             </div>
             <div className="header-mobile-menu-secondary">
-              <a href="#formula" onClick={() => setMenuOpen(false)}>Fórmula</a>
-              <a href="#hablan" onClick={() => setMenuOpen(false)}>Hablan</a>
+              <a href="#formula" onClick={(e) => { e.preventDefault(); handleNavLink('formula') }}>Fórmula</a>
+              <a href="#hablan" onClick={(e) => { e.preventDefault(); handleNavLink('hablan') }}>Hablan</a>
             </div>
           </div>
           <p className="header-mobile-menu-foot">@drinkjuun</p>
         </div>
+      </div>
+      <div ref={authTriggerRef}>
+        <AuthModal scrolled={scrolled} />
       </div>
     </header>
   )
