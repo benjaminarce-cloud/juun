@@ -666,13 +666,19 @@ html, body { margin-top: 0; padding-top: 0; }
 
 @media (max-width: 900px) {
   .header {
-    background: var(--linen, #f5f3ec);
-    padding-top: max(1.25rem, env(safe-area-inset-top));
+    background: var(--linen, #f5f3ec) !important;
+    padding-top: max(1.25rem, env(safe-area-inset-top)) !important;
     justify-content: center;
   }
   .header.scrolled {
-    background: rgba(252,251,240,0.92);
-    backdrop-filter: blur(14px);
+    background: var(--linen, #f5f3ec) !important;
+    backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(35,31,32,0.10);
+  }
+  .header-mobile-row .menu-btn,
+  .header-mobile-row .cart-btn {
+    color: var(--black);
+    border-color: var(--border);
   }
   .header-logo-desktop {
     display: none !important;
