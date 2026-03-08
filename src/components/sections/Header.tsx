@@ -88,15 +88,24 @@ export default function Header() {
         </div>
       </div>
 
+      <div className={'header-mobile-overlay' + (menuOpen ? ' open' : '')} onClick={() => setMenuOpen(false)} />
       <div className={'header-mobile-menu' + (menuOpen ? ' open' : '')}>
-        <button className="header-mobile-menu-close" aria-label="Cerrar menú" onClick={() => setMenuOpen(false)}>✕</button>
-        <div className="header-mobile-menu-primary">
-          <a href="#comprar" onClick={() => setMenuOpen(false)}>COMPRAR</a>
-          <button type="button" onClick={handleAuthClick}>ENTRAR</button>
-        </div>
-        <div className="header-mobile-menu-secondary">
-          <a href="#formula" onClick={() => setMenuOpen(false)}>Fórmula</a>
-          <a href="#hablan" onClick={() => setMenuOpen(false)}>Hablan</a>
+        <div className="header-mobile-menu-inner">
+          <div className="header-mobile-menu-top">
+            <img src="/logo-white.png" alt="JUUN wellness" style={{ height:'44px', width:'auto' }} />
+            <button className="header-mobile-menu-close" aria-label="Cerrar menú" onClick={() => setMenuOpen(false)}>✕</button>
+          </div>
+          <div className="header-mobile-menu-mid">
+            <div className="header-mobile-menu-primary">
+              <a href="#comprar" onClick={() => setMenuOpen(false)}>COMPRAR</a>
+              <button type="button" onClick={handleAuthClick}>ENTRAR</button>
+            </div>
+            <div className="header-mobile-menu-secondary">
+              <a href="#formula" onClick={() => setMenuOpen(false)}>Fórmula</a>
+              <a href="#hablan" onClick={() => setMenuOpen(false)}>Hablan</a>
+            </div>
+          </div>
+          <p className="header-mobile-menu-foot">@drinkjuun</p>
         </div>
       </div>
     </header>
