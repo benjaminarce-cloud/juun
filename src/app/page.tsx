@@ -33,7 +33,7 @@ export default function Page() {
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879033/1A7A2184_bm4koh.jpg"
             alt="JUUN community"
             loading="eager"
-            style={{ width: '100%', height: '85vh', objectFit: 'cover', objectPosition: 'center 35%', display: 'block' }}
+            style={{ width: '100%', height: '85vh', objectFit: 'cover', objectPosition: 'center 35%', display: 'block', transform: 'scale(0.85)' }}
           />
         </section>
         <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px', width: '100%' }}>
