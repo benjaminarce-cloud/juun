@@ -25,7 +25,9 @@ export default function Page() {
           />
         </section>
         <Formula />
-        <SocialProof />
+        <section id="hablan">
+          <SocialProof />
+        </section>
         <section className="tab-photo-break reveal">
           <img
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879033/1A7A2184_bm4koh.jpg"
