@@ -68,126 +68,131 @@ export default function AccountPage() {
   const tier = profile.points >= 500 ? 'Elite' : profile.points >= 200 ? 'Pro' : profile.points >= 100 ? 'Active' : 'Starter'
   const nextTier = profile.points >= 500 ? null : profile.points >= 200 ? { name:'Elite', at:500 } : profile.points >= 100 ? { name:'Pro', at:200 } : { name:'Active', at:100 }
   const progress = nextTier ? Math.round((profile.points / nextTier.at) * 100) : 100
+  const rewards = [
+    { pts:100,  label:'Envío gratis en tu próximo pedido' },
+    { pts:200,  label:'10% de descuento permanente' },
+    { pts:500,  label:'Acceso anticipado a nuevos sabores' },
+    { pts:1000, label:'Caja exclusiva de temporada' },
+  ] as const
+  const ladderProgress = Math.min(100, Math.round((profile.points / rewards[rewards.length - 1].pts) * 100))
 
   return (
     <div style={{ minHeight:'100vh', background:'#f5f3ec', color:'#0e0c0b' }}>
-
-      {/* Top nav */}
-      <div style={{
-        position:'sticky', top:0, zIndex:10,
-        background:'rgba(245,243,236,0.95)', backdropFilter:'blur(12px)',
-        borderBottom:'1px solid rgba(14,12,11,0.08)',
-        padding:'1rem clamp(1.5rem,5vw,4rem)',
-        display:'flex', alignItems:'center', justifyContent:'space-between',
-      }}>
-        <Link href="/" style={{ textDecoration:'none' }}>
-          <img src="/logo-black.png" alt="JUUN" style={{ height:'40px', width:'auto' }} />
-        </Link>
-        <button onClick={handleLogout} style={{
-          background:'none', border:'1px solid rgba(14,12,11,0.15)',
-          borderRadius:'99px', padding:'0.45rem 1.25rem',
-          fontSize:'0.6rem', fontWeight:600, letterSpacing:'0.12em',
-          textTransform:'uppercase', cursor:'pointer', color:'#0e0c0b',
-        }}>Cerrar sesión</button>
-      </div>
-
-      <div style={{ maxWidth:'900px', margin:'0 auto', padding:'3rem clamp(1.5rem,5vw,4rem)' }}>
-
-        {/* Hero row */}
-        <div style={{ display:'flex', alignItems:'flex-end', justifyContent:'space-between', flexWrap:'wrap', gap:'2rem', marginBottom:'3rem' }}>
-          <div>
-            <p style={{ fontSize:'0.6rem', letterSpacing:'0.2em', textTransform:'uppercase', opacity:0.35, marginBottom:'0.5rem' }}>Mi cuenta</p>
-            <h1 style={{ fontSize:'clamp(2rem,5vw,3rem)', fontWeight:900, letterSpacing:'-0.03em', lineHeight:1 }}>{profile.name}</h1>
-            <p style={{ fontSize:'0.75rem', opacity:0.35, marginTop:'0.5rem' }}>{profile.email}</p>
+      <section style={{ background:'#0e0c0b', color:'#f5f3ec', padding:'1.25rem clamp(1.5rem,5vw,4rem) 3.25rem' }}>
+        <div style={{ maxWidth:'1100px', margin:'0 auto' }}>
+          <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+            <Link href="/" style={{ textDecoration:'none' }}>
+              <img src="/logo-white.png" alt="JUUN" style={{ height:'88px', width:'auto' }} />
+            </Link>
+            <button onClick={handleLogout} style={{
+              background:'none', border:'none', padding:0,
+              fontSize:'0.65rem', fontWeight:700, letterSpacing:'0.14em',
+              textTransform:'uppercase', cursor:'pointer', color:'#f5f3ec',
+            }}>Cerrar sesión</button>
           </div>
 
-          <div style={{ background:'#0e0c0b', color:'#f5f3ec', borderRadius:'2px', padding:'1.25rem 1.75rem', minWidth:'180px' }}>
-            <p style={{ fontSize:'0.5rem', letterSpacing:'0.2em', textTransform:'uppercase', opacity:0.4, marginBottom:'0.25rem' }}>Nivel</p>
-            <p style={{ fontSize:'1.6rem', fontWeight:900, letterSpacing:'-0.02em', lineHeight:1 }}>{tier}</p>
+          <div style={{ marginTop:'1.5rem' }}>
+            <p style={{ fontSize:'0.52rem', letterSpacing:'0.24em', textTransform:'uppercase', opacity:0.6, marginBottom:'0.8rem' }}>
+              Tier · {tier}
+            </p>
+            <h1 style={{ fontSize:'clamp(2.3rem,7vw,5rem)', fontWeight:900, letterSpacing:'-0.04em', lineHeight:0.95, color:'#f5f3ec' }}>
+              {profile.name}
+            </h1>
+            <p style={{ fontSize:'0.7rem', letterSpacing:'0.06em', opacity:0.58, marginTop:'0.8rem' }}>{profile.email}</p>
             {nextTier && (
-              <div style={{ marginTop:'0.875rem' }}>
-                <div style={{ height:'2px', background:'rgba(255,255,255,0.1)', borderRadius:'99px', overflow:'hidden' }}>
-                  <div style={{ height:'100%', width:`${progress}%`, background:'#c8f04a' }} />
-                </div>
-                <p style={{ fontSize:'0.5rem', opacity:0.35, marginTop:'0.4rem' }}>{profile.points} / {nextTier.at} pts → {nextTier.name}</p>
-              </div>
+              <p style={{ fontSize:'0.58rem', letterSpacing:'0.08em', opacity:0.48, marginTop:'0.9rem' }}>
+                {profile.points} / {nextTier.at} pts → {nextTier.name}
+              </p>
             )}
           </div>
         </div>
+      </section>
 
-        {/* Stats */}
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))', gap:'1rem', marginBottom:'3rem' }}>
+      <div style={{ maxWidth:'1100px', margin:'0 auto', padding:'2.25rem clamp(1.5rem,5vw,4rem) 3rem' }}>
+
+        <div style={{
+          display:'grid',
+          gridTemplateColumns:'repeat(3, minmax(0,1fr))',
+          borderTop:'1px solid rgba(14,12,11,0.14)',
+          borderBottom:'1px solid rgba(14,12,11,0.14)',
+          marginBottom:'2.75rem',
+        }}>
           {[
-            { label:'Puntos JUUN', value:profile.points, note:'Por cada compra' },
-            { label:'Pedidos',     value:profile.orders,  note:'Historial' },
-            { label:'Estado',      value:'Activo',         note:'Cuenta verificada' },
-          ].map(s => (
-            <div key={s.label} style={{ background:'white', borderRadius:'2px', padding:'1.25rem 1.5rem', border:'1px solid rgba(14,12,11,0.06)' }}>
-              <p style={{ fontSize:'0.55rem', letterSpacing:'0.15em', textTransform:'uppercase', opacity:0.35, marginBottom:'0.5rem' }}>{s.label}</p>
-              <p style={{ fontSize:'1.75rem', fontWeight:900, letterSpacing:'-0.02em', lineHeight:1 }}>{s.value}</p>
-              <p style={{ fontSize:'0.6rem', opacity:0.3, marginTop:'0.4rem' }}>{s.note}</p>
+            { label:'Puntos JUUN', value:profile.points },
+            { label:'Pedidos',     value:profile.orders },
+            { label:'Estado',      value:'Activo' },
+          ].map((s, i) => (
+            <div key={s.label} style={{
+              padding:'1.35rem 0.4rem 1.2rem',
+              borderLeft: i === 0 ? 'none' : '1px solid rgba(14,12,11,0.10)',
+              textAlign:'center',
+            }}>
+              <p style={{ fontSize:'1.7rem', fontWeight:900, letterSpacing:'-0.02em', lineHeight:1 }}>{s.value}</p>
+              <p style={{ fontSize:'0.54rem', letterSpacing:'0.16em', textTransform:'uppercase', opacity:0.45, marginTop:'0.45rem' }}>{s.label}</p>
             </div>
           ))}
         </div>
 
         {/* Tabs */}
-        <div style={{ display:'flex', borderBottom:'1px solid rgba(14,12,11,0.1)', marginBottom:'2.5rem' }}>
+        <div style={{ display:'flex', gap:'1.5rem', marginBottom:'2.35rem' }}>
           {([['overview','Resumen'],['orders','Pedidos'],['points','Puntos']] as const).map(([id,label]) => (
             <button key={id} onClick={() => setTab(id)} style={{
               background:'none', border:'none', cursor:'pointer',
-              padding:'0.6rem 1.25rem 0.85rem',
+              padding:'0.3rem 0.1rem 0.65rem',
               fontSize:'0.65rem', fontWeight:tab===id?700:400,
               letterSpacing:'0.1em', textTransform:'uppercase',
               color:tab===id?'#0e0c0b':'rgba(14,12,11,0.35)',
-              borderBottom:tab===id?'2px solid #0e0c0b':'2px solid transparent',
-              marginBottom:'-1px',
+              borderBottom:tab===id?'2px solid #c8f04a':'2px solid transparent',
             }}>{label}</button>
           ))}
         </div>
 
         {tab === 'overview' && (
-          <div style={{ background:'white', borderRadius:'2px', padding:'2rem', border:'1px solid rgba(14,12,11,0.06)' }}>
-            <p style={{ fontSize:'0.6rem', letterSpacing:'0.15em', textTransform:'uppercase', opacity:0.4, marginBottom:'1.25rem' }}>Recompensas</p>
-            {[
-              { pts:100,  label:'Envío gratis en tu próximo pedido' },
-              { pts:200,  label:'10% de descuento permanente' },
-              { pts:500,  label:'Acceso anticipado a nuevos sabores' },
-              { pts:1000, label:'Caja exclusiva de temporada' },
-            ].map(r => (
-              <div key={r.pts} style={{
-                display:'flex', alignItems:'center', gap:'1rem',
-                padding:'0.875rem 0', borderBottom:'1px solid rgba(14,12,11,0.05)',
-                opacity:profile.points >= r.pts ? 1 : 0.4,
-              }}>
-                <span style={{
-                  fontSize:'0.65rem', fontWeight:700, minWidth:'52px',
-                  padding:'0.2rem 0.5rem', borderRadius:'2px', textAlign:'center',
-                  background: profile.points >= r.pts ? '#0e0c0b' : 'rgba(14,12,11,0.07)',
-                  color: profile.points >= r.pts ? '#c8f04a' : '#0e0c0b',
-                }}>{r.pts}</span>
-                <span style={{ fontSize:'0.85rem', flex:1 }}>{r.label}</span>
-                {profile.points >= r.pts && <span style={{ fontSize:'0.6rem', color:'#2d7a2d', fontWeight:600 }}>✓</span>}
+          <div style={{ padding:'0.2rem 0 0.4rem' }}>
+            <p style={{ fontSize:'0.6rem', letterSpacing:'0.15em', textTransform:'uppercase', opacity:0.4, marginBottom:'1.35rem' }}>Recompensas</p>
+            <div style={{ position:'relative', padding:'1.2rem 0 2.1rem' }}>
+              <div style={{ height:'2px', background:'rgba(14,12,11,0.16)', position:'absolute', left:0, right:0, top:'1.3rem' }} />
+              <div style={{ height:'2px', background:'#c8f04a', position:'absolute', left:0, width:`${ladderProgress}%`, top:'1.3rem' }} />
+              <div style={{ display:'grid', gridTemplateColumns:'repeat(4, minmax(0,1fr))', gap:'0.65rem' }}>
+                {rewards.map(r => {
+                  const unlocked = profile.points >= r.pts
+                  return (
+                    <div key={r.pts} style={{ textAlign:'left' }}>
+                      <div style={{
+                        width:'12px', height:'12px', borderRadius:'50%',
+                        marginBottom:'0.95rem',
+                        background: unlocked ? '#c8f04a' : 'rgba(14,12,11,0.2)',
+                      }} />
+                      <p style={{ fontSize:'0.5rem', fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase', opacity:unlocked ? 0.9 : 0.32 }}>
+                        {r.pts} pts
+                      </p>
+                      <p style={{ fontSize:'0.68rem', lineHeight:1.45, marginTop:'0.35rem', opacity:unlocked ? 0.9 : 0.42 }}>
+                        {r.label}
+                      </p>
+                    </div>
+                  )
+                })}
               </div>
-            ))}
+            </div>
           </div>
         )}
 
         {tab === 'orders' && (
-          <div style={{ background:'white', borderRadius:'2px', padding:'3rem 2rem', border:'1px solid rgba(14,12,11,0.06)', textAlign:'center' }}>
+          <div style={{ padding:'2.2rem 0.2rem', textAlign:'center', borderTop:'1px solid rgba(14,12,11,0.1)' }}>
             <p style={{ fontSize:'2.5rem', marginBottom:'0.75rem' }}>📦</p>
             <p style={{ fontWeight:700, marginBottom:'0.5rem' }}>Sin pedidos aún</p>
             <p style={{ fontSize:'0.75rem', opacity:0.4, marginBottom:'1.75rem' }}>Tus pedidos aparecerán aquí.</p>
             <Link href="/#comprar" style={{
               display:'inline-block', padding:'0.75rem 2rem',
               background:'#0e0c0b', color:'#f5f3ec', textDecoration:'none',
-              borderRadius:'2px', fontSize:'0.65rem', fontWeight:700,
+              fontSize:'0.65rem', fontWeight:700,
               letterSpacing:'0.15em', textTransform:'uppercase',
             }}>Comprar ahora</Link>
           </div>
         )}
 
         {tab === 'points' && (
-          <div style={{ background:'white', borderRadius:'2px', padding:'2rem', border:'1px solid rgba(14,12,11,0.06)' }}>
+          <div style={{ padding:'1.5rem 0.2rem', borderTop:'1px solid rgba(14,12,11,0.1)' }}>
             <p style={{ fontSize:'0.6rem', letterSpacing:'0.15em', textTransform:'uppercase', opacity:0.4, marginBottom:'1.25rem' }}>Historial</p>
             <div style={{ display:'flex', alignItems:'center', gap:'1rem', padding:'0.875rem 0' }}>
               <span style={{ fontSize:'0.85rem', fontWeight:700, color:'#2d7a2d', minWidth:'40px' }}>+50</span>
