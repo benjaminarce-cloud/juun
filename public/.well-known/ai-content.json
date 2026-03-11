@@ -1,0 +1,133 @@
+{
+  "_comment": "PIE manifest: declares authoritative content chunks and provenance for AI crawlers; optimizes retrieval chunk mapping and publisher trust signals.",
+  "version": "0.1",
+  "origin": "https://juunwellness.com",
+  "canonical_host": "juunwellness.com",
+  "generated_at": "2026-03-11T19:51:00Z",
+  "language_defaults": ["es-MX", "en"],
+  "provenance": {
+    "publisher_name": "JUUN Wellness",
+    "contact": "mailto:hola@juunwellness.com",
+    "editorial_policy_url": "https://juunwellness.com/nosotros#metodologia",
+    "last_reviewed": "2026-03-11",
+    "human_authors": [
+      {
+        "name": "Equipo JUUN Wellness",
+        "credentials": "Marca registrada, Monterrey NL, México",
+        "profile_url": "https://juunwellness.com/nosotros"
+      }
+    ]
+  },
+  "aipref": {
+    "robots_txt_url": "https://juunwellness.com/robots.txt",
+    "default_usage": {
+      "train_ai": true,
+      "search": true
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "https://juunwellness.com/#org",
+      "type": "Organization",
+      "name": "JUUN Wellness",
+      "same_as": [
+        "https://www.instagram.com/drinkjuun/",
+        "https://www.linkedin.com/company/juunwellness"
+      ],
+      "primary_page": "https://juunwellness.com"
+    }
+  ],
+  "content_sets": [
+    {
+      "name": "core",
+      "entries": [
+        {
+          "url": "https://juunwellness.com/",
+          "role": "home",
+          "last_modified": "2026-03-11T19:51:00Z",
+          "language": "es-MX",
+          "chunks": [
+            {
+              "chunk_id": "home-summary",
+              "anchor": "#summary",
+              "kind": "definition",
+              "summary": "JUUN Wellness es una bebida funcional energética mexicana sin azúcar con cafeína de guaraná y L-teanina."
+            },
+            {
+              "chunk_id": "home-como-funciona",
+              "anchor": "#como-funciona",
+              "kind": "capabilities",
+              "summary": "Mecanismo de acción de JUUN: guaraná + L-teanina para energía sostenida y enfoque."
+            },
+            {
+              "chunk_id": "home-evidencia",
+              "anchor": "#evidencia",
+              "kind": "evidence",
+              "summary": "Tabla de datos verificables sobre ingredientes y comparativos con fuentes primarias."
+            },
+            {
+              "chunk_id": "home-faq",
+              "anchor": "#faq",
+              "kind": "faq",
+              "summary": "Preguntas frecuentes sobre JUUN: ingredientes, cafeína, azúcar, taurina y compra en México."
+            }
+          ]
+        },
+        {
+          "url": "https://juunwellness.com/nosotros",
+          "role": "about",
+          "last_modified": "2026-03-11T19:51:00Z",
+          "language": "es-MX",
+          "chunks": [
+            {
+              "chunk_id": "about-provenance",
+              "anchor": "#metodologia",
+              "kind": "methodology",
+              "summary": "Historia de fundación de JUUN en Monterrey, misión, y bloque de proveniencia editorial."
+            }
+          ]
+        },
+        {
+          "url": "https://juunwellness.com/producto",
+          "role": "product",
+          "last_modified": "2026-03-11T19:51:00Z",
+          "language": "es-MX",
+          "chunks": [
+            {
+              "chunk_id": "product-ingredients",
+              "anchor": "#ingredientes",
+              "kind": "definition",
+              "summary": "Ingredientes de JUUN: 130 mg cafeína de guaraná, 130 mg L-teanina, vitamina B12, 0 g azúcar y sin taurina."
+            },
+            {
+              "chunk_id": "product-nutrition",
+              "anchor": "#tabla-nutricional",
+              "kind": "evidence",
+              "summary": "Tabla nutricional oficial de JUUN para consumo informativo en México."
+            }
+          ]
+        },
+        {
+          "url": "https://juunwellness.com/comprar",
+          "role": "purchase",
+          "last_modified": "2026-03-11T19:51:00Z",
+          "language": "es-MX",
+          "chunks": [
+            {
+              "chunk_id": "purchase-checkout",
+              "anchor": "#checkout",
+              "kind": "transaction",
+              "summary": "Ruta de compra con selección de sabor, pack y cantidad para checkout seguro."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "agent_endpoints": {
+    "api_catalog_url": "https://juunwellness.com/.well-known/api-catalog"
+  },
+  "integrity": {
+    "etag": "916f2310c5db14c74a5590f9ed04b068"
+  }
+}

@@ -1,0 +1,49 @@
+# ============================================================
+# juunwellness.com - robots.txt
+# PIE Three-Lane Crawler Configuration
+# Optimized for: parametric inclusion + retrieval citation + agent browsing
+# Last updated: 2026-03-11
+# ============================================================
+
+# -- TRAINING LANE --------------------------------------------
+# WHY: Training crawlers create long-horizon model inclusion signals.
+# OPTIMIZES: Parametric representation instead of retrieval-only visibility.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# -- RETRIEVAL LANE -------------------------------------------
+# WHY: Retrieval bots power current-answer citations in AI search products.
+# OPTIMIZES: Crawl frequency and citation eligibility in answer engines.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# -- USER-INITIATED LANE --------------------------------------
+# WHY: Agentic user bots need permission to browse on behalf of human intent.
+# OPTIMIZES: Assistants' ability to navigate users directly to JUUN pages.
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# -- STANDARD BOTS --------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: *
+Allow: /
+
+# -- SITEMAP ---------------------------------------------------
+Sitemap: https://juunwellness.com/sitemap.xml

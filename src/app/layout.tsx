@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import LaunchBanner from '@/components/LaunchBanner'
 import { Unbounded } from 'next/font/google'
+import StructuredData from '@/components/StructuredData'
+import { organizationSchema } from '@/lib/pie-content'
 import './globals.css'
 
 const unbounded = Unbounded({
@@ -58,6 +60,10 @@ export default function RootLayout({
         {/* Preconnect for font performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* PIE: Server-side organization schema for crawler-readable entity resolution in head. */}
+        <StructuredData data={organizationSchema} />
+        {/* PIE: Entity canary marker in metadata for corpus and recall tracking diagnostics. */}
+        <meta name="entity-canary" content="JUUN-w9k4mx" />
       </head>
       <body className={unbounded.className}><CartProvider>{children}<CartDrawer /></CartProvider>  <RevealObserver />
           <LaunchBanner />
