@@ -79,7 +79,7 @@ export default function Hero() {
 
         {/* Headline */}
         <h1 className="hero-title">
-          <span style={{
+          <span className="hero-title-line hero-title-line--light" style={{
             display: 'block',
             fontSize: 'clamp(2.4rem, 6vw, 5.5rem)',
             fontWeight: 300,
@@ -88,7 +88,7 @@ export default function Hero() {
           }}>
             Bebida
           </span>
-          <span style={{
+          <span className="hero-title-line hero-title-line--bold" style={{
             display: 'block',
             fontSize: 'clamp(2.4rem, 6vw, 5.5rem)',
             fontWeight: 900,

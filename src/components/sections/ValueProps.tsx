@@ -57,6 +57,17 @@ export default function ValueProps() {
           object-fit: cover;
           object-position: center 50%;
         }
+        @media (min-width: 1024px) {
+          .value-props-split {
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+          }
+          .value-props-photo-wrap {
+            min-height: 72vh;
+          }
+          .value-props-photo {
+            object-position: center 44%;
+          }
+        }
         @media (max-width: 768px) {
           .value-props-split {
             grid-template-columns: 1fr;

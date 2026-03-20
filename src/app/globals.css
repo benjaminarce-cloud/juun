@@ -683,6 +683,148 @@ body::before {
   object-position: center 70%;
 }
 
+@media (min-width: 1024px) {
+  .hero {
+    padding-bottom: clamp(4.5rem, 7vw, 6.75rem);
+  }
+  .hero-bg-video {
+    object-position: 56% center;
+  }
+  .hero-content {
+    max-width: 960px;
+  }
+  .hero-eyebrow {
+    margin-bottom: 2rem;
+  }
+  .hero-title {
+    margin-bottom: 2.75rem;
+  }
+  .hero-title-line--light,
+  .hero-title-line--bold {
+    font-size: clamp(3.5rem, 6.5vw, 6.9rem) !important;
+  }
+  .hero-actions {
+    margin-bottom: 3.5rem;
+  }
+  .hero-strip {
+    gap: 2.1rem;
+  }
+
+  .beneficios-header {
+    padding-bottom: clamp(4rem, 7vw, 5.75rem);
+  }
+  .prop-row {
+    grid-template-columns: 5rem minmax(0, 1.15fr) minmax(0, 1.85fr);
+    padding-top: 2.8rem;
+    padding-bottom: 2.8rem;
+  }
+  .prop-desc {
+    max-width: 34rem;
+  }
+
+  #comprar {
+    padding-top: clamp(6rem, 8vw, 7.5rem);
+    padding-bottom: clamp(6rem, 8vw, 7.5rem);
+  }
+  .buy-inner {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(4rem, 7vw, 8rem);
+    align-items: start;
+  }
+  .product-photo-slot {
+    aspect-ratio: 4 / 5;
+  }
+  .product-photo-slot img {
+    object-position: center 18%;
+  }
+  .config {
+    padding-top: 1.75rem;
+    gap: 2rem;
+  }
+  .buy-footer {
+    justify-content: flex-start;
+    gap: 1.75rem;
+  }
+
+  .landing-photo-break__image--track {
+    height: clamp(34rem, 72vh, 54rem);
+    object-position: center 18%;
+  }
+  .landing-photo-break__image--community {
+    height: clamp(40rem, 86vh, 64rem);
+    object-position: center 22%;
+  }
+  .landing-diptych {
+    gap: 6px;
+  }
+  .landing-diptych__cell {
+    height: clamp(34rem, 66vh, 48rem);
+  }
+  .landing-diptych__image--left {
+    object-position: center 22%;
+  }
+  .landing-diptych__image--right {
+    object-position: center 24%;
+  }
+
+  .formula-hero {
+    padding-bottom: clamp(5rem, 8vw, 7.5rem);
+  }
+  .formula-title {
+    font-size: clamp(4.5rem, 9vw, 8.5rem);
+  }
+  .formula-photo-strip {
+    height: clamp(30rem, 58vh, 44rem);
+  }
+  .formula-photo-image {
+    object-position: center 62%;
+  }
+
+  .voces {
+    padding-top: clamp(6rem, 8vw, 7.5rem);
+    padding-bottom: clamp(6rem, 8vw, 7.5rem);
+  }
+  .voces-title {
+    margin-bottom: 5rem;
+  }
+  .testimonials {
+    grid-template-columns: 1.1fr 1fr 1fr;
+  }
+  .testi {
+    min-height: 25rem;
+    padding: 3.5rem 2.5rem 2.75rem;
+  }
+
+  .final-cta {
+    padding-top: clamp(6rem, 9vw, 8rem);
+    padding-bottom: clamp(5.5rem, 8vw, 7rem);
+  }
+  .cta-inner {
+    max-width: 56rem;
+  }
+  .cta-title {
+    margin-bottom: 0.9rem;
+  }
+  .cta-strip {
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-bg-video {
+    object-position: 58% center;
+  }
+  .landing-photo-break__image--track {
+    object-position: center 20%;
+  }
+  .landing-photo-break__image--community {
+    object-position: center 24%;
+  }
+  .formula-photo-image {
+    object-position: center 60%;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     min-height: 100svh;
