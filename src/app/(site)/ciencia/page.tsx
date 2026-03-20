@@ -119,7 +119,7 @@ export default function CienciaPage() {
                     </span>
                     <h2 style={{ fontSize: '1.15rem', lineHeight: 1.25, marginBottom: '0.75rem', letterSpacing: '-0.3px', fontWeight: 600 }}>{article.title}</h2>
                     <p style={{ fontSize: '0.82rem', lineHeight: 1.8, color: 'rgba(14,12,11,0.55)', marginBottom: '2rem', fontWeight: 300 }}>
-                      {article.excerpt}
+                      {article.intro}
                     </p>
                     <Link href={`/ciencia/${article.slug}`} style={{ display: 'inline-block', fontSize: 8, letterSpacing: '2px', color: 'var(--black)', textDecoration: 'none', borderBottom: '1px solid rgba(14,12,11,0.25)', paddingBottom: '2px', fontWeight: 600 }}>
                       Leer más →

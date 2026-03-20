@@ -88,14 +88,23 @@ export default async function CienciaArticlePage({ params }: PageProps) {
               {article.title}
             </h1>
             <p style={{ fontSize: 9, color: 'rgba(14,12,11,0.3)', marginBottom: '3rem', fontWeight: 300 }}>
-              Publicado {article.publishedAt}
+              Publicado {article.date}
             </p>
             <div style={{ borderTop: '1px solid rgba(14,12,11,0.1)' }} />
 
-            {article.paragraphs.map((paragraph) => (
-              <p key={paragraph} style={{ fontSize: '0.9rem', lineHeight: 1.85, color: 'rgba(14,12,11,0.7)', marginTop: '2rem', fontWeight: 300 }}>
-                {paragraph}
-              </p>
+            <p style={{ fontSize: '0.9rem', lineHeight: 1.85, color: 'rgba(14,12,11,0.7)', marginTop: '2rem', fontWeight: 300 }}>
+              {article.intro}
+            </p>
+
+            {article.sections.map((section) => (
+              <section key={section.heading} style={{ marginTop: '2.5rem' }}>
+                <h2 style={{ fontSize: '1rem', lineHeight: 1.3, letterSpacing: '-0.3px', marginBottom: '0.75rem', fontWeight: 600 }}>
+                  {section.heading}
+                </h2>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.85, color: 'rgba(14,12,11,0.7)', fontWeight: 300 }}>
+                  {section.body}
+                </p>
+              </section>
             ))}
 
             <div style={{ marginTop: '3rem', borderTop: '1px solid rgba(14,12,11,0.1)', paddingTop: '1.5rem' }}>
@@ -111,33 +120,60 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 </div>
               </div>
 
-              {article.rows.map((row) => (
-                <div key={row.datum + row.sourceHref} className="science-evidence-grid" style={{ borderTop: '1px solid rgba(14,12,11,0.06)' }}>
+              {article.evidenceRows.map((row) => (
+                <div key={row.dato + row.href} className="science-evidence-grid" style={{ borderTop: '1px solid rgba(14,12,11,0.06)' }}>
                   <div style={{ fontSize: '0.8rem', lineHeight: 1.6, color: 'rgba(14,12,11,0.7)', padding: '0.875rem 0', fontWeight: 300 }}>
-                    {row.datum}
+                    {row.dato}
                   </div>
                   <div style={{ fontSize: '0.8rem', lineHeight: 1.6, color: 'rgba(14,12,11,0.7)', padding: '0.875rem 0', fontWeight: 300 }}>
                     {row.evidence}
                   </div>
                   <div style={{ fontSize: '0.8rem', lineHeight: 1.6, color: 'rgba(14,12,11,0.7)', padding: '0.875rem 0', fontWeight: 300 }}>
-                    <a href={row.sourceHref} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--black)', borderBottom: '1px solid rgba(14,12,11,0.2)', textDecoration: 'none', fontSize: '0.75rem' }}>
-                      {row.sourceLabel}
+                    <a href={row.href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--black)', borderBottom: '1px solid rgba(14,12,11,0.2)', textDecoration: 'none', fontSize: '0.75rem' }}>
+                      {row.fuente}
                     </a>
                   </div>
                 </div>
               ))}
             </div>
 
-            {article.citations.length > 0 ? (
-              <ol style={{ marginTop: '3rem', paddingLeft: '1.1rem', fontSize: '0.78rem', lineHeight: 1.6, color: 'rgba(14,12,11,0.4)', fontWeight: 300 }}>
-                {article.citations.map((citation) => (
-                  <li key={citation.href} style={{ marginTop: '0.65rem' }}>
-                    <a href={citation.href} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid rgba(14,12,11,0.16)' }}>
-                      {citation.label}
-                    </a>
-                  </li>
+            {article.faq.length > 0 ? (
+              <section style={{ marginTop: '3rem', borderTop: '1px solid rgba(14,12,11,0.1)', paddingTop: '1.5rem' }}>
+                <span style={{ display: 'block', fontSize: 8, letterSpacing: '4px', textTransform: 'uppercase', color: 'rgba(14,12,11,0.35)', marginBottom: '1.25rem', fontWeight: 300 }}>
+                  Preguntas frecuentes
+                </span>
+                {article.faq.map((item) => (
+                  <div key={item.q} style={{ borderTop: '1px solid rgba(14,12,11,0.06)', padding: '1rem 0' }}>
+                    <h2 style={{ fontSize: '0.95rem', marginBottom: '0.5rem', letterSpacing: '-0.2px', fontWeight: 600 }}>
+                      {item.q}
+                    </h2>
+                    <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: 'rgba(14,12,11,0.6)', fontWeight: 300 }}>
+                      {item.a}
+                    </p>
+                  </div>
                 ))}
-              </ol>
+              </section>
+            ) : null}
+
+            {article.references.length > 0 ? (
+              <section style={{ marginTop: '3rem', borderTop: '1px solid rgba(14,12,11,0.1)', paddingTop: '1.5rem' }}>
+                <span style={{ display: 'block', fontSize: 8, letterSpacing: '4px', textTransform: 'uppercase', color: 'rgba(14,12,11,0.35)', marginBottom: '1.25rem', fontWeight: 300 }}>
+                  REFERENCIAS
+                </span>
+                <ol style={{ paddingLeft: '1.1rem', fontSize: '0.78rem', lineHeight: 1.7, color: 'rgba(14,12,11,0.4)', fontWeight: 300 }}>
+                  {article.references.map((reference) => (
+                    <li key={reference.text} style={{ marginTop: '0.65rem' }}>
+                      {reference.href ? (
+                        <a href={reference.href} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(14,12,11,0.5)', borderBottom: '1px solid rgba(14,12,11,0.15)', textDecoration: 'none' }}>
+                          {reference.text}
+                        </a>
+                      ) : (
+                        reference.text
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              </section>
             ) : null}
           </article>
 
