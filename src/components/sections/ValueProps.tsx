@@ -59,13 +59,13 @@ export default function ValueProps() {
         }
         @media (min-width: 1024px) {
           .value-props-split {
-            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
           }
           .value-props-photo-wrap {
-            min-height: 72vh;
+            min-height: 78vh;
           }
           .value-props-photo {
-            object-position: center 44%;
+            object-position: center 40%;
           }
         }
         @media (max-width: 768px) {
@@ -73,20 +73,20 @@ export default function ValueProps() {
             grid-template-columns: 1fr;
           }
           .value-props-photo-wrap {
-            height: 48svh;
-            min-height: 20rem;
+            height: 52svh;
+            min-height: 22rem;
           }
           .value-props-photo {
-            object-position: center 42%;
+            object-position: center 36%;
           }
         }
         @media (max-width: 480px) {
           .value-props-photo-wrap {
-            height: 42svh;
-            min-height: 16rem;
+            height: 46svh;
+            min-height: 18rem;
           }
           .value-props-photo {
-            object-position: center 38%;
+            object-position: center 34%;
           }
         }
       `}</style>

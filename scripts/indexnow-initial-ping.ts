@@ -2,8 +2,7 @@
 // WHY: Sends initial URL batch so retrieval crawlers discover core pages quickly.
 // OPTIMIZES: Early citation readiness after deploy.
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { CORE_URLS, notifyIndexNow } = require('../lib/indexnow')
+import { CORE_URLS, notifyIndexNow } from '../lib/indexnow'
 
 notifyIndexNow(CORE_URLS)
   .then(() => console.log('[PIE] IndexNow initial ping sent for:', CORE_URLS))

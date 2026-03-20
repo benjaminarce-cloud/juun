@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import AuthModal from '@/components/AuthModal'
 import { useEffect, useRef, useState } from 'react'
 import { useCart } from '@/context/CartContext'
@@ -48,7 +49,7 @@ export default function Header() {
 
       <div className="header-actions header-actions-desktop">
         <AuthModal scrolled={scrolled} />
-        <a href="/ciencia" className="nav-cta">Ciencia</a>
+        <Link href="/ciencia" className="nav-cta">Ciencia</Link>
         <button className="cart-btn" onClick={openCart} aria-label={'Carrito ' + itemCount + ' items'}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
@@ -107,7 +108,7 @@ export default function Header() {
               <button type="button" onClick={handleAuthClick}>ENTRAR</button>
             </div>
             <div className="header-mobile-menu-secondary">
-              <a href="/ciencia" onClick={() => setMenuOpen(false)}>Ciencia</a>
+              <Link href="/ciencia" onClick={() => setMenuOpen(false)}>Ciencia</Link>
               <a href="#formula" onClick={(e) => { e.preventDefault(); handleNavLink('formula') }}>Fórmula</a>
               <a href="#hablan" onClick={(e) => { e.preventDefault(); handleNavLink('hablan') }}>Hablan</a>
             </div>
