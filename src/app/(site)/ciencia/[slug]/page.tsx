@@ -126,7 +126,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                     {row.dato}
                   </div>
                   <div style={{ fontSize: '0.8rem', lineHeight: 1.6, color: 'rgba(14,12,11,0.7)', padding: '0.875rem 0', fontWeight: 300 }}>
-                    {row.evidence}
+                    {row.evidencia}
                   </div>
                   <div style={{ fontSize: '0.8rem', lineHeight: 1.6, color: 'rgba(14,12,11,0.7)', padding: '0.875rem 0', fontWeight: 300 }}>
                     <a href={row.href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--black)', borderBottom: '1px solid rgba(14,12,11,0.2)', textDecoration: 'none', fontSize: '0.75rem' }}>
