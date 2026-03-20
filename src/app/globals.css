@@ -755,24 +755,18 @@ body::before {
     object-position: center 20%;
   }
   .landing-diptych {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-    align-items: end;
-    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 4px;
   }
   .landing-diptych__cell {
-    height: auto;
-  }
-  .landing-diptych__cell:first-child {
-    height: clamp(38rem, 72vh, 52rem);
-  }
-  .landing-diptych__cell:last-child {
-    height: clamp(31rem, 58vh, 42rem);
+    height: clamp(34rem, 64vh, 46rem);
   }
   .landing-diptych__image--left {
-    object-position: center 18%;
+    object-position: center 16%;
   }
   .landing-diptych__image--right {
-    object-position: center 20%;
+    object-position: center 14%;
   }
 
   .formula-hero {
@@ -839,7 +833,7 @@ body::before {
     padding: clamp(6.2rem, 19vw, 7.6rem) var(--gutter) calc(2.35rem + env(safe-area-inset-bottom));
   }
   .hero-bg-video {
-    object-position: 58% center;
+    object-position: 64% center;
   }
   .hero-content {
     max-width: 24rem;
@@ -1001,6 +995,14 @@ body::before {
   }
   .cta-title {
     font-size: clamp(2.2rem, 15vw, 4rem);
+    max-width: 8ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-sub {
+    max-width: 18rem;
+    margin-left: auto;
+    margin-right: auto;
   }
   .cta-button {
     width: min(100%, 20rem);
@@ -1029,7 +1031,7 @@ body::before {
     padding-right: 1rem;
   }
   .hero-bg-video {
-    object-position: 62% center;
+    object-position: 68% center;
   }
   .header-logo-mobile img {
     height: 68px !important;

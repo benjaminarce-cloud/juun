@@ -145,6 +145,11 @@ export default function CienciaPage() {
               }
               #science-page .science-stat-item {
                 padding: 2.75rem 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
               }
               #science-page .science-stat-item:not(:last-child) {
                 border-right: 1px solid rgba(14,12,11,0.1);
@@ -214,8 +219,9 @@ export default function CienciaPage() {
               #science-page .science-article-card--featured {
                 grid-row: span 2;
                 min-height: 36rem;
-                background: var(--linen);
+                background: #ffffff;
                 padding: clamp(2rem, 4vw, 3rem);
+                box-shadow: inset 0 0 0 1px rgba(14,12,11,0.04);
               }
               #science-page .science-article-meta {
                 display: flex;
