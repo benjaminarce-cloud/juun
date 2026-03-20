@@ -33,9 +33,9 @@ export default function ValueProps() {
         </div>
         <div className="value-props-photo-wrap">
           <img
+            className="value-props-photo"
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879236/1A7A1501_gl2s01.jpg"
             alt="JUUN lifestyle"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 50%' }}
           />
         </div>
       </div>
@@ -51,13 +51,31 @@ export default function ValueProps() {
           min-height: 60vh;
           overflow: hidden;
         }
+        .value-props-photo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 50%;
+        }
         @media (max-width: 768px) {
           .value-props-split {
             grid-template-columns: 1fr;
           }
           .value-props-photo-wrap {
-            height: 60vh;
-            min-height: 60vh;
+            height: 48svh;
+            min-height: 20rem;
+          }
+          .value-props-photo {
+            object-position: center 42%;
+          }
+        }
+        @media (max-width: 480px) {
+          .value-props-photo-wrap {
+            height: 42svh;
+            min-height: 16rem;
+          }
+          .value-props-photo {
+            object-position: center 38%;
           }
         }
       `}</style>

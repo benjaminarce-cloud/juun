@@ -29,34 +29,16 @@ export default function Hero() {
   }, [])
 
   return (
-    <section
-      style={{
-        position: 'relative',
-        minHeight: '100dvh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        padding: `0 var(--gutter) clamp(3.5rem, 8vh, 5.5rem)`,
-        overflow: 'hidden',
-        background: '#0e0c0b',
-      }}
-    >
+    <section className="hero">
       {/* ── VIDEO BACKGROUND ── */}
       <video
+        className="hero-bg-video"
         ref={videoRef}
         aria-hidden="true"
         autoPlay
         muted
         loop
         playsInline
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          objectPosition: 'center center',
-        }}
       >
         <source src="https://res.cloudinary.com/dzjcndphq/video/upload/f_webm,q_auto,vc_vp9/v1772489175/BUD_HORIZONTAL_DRINK_a0ephg.mov" type="video/webm" />
         <source src="https://res.cloudinary.com/dzjcndphq/video/upload/f_mp4,q_auto,vc_h264/v1772489175/BUD_HORIZONTAL_DRINK_a0ephg.mov" type="video/mp4" />
@@ -87,30 +69,16 @@ export default function Hero() {
         }}
       />
 
-      {/* ── CONTENT — right aligned ── */}
-      <div style={{
-        position: 'relative',
-        zIndex: 2,
-        maxWidth: '820px',
-        marginLeft: '0',
-        textAlign: 'left' as const,
-      }}>
+      {/* ── CONTENT ── */}
+      <div className="hero-content">
 
         {/* Tagline */}
-        <span style={{
-          display: 'block',
-          fontSize: '0.6rem',
-          fontWeight: 400,
-          letterSpacing: '0.25em',
-          textTransform: 'uppercase' as const,
-          color: 'rgba(252,251,240,0.4)',
-          marginBottom: '1.75rem',
-        }}>
-          ✦ Energía natural · Hecho en México
+        <span className="hero-eyebrow">
+          {copy.hero.eyebrow}
         </span>
 
         {/* Headline */}
-        <h1 style={{ lineHeight: 0.9, marginBottom: '2rem' }}>
+        <h1 className="hero-title">
           <span style={{
             display: 'block',
             fontSize: 'clamp(2.4rem, 6vw, 5.5rem)',
@@ -132,14 +100,7 @@ export default function Hero() {
         </h1>
 
         {/* CTAs */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '1rem',
-          flexWrap: 'wrap' as const,
-          marginBottom: '3rem',
-          justifyContent: 'flex-start',
-        }}>
+        <div className="hero-actions">
           <button onClick={() => scrollToId('comprar')} className="ui-btn-primary">
             {copy.hero.ctaPrimary} ✦
           </button>
@@ -147,26 +108,11 @@ export default function Hero() {
         </div>
 
         {/* Feature strip */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '1.5rem',
-          flexWrap: 'wrap' as const,
-          justifyContent: 'flex-start',
-        }}>
+        <div className="hero-strip">
           {copy.hero.strip.map((item, i) => (
-            <span key={item} style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontSize: '0.58rem',
-              fontWeight: 400,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase' as const,
-              color: 'rgba(252,251,240,0.35)',
-            }}>
+            <span key={item} className="hero-strip-item">
               {i > 0 && (
-                <span aria-hidden="true" style={{ fontSize: '0.4rem', color: 'rgba(252,251,240,0.18)' }}>
+                <span aria-hidden="true" className="hero-strip-separator">
                   ✦
                 </span>
               )}

@@ -16,32 +16,42 @@ export default function Page() {
         <SinesMarquee />
         <ValueProps />
         <PurchaseModule />
-        <section className="tab-photo-break reveal">
+        <section className="landing-photo-break landing-photo-break--track reveal">
           <img
+            className="landing-photo-break__image landing-photo-break__image--track"
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879034/1A7A2258_lpbzr1.jpg"
             alt="JUUN track session"
             loading="eager"
-            style={{ width: '100%', height: '65vh', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
           />
         </section>
         <Formula />
         <section id="hablan">
           <SocialProof />
         </section>
-        <section className="tab-photo-break reveal">
+        <section className="landing-photo-break landing-photo-break--community reveal">
           <img
+            className="landing-photo-break__image landing-photo-break__image--community"
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879033/1A7A2184_bm4koh.jpg"
             alt="JUUN community"
             loading="eager"
-            style={{ width: '100%', height: '85vh', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
           />
         </section>
-        <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px', width: '100%' }}>
-          <div style={{ overflow: 'hidden', height: '60vh' }}>
-            <img src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879163/1A7A1317_mvd47a.jpg" alt="JUUN" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
+        <section className="landing-diptych">
+          <div className="landing-diptych__cell">
+            <img
+              className="landing-diptych__image landing-diptych__image--left"
+              src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879163/1A7A1317_mvd47a.jpg"
+              alt="JUUN"
+              loading="eager"
+            />
           </div>
-          <div style={{ overflow: 'hidden', height: '60vh' }}>
-            <img src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879148/1A7A2447_pcwzk5.jpg" alt="JUUN" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
+          <div className="landing-diptych__cell">
+            <img
+              className="landing-diptych__image landing-diptych__image--right"
+              src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879148/1A7A2447_pcwzk5.jpg"
+              alt="JUUN"
+              loading="eager"
+            />
           </div>
         </section>
         <FinalCTA />

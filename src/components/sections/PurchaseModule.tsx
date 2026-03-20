@@ -47,7 +47,7 @@ export default function PurchaseModule() {
               style={{
                 position:'absolute', inset:0,
                 width:'100%', height:'100%',
-                objectFit:'cover', objectPosition:'center top',
+                objectFit:'cover',
                 opacity: flavor === key ? 1 : 0,
                 transition:'opacity 0.4s ease',
                 pointerEvents:'none',
