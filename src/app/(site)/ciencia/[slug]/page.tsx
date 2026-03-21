@@ -27,7 +27,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
     <div
       id="science-article-page"
       style={{
-        background: 'var(--linen)',
+        background: '#ffffff',
         color: 'var(--black)',
         minHeight: '100vh',
         overflow: 'visible',
