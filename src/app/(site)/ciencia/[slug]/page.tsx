@@ -317,7 +317,12 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 font-weight: 600;
               }
               #science-article-page .header:not(.scrolled) .header-logo-link img {
-                filter: none;
+                filter: brightness(0) saturate(100%);
+              }
+              #science-article-page .header:not(.scrolled) button[aria-label="Mi cuenta"] {
+                background: transparent !important;
+                color: var(--black) !important;
+                border-color: rgba(14,12,11,0.14) !important;
               }
               #science-article-page .header:not(.scrolled) .cart-btn,
               #science-article-page .header:not(.scrolled) .menu-btn {
