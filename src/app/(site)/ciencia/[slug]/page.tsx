@@ -27,13 +27,14 @@ export default async function CienciaArticlePage({ params }: PageProps) {
     <div
       id="science-article-page"
       style={{
-        background: 'linear-gradient(180deg, #171412 0px, #1d1918 clamp(38rem, 60vw, 52rem), var(--linen) clamp(38rem, 60vw, 52rem), var(--linen) 100%)',
+        background: 'linear-gradient(180deg, #171412 0px, #1d1918 clamp(44rem, 72vw, 62rem), var(--linen) clamp(44rem, 72vw, 62rem), var(--linen) 100%)',
         color: 'var(--black)',
         minHeight: '100vh',
+        overflow: 'visible',
       }}
     >
       <Header />
-      <main style={{ paddingTop: '5.5rem' }}>
+      <main style={{ paddingTop: '5.5rem', overflow: 'visible' }}>
         <style
           dangerouslySetInnerHTML={{
             __html: `
