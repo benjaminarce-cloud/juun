@@ -42,11 +42,16 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 width: min(1100px, calc(100% - clamp(2rem, 6vw, 4rem)));
                 margin: 0 auto;
               }
+              #science-article-page .science-article-hero-shell {
+                width: min(1240px, calc(100% - clamp(2rem, 6vw, 4rem)));
+                margin: 0 auto;
+              }
               #science-article-page .science-article-layout {
                 display: grid;
                 gap: clamp(3rem, 6vw, 5rem);
-                padding: clamp(4rem, 7vw, 6rem) 0;
+                padding: clamp(2.8rem, 5vw, 4.25rem) 0 clamp(4rem, 7vw, 6rem);
                 overflow: visible;
+                align-items: start;
               }
               #science-article-page .science-article-main {
                 min-width: 0;
@@ -65,12 +70,12 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 text-decoration: none;
               }
               #science-article-page .science-article-hero {
-                padding-top: clamp(1.9rem, 3vw, 2.75rem);
-                padding-bottom: clamp(3rem, 5vw, 4.75rem);
+                padding-top: clamp(3rem, 5vw, 4.4rem);
+                padding-bottom: clamp(3.6rem, 6vw, 5.25rem);
                 padding-left: clamp(1.5rem, 5vw, 4rem);
                 padding-right: clamp(1.5rem, 5vw, 4rem);
                 height: auto;
-                min-height: clamp(22rem, 34vw, 28rem);
+                min-height: clamp(20rem, 30vw, 25rem);
                 border: 1px solid rgba(245,243,236,0.12);
                 background:
                   radial-gradient(circle at top left, rgba(106,126,88,0.18), transparent 34%),
@@ -81,7 +86,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 overflow: visible;
                 isolation: isolate;
                 position: relative;
-                text-align: left;
+                text-align: center;
               }
               #science-article-page .science-article-hero::after {
                 content: '';
@@ -94,31 +99,21 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 pointer-events: none;
                 z-index: 0;
               }
-              #science-article-page .article-hero-grid {
+              #science-article-page .science-article-hero-inner {
                 display: grid;
-                grid-template-columns: minmax(0, 1fr) clamp(4rem, 8vw, 6rem);
-                gap: clamp(0.9rem, 2vw, 1.6rem);
+                gap: 0.8rem;
                 height: auto;
-                min-height: 100%;
+                max-width: 58rem;
+                margin: 0 auto;
                 overflow: visible;
-                align-items: start;
-                align-content: flex-start;
+                text-align: center;
                 position: relative;
                 z-index: 1;
-              }
-              #science-article-page .article-hero-content {
-                display: grid;
-                gap: 0.65rem;
-                height: auto;
-                max-width: 44rem;
-                overflow: visible;
-                text-align: left;
-                align-self: start;
               }
               #science-article-page .science-article-kicker-row {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: flex-start;
+                justify-content: center;
                 gap: 0.6rem 1rem;
                 margin-bottom: 0;
                 padding-bottom: 0;
@@ -134,9 +129,9 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 font-weight: 500;
               }
               #science-article-page .science-article-title {
-                max-width: 16ch;
-                margin: 0;
-                font-size: clamp(2.2rem, 4.4vw, 4rem);
+                max-width: none;
+                margin: 0 auto;
+                font-size: clamp(2.5rem, 5.4vw, 4.9rem);
                 line-height: 0.98;
                 letter-spacing: -0.05em;
                 font-weight: 700;
@@ -149,36 +144,12 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 display: block;
               }
               #science-article-page .science-article-intro {
-                max-width: 34rem;
-                margin-top: 0;
+                max-width: 40rem;
+                margin: 0 auto;
                 font-size: clamp(0.96rem, 1.3vw, 1.08rem);
                 line-height: 1.9;
                 color: rgba(245,243,236,0.68);
                 font-weight: 300;
-              }
-              #science-article-page .article-hero-aside {
-                position: relative;
-                min-height: clamp(8rem, 20vw, 14rem);
-                align-self: stretch;
-                overflow: visible;
-              }
-              #science-article-page .article-hero-aside::before {
-                content: '';
-                position: absolute;
-                top: 0.25rem;
-                bottom: 0.25rem;
-                right: 0;
-                width: 1px;
-                background: linear-gradient(180deg, rgba(252,251,240,0.16) 0%, rgba(252,251,240,0.02) 100%);
-              }
-              #science-article-page .article-hero-aside::after {
-                content: '';
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                width: clamp(3.5rem, 7vw, 5.5rem);
-                height: 1px;
-                background: rgba(252,251,240,0.16);
               }
               #science-article-page .science-prose-section,
               #science-article-page .science-data-section,
@@ -289,6 +260,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 display: grid;
                 gap: 1rem;
                 align-content: start;
+                align-self: start;
               }
               #science-article-page .science-sidebar-panel {
                 border: 1px solid rgba(14,12,11,0.1);
@@ -389,15 +361,11 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 #science-article-page .science-shell {
                   width: min(1100px, calc(100% - 3rem));
                 }
-                #science-article-page .article-hero-grid {
-                  grid-template-columns: 1fr;
-                  gap: 0;
+                #science-article-page .science-article-hero-shell {
+                  width: min(1240px, calc(100% - 3rem));
                 }
-                #science-article-page .article-hero-content {
-                  text-align: left;
-                  padding-left: 0;
-                  padding-right: 0;
-                  gap: 0.55rem;
+                #science-article-page .science-article-hero-inner {
+                  gap: 0.7rem;
                   max-width: none;
                 }
                 #science-article-page .science-article-title {
@@ -405,9 +373,6 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 }
                 #science-article-page .science-article-intro {
                   max-width: none;
-                }
-                #science-article-page .article-hero-aside {
-                  display: none;
                 }
                 #science-article-page .science-article-layout {
                   grid-template-columns: 1fr;
@@ -448,117 +413,118 @@ export default async function CienciaArticlePage({ params }: PageProps) {
           }}
         />
 
-        <div className="science-shell science-article-layout">
-          <article className="science-article-main">
+        <article>
+          <div className="science-article-hero-shell">
             <div className="science-crumb">
               <Link href="/ciencia">Ciencia</Link> / {article.title}
             </div>
 
             <header className="science-article-hero">
-              <div className="article-hero-grid">
-                <div className="article-hero-content">
-                  <div className="science-article-kicker-row">
-                    <span className="science-tag">{article.tag}</span>
-                    <span className="science-date">Publicado {article.date}</span>
-                  </div>
-                  <h1 className="science-article-title">{article.title}</h1>
-                  <p className="science-article-intro">{article.intro}</p>
+              <div className="science-article-hero-inner">
+                <div className="science-article-kicker-row">
+                  <span className="science-tag">{article.tag}</span>
+                  <span className="science-date">Publicado {article.date}</span>
                 </div>
-                <div className="article-hero-aside" aria-hidden="true" />
+                <h1 className="science-article-title">{article.title}</h1>
+                <p className="science-article-intro">{article.intro}</p>
               </div>
             </header>
+          </div>
 
-            {article.sections.map((section) => (
-              <section key={section.heading} className="science-prose-section">
-                <h2>{section.heading}</h2>
-                <p>{section.body}</p>
-              </section>
-            ))}
-
-            <section className="science-data-section">
-              <span className="science-section-eyebrow">Evidencia</span>
-              <div className="science-evidence-grid science-evidence-grid--head">
-                <div className="science-evidence-heading">Dato</div>
-                <div className="science-evidence-heading">Evidencia</div>
-                <div className="science-evidence-heading">Fuente</div>
-              </div>
-
-              {article.evidenceRows.map((row) => (
-                <div key={row.dato + row.href} className="science-evidence-grid">
-                  <div className="science-evidence-cell">
-                    <div className="science-evidence-label">Dato</div>
-                    <div className="science-evidence-text">{row.dato}</div>
-                  </div>
-                  <div className="science-evidence-cell">
-                    <div className="science-evidence-label">Evidencia</div>
-                    <div className="science-evidence-text">{row.evidencia}</div>
-                  </div>
-                  <div className="science-evidence-cell">
-                    <div className="science-evidence-label">Fuente</div>
-                    <a href={row.href} target="_blank" rel="noopener noreferrer" className="science-evidence-text science-evidence-source">
-                      {row.fuente}
-                    </a>
-                  </div>
-                </div>
+          <div className="science-shell science-article-layout">
+            <div className="science-article-main">
+              {article.sections.map((section) => (
+                <section key={section.heading} className="science-prose-section">
+                  <h2>{section.heading}</h2>
+                  <p>{section.body}</p>
+                </section>
               ))}
-            </section>
 
-            {article.faq.length > 0 ? (
-              <section className="science-faq-block">
-                <span className="science-section-eyebrow">Preguntas frecuentes</span>
-                {article.faq.map((item) => (
-                  <div key={item.q} className="science-faq-item">
-                    <h2 className="science-faq-question">{item.q}</h2>
-                    <p className="science-faq-answer">{item.a}</p>
+              <section className="science-data-section">
+                <span className="science-section-eyebrow">Evidencia</span>
+                <div className="science-evidence-grid science-evidence-grid--head">
+                  <div className="science-evidence-heading">Dato</div>
+                  <div className="science-evidence-heading">Evidencia</div>
+                  <div className="science-evidence-heading">Fuente</div>
+                </div>
+
+                {article.evidenceRows.map((row) => (
+                  <div key={row.dato + row.href} className="science-evidence-grid">
+                    <div className="science-evidence-cell">
+                      <div className="science-evidence-label">Dato</div>
+                      <div className="science-evidence-text">{row.dato}</div>
+                    </div>
+                    <div className="science-evidence-cell">
+                      <div className="science-evidence-label">Evidencia</div>
+                      <div className="science-evidence-text">{row.evidencia}</div>
+                    </div>
+                    <div className="science-evidence-cell">
+                      <div className="science-evidence-label">Fuente</div>
+                      <a href={row.href} target="_blank" rel="noopener noreferrer" className="science-evidence-text science-evidence-source">
+                        {row.fuente}
+                      </a>
+                    </div>
                   </div>
                 ))}
               </section>
-            ) : null}
 
-            {article.references.length > 0 ? (
-              <section className="science-reference-block">
-                <span className="science-section-eyebrow">Referencias</span>
-                <ol className="science-reference-list">
-                  {article.references.map((reference) => (
-                    <li key={reference.text}>
-                      {reference.href ? (
-                        <a href={reference.href} target="_blank" rel="noopener noreferrer">
-                          {reference.text}
-                        </a>
-                      ) : (
-                        reference.text
-                      )}
-                    </li>
+              {article.faq.length > 0 ? (
+                <section className="science-faq-block">
+                  <span className="science-section-eyebrow">Preguntas frecuentes</span>
+                  {article.faq.map((item) => (
+                    <div key={item.q} className="science-faq-item">
+                      <h2 className="science-faq-question">{item.q}</h2>
+                      <p className="science-faq-answer">{item.a}</p>
+                    </div>
                   ))}
-                </ol>
-              </section>
-            ) : null}
-          </article>
+                </section>
+              ) : null}
 
-          <aside className="science-sidebar">
-            <div className="science-sidebar-panel">
-              <span className="science-sidebar-heading">Artículos relacionados</span>
-              {relatedArticles.map((related) => (
-                <Link key={related.slug} href={`/ciencia/${related.slug}`} className="science-related-link">
-                  <span className="science-related-tag">{related.tag}</span>
-                  <span className="science-related-title">{related.title}</span>
+              {article.references.length > 0 ? (
+                <section className="science-reference-block">
+                  <span className="science-section-eyebrow">Referencias</span>
+                  <ol className="science-reference-list">
+                    {article.references.map((reference) => (
+                      <li key={reference.text}>
+                        {reference.href ? (
+                          <a href={reference.href} target="_blank" rel="noopener noreferrer">
+                            {reference.text}
+                          </a>
+                        ) : (
+                          reference.text
+                        )}
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ) : null}
+            </div>
+
+            <aside className="science-sidebar">
+              <div className="science-sidebar-panel">
+                <span className="science-sidebar-heading">Artículos relacionados</span>
+                {relatedArticles.map((related) => (
+                  <Link key={related.slug} href={`/ciencia/${related.slug}`} className="science-related-link">
+                    <span className="science-related-tag">{related.tag}</span>
+                    <span className="science-related-title">{related.title}</span>
+                  </Link>
+                ))}
+              </div>
+
+              <div id="comprar" className="science-sidebar-panel science-buy-card">
+                <span className="science-sidebar-heading">Fórmula</span>
+                <div className="science-buy-name">JUUN Wellness</div>
+                <p className="science-buy-copy">
+                  130mg cafeína de guaraná, 130mg L-teanina y 0g azúcar en una
+                  formulación diseñada para energía más clara.
+                </p>
+                <Link href="/comprar" className="science-buy-link">
+                  Comprar
                 </Link>
-              ))}
-            </div>
-
-            <div id="comprar" className="science-sidebar-panel science-buy-card">
-              <span className="science-sidebar-heading">Fórmula</span>
-              <div className="science-buy-name">JUUN Wellness</div>
-              <p className="science-buy-copy">
-                130mg cafeína de guaraná, 130mg L-teanina y 0g azúcar en una
-                formulación diseñada para energía más clara.
-              </p>
-              <Link href="/comprar" className="science-buy-link">
-                Comprar
-              </Link>
-            </div>
-          </aside>
-        </div>
+              </div>
+            </aside>
+          </div>
+        </article>
       </main>
     </div>
   )
