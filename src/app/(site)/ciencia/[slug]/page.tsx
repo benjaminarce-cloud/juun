@@ -33,7 +33,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
         overflow: 'visible',
       }}
     >
-      <Header />
+      <Header startOnLight />
       <main style={{ paddingTop: 'clamp(6.25rem, 10vw, 7.5rem)', overflow: 'visible' }}>
         <style
           dangerouslySetInnerHTML={{
@@ -315,51 +315,6 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 letter-spacing: 0.18em;
                 text-transform: uppercase;
                 font-weight: 600;
-              }
-              #science-article-page .header:not(.scrolled) .header-logo-link img {
-                filter: brightness(0) saturate(100%);
-              }
-              #science-article-page .header:not(.scrolled) button[aria-label="Mi cuenta"] {
-                background: transparent !important;
-                color: var(--black) !important;
-                border-color: rgba(14,12,11,0.14) !important;
-              }
-              #science-article-page .header:not(.scrolled) .cart-btn,
-              #science-article-page .header:not(.scrolled) .menu-btn {
-                color: var(--black) !important;
-                border-color: rgba(14,12,11,0.14) !important;
-              }
-              #science-article-page .header:not(.scrolled) .nav-cta {
-                background: var(--black);
-                color: var(--linen);
-                border-color: rgba(14,12,11,0.14);
-              }
-              #science-article-page .header.scrolled {
-                background: rgba(14,12,11,0.94);
-                backdrop-filter: blur(14px);
-                border-bottom: 1px solid rgba(252,251,240,0.12);
-              }
-              #science-article-page .header.scrolled .header-logo-link img {
-                filter: brightness(0) invert(1);
-              }
-              #science-article-page .header.scrolled button[aria-label="Mi cuenta"] {
-                background: transparent !important;
-                color: var(--linen) !important;
-                border-color: rgba(252,251,240,0.24) !important;
-              }
-              #science-article-page .header.scrolled .cart-btn,
-              #science-article-page .header.scrolled .menu-btn {
-                color: var(--linen) !important;
-                border-color: rgba(252,251,240,0.24) !important;
-              }
-              #science-article-page .header.scrolled .cart-badge {
-                background: var(--linen);
-                color: var(--black);
-              }
-              #science-article-page .header.scrolled .nav-cta {
-                background: transparent;
-                color: var(--linen);
-                border-color: rgba(252,251,240,0.24);
               }
               @media (min-width: 1024px) {
                 #science-article-page .science-article-layout {

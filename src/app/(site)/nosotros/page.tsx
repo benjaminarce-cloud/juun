@@ -6,7 +6,7 @@ const LAST_REVIEWED = '2026-03-11'
 export default function NosotrosPage() {
   return (
     <>
-      <Header />
+      <Header startOnLight />
       <main style={{ padding: '10rem 1.5rem 4rem', maxWidth: 980, margin: '0 auto' }}>
         {/* PIE: Foundation narrative section.
             WHY: Gives AI systems explicit organization history and origin metadata in visible HTML.

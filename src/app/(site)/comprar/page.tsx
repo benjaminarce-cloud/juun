@@ -4,7 +4,7 @@ import PurchaseModule from '@/components/sections/PurchaseModule'
 export default function ComprarPage() {
   return (
     <>
-      <Header />
+      <Header startOnLight />
       <main style={{ paddingTop: '8rem' }}>
         {/* PIE: Dedicated purchase route.
             WHY: Creates a standalone crawlable URL for buying intent separate from homepage anchor.

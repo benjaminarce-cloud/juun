@@ -4,12 +4,18 @@ import AuthModal from '@/components/AuthModal'
 import { useEffect, useRef, useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
-export default function Header() {
+type HeaderProps = {
+  startOnLight?: boolean
+}
+
+export default function Header({ startOnLight = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const authTriggerRef = useRef<HTMLDivElement | null>(null)
   const { items, openCart } = useCart()
   const itemCount = items.reduce((sum, i) => sum + i.qty, 0)
+  const headerClassName = 'header' + (startOnLight && !scrolled ? ' light-top' : '') + (scrolled ? ' scrolled' : '')
+  const logoSrc = scrolled || startOnLight ? '/logo-black.png' : '/logo-white.png'
 
   function handleAuthClick() {
     setMenuOpen(false)
@@ -38,17 +44,17 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={'header' + (scrolled ? ' scrolled' : '')}>
+    <header className={headerClassName}>
       <a href="#" aria-label="JUUN wellness" className="header-logo-link header-logo-desktop" style={{ display:'flex', alignItems:'center', textDecoration:'none' }}>
         <img
-          src={scrolled ? '/logo-black.png' : '/logo-white.png'}
+          src={logoSrc}
           alt="JUUN wellness"
           style={{ height:'88px', width:'auto', transition:'opacity 0.3s' }}
         />
       </a>
 
       <div className="header-actions header-actions-desktop">
-        <AuthModal scrolled={scrolled} />
+        <AuthModal />
         <Link href="/ciencia" className="nav-cta">Ciencia</Link>
         <button className="cart-btn" onClick={openCart} aria-label={'Carrito ' + itemCount + ' items'}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -77,7 +83,7 @@ export default function Header() {
 
         <a href="#" aria-label="JUUN wellness" className="header-logo-link header-logo-mobile" style={{ display:'flex', alignItems:'center', textDecoration:'none' }}>
           <img
-            src={scrolled ? '/logo-black.png' : '/logo-white.png'}
+            src={logoSrc}
             alt="JUUN wellness"
             style={{ height:'88px', width:'auto', transition:'opacity 0.3s' }}
           />
@@ -117,7 +123,7 @@ export default function Header() {
         </div>
       </div>
       <div ref={authTriggerRef} style={{ position:'absolute', left:'-9999px', top:'-9999px', width:'1px', height:'1px' }}>
-        <AuthModal scrolled={scrolled} />
+        <AuthModal />
       </div>
     </header>
   )

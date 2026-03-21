@@ -6,7 +6,7 @@ import { productSchema } from '@/lib/pie-content'
 export default function ProductoPage() {
   return (
     <>
-      <Header />
+      <Header startOnLight />
       <main style={{ padding: '10rem 1.5rem 4rem', maxWidth: 980, margin: '0 auto' }}>
         {/* PIE: Product schema on canonical product route.
             WHY: Repeats entity data on product-specific URL for stronger page-entity binding.

@@ -5,7 +5,7 @@ import type { User } from '@supabase/supabase-js'
 
 type Tab = 'login' | 'signup'
 
-export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) {
+export default function AuthModal() {
   const [open, setOpen]           = useState(false)
   const [tab, setTab]             = useState<Tab>('login')
   const [user, setUser]           = useState<User | null>(null)
@@ -99,9 +99,9 @@ export default function AuthModal({ scrolled = false }: { scrolled?: boolean }) 
         borderRadius:'99px', cursor:'pointer',
         transition:'background 0.3s, color 0.3s, border-color 0.3s',
         position:'relative',
-        background: scrolled ? '#fcfbf0' : 'transparent',
-        color: scrolled ? '#231f20' : '#fcfbf0',
-        border: scrolled ? '1px solid #231f20' : '1px solid rgba(252,251,240,0.25)',
+        background: 'transparent',
+        color: '#fcfbf0',
+        border: '1px solid rgba(252,251,240,0.25)',
       }}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="8" r="4"/>
