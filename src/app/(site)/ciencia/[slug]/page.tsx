@@ -34,7 +34,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
       }}
     >
       <Header />
-      <main style={{ paddingTop: '5.5rem', overflow: 'visible' }}>
+      <main style={{ paddingTop: 'clamp(6.25rem, 10vw, 7.5rem)', overflow: 'visible' }}>
         <style
           dangerouslySetInnerHTML={{
             __html: `
@@ -70,7 +70,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 text-decoration: none;
               }
               #science-article-page .science-article-hero {
-                padding-top: clamp(1.6rem, 3vw, 2.4rem);
+                padding-top: clamp(2.15rem, 4vw, 3.15rem);
                 padding-bottom: clamp(1.9rem, 4vw, 3rem);
                 padding-left: 0;
                 padding-right: 0;
@@ -333,6 +333,33 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 background: var(--black);
                 color: var(--linen);
                 border-color: rgba(14,12,11,0.14);
+              }
+              #science-article-page .header.scrolled {
+                background: rgba(14,12,11,0.94);
+                backdrop-filter: blur(14px);
+                border-bottom: 1px solid rgba(252,251,240,0.12);
+              }
+              #science-article-page .header.scrolled .header-logo-link img {
+                filter: brightness(0) invert(1);
+              }
+              #science-article-page .header.scrolled button[aria-label="Mi cuenta"] {
+                background: transparent !important;
+                color: var(--linen) !important;
+                border-color: rgba(252,251,240,0.24) !important;
+              }
+              #science-article-page .header.scrolled .cart-btn,
+              #science-article-page .header.scrolled .menu-btn {
+                color: var(--linen) !important;
+                border-color: rgba(252,251,240,0.24) !important;
+              }
+              #science-article-page .header.scrolled .cart-badge {
+                background: var(--linen);
+                color: var(--black);
+              }
+              #science-article-page .header.scrolled .nav-cta {
+                background: transparent;
+                color: var(--linen);
+                border-color: rgba(252,251,240,0.24);
               }
               @media (min-width: 1024px) {
                 #science-article-page .science-article-layout {
