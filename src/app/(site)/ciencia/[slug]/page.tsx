@@ -27,7 +27,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
     <div
       id="science-article-page"
       style={{
-        background: 'linear-gradient(180deg, #171412 0px, #1d1918 clamp(44rem, 72vw, 62rem), var(--linen) clamp(44rem, 72vw, 62rem), var(--linen) 100%)',
+        background: 'linear-gradient(180deg, #171412 0px, #1d1918 clamp(48rem, 78vw, 68rem), var(--linen) clamp(48rem, 78vw, 68rem), var(--linen) 100%)',
         color: 'var(--black)',
         minHeight: '100vh',
         overflow: 'visible',
@@ -66,7 +66,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
               }
               #science-article-page .science-article-hero {
                 padding-top: clamp(1.9rem, 3vw, 2.75rem);
-                padding-bottom: clamp(2.2rem, 4vw, 3.4rem);
+                padding-bottom: clamp(3rem, 5vw, 4.75rem);
                 padding-left: clamp(1.5rem, 5vw, 4rem);
                 padding-right: clamp(1.5rem, 5vw, 4rem);
                 height: auto;
@@ -74,7 +74,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 background:
                   radial-gradient(circle at top left, rgba(106,126,88,0.18), transparent 34%),
                   radial-gradient(circle at top right, rgba(214,184,123,0.12), transparent 30%),
-                  rgba(255,255,255,0.04);
+                  rgba(23,20,18,0.9);
                 backdrop-filter: blur(12px);
                 box-shadow: inset 0 1px 0 rgba(252,251,240,0.05), 0 30px 80px rgba(7, 6, 6, 0.18);
                 overflow: visible;
