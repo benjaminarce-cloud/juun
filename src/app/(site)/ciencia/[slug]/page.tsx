@@ -64,16 +64,30 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 text-decoration: none;
               }
               #science-article-page .science-article-hero {
-                padding: clamp(2rem, 4vw, 3rem);
-                padding-bottom: clamp(3rem, 6vw, 6rem);
+                padding-top: clamp(5rem, 8vw, 8rem);
+                padding-bottom: clamp(4rem, 8vw, 7rem);
+                padding-left: clamp(1.5rem, 5vw, 4rem);
+                padding-right: clamp(1.5rem, 5vw, 4rem);
                 height: auto;
-                min-height: clamp(320px, 40vw, 520px);
                 border: 1px solid rgba(245,243,236,0.12);
                 background:
                   radial-gradient(circle at top left, rgba(106,126,88,0.18), transparent 34%),
                   radial-gradient(circle at top right, rgba(214,184,123,0.12), transparent 30%),
                   rgba(255,255,255,0.04);
                 backdrop-filter: blur(12px);
+                overflow: visible;
+                position: relative;
+                text-align: left;
+              }
+              #science-article-page .article-hero-grid {
+                display: grid;
+                grid-template-columns: 60% 40%;
+                height: auto;
+                overflow: visible;
+                align-content: flex-start;
+              }
+              #science-article-page .article-hero-content {
+                height: auto;
                 overflow: visible;
                 text-align: left;
               }
@@ -104,6 +118,8 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 white-space: normal;
                 word-break: break-word;
                 overflow-wrap: break-word;
+                overflow: visible;
+                display: block;
               }
               #science-article-page .science-article-intro {
                 max-width: 46rem;
@@ -322,6 +338,14 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 #science-article-page .science-shell {
                   width: min(1100px, calc(100% - 3rem));
                 }
+                #science-article-page .article-hero-grid {
+                  grid-template-columns: 1fr;
+                }
+                #science-article-page .article-hero-content {
+                  text-align: left;
+                  padding-left: 1.5rem;
+                  padding-right: 1.5rem;
+                }
                 #science-article-page .science-article-layout {
                   grid-template-columns: 1fr;
                 }
@@ -362,12 +386,17 @@ export default async function CienciaArticlePage({ params }: PageProps) {
             </div>
 
             <header className="science-article-hero">
-              <div className="science-article-kicker-row">
-                <span className="science-tag">{article.tag}</span>
-                <span className="science-date">Publicado {article.date}</span>
+              <div className="article-hero-grid">
+                <div className="article-hero-content">
+                  <div className="science-article-kicker-row">
+                    <span className="science-tag">{article.tag}</span>
+                    <span className="science-date">Publicado {article.date}</span>
+                  </div>
+                  <h1 className="science-article-title">{article.title}</h1>
+                  <p className="science-article-intro">{article.intro}</p>
+                </div>
+                <div aria-hidden="true" />
               </div>
-              <h1 className="science-article-title">{article.title}</h1>
-              <p className="science-article-intro">{article.intro}</p>
             </header>
 
             {article.sections.map((section) => (
