@@ -43,7 +43,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 margin: 0 auto;
               }
               #science-article-page .science-article-hero-shell {
-                width: min(1320px, calc(100% - clamp(2rem, 6vw, 5rem)));
+                width: min(1440px, calc(100% - clamp(2rem, 7vw, 6rem)));
                 margin: 0 auto;
               }
               #science-article-page .science-article-layout {
@@ -92,7 +92,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 display: grid;
                 gap: 0.72rem;
                 height: auto;
-                max-width: 72rem;
+                max-width: 80rem;
                 margin: 0 auto;
                 overflow: visible;
                 text-align: center;
@@ -131,14 +131,6 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 overflow-wrap: break-word;
                 overflow: visible;
                 display: block;
-              }
-              #science-article-page .science-article-intro {
-                max-width: 44rem;
-                margin: 0 auto;
-                font-size: clamp(0.96rem, 1.3vw, 1.08rem);
-                line-height: 1.9;
-                color: rgba(14,12,11,0.58);
-                font-weight: 300;
               }
               #science-article-page .science-prose-section,
               #science-article-page .science-data-section,
@@ -351,16 +343,13 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                   width: min(1100px, calc(100% - 3rem));
                 }
                 #science-article-page .science-article-hero-shell {
-                  width: min(1320px, calc(100% - 3rem));
+                  width: min(1440px, calc(100% - 3rem));
                 }
                 #science-article-page .science-article-hero-inner {
                   gap: 0.65rem;
                   max-width: none;
                 }
                 #science-article-page .science-article-title {
-                  max-width: none;
-                }
-                #science-article-page .science-article-intro {
                   max-width: none;
                 }
                 #science-article-page .science-article-layout {
@@ -415,7 +404,6 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                   <span className="science-date">Publicado {article.date}</span>
                 </div>
                 <h1 className="science-article-title">{article.title}</h1>
-                <p className="science-article-intro">{article.intro}</p>
               </div>
             </header>
           </div>
