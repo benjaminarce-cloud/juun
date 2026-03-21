@@ -54,7 +54,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 text-align: left;
               }
               #science-article-page .science-crumb {
-                margin-bottom: 0.9rem;
+                margin-bottom: 0.55rem;
                 font-size: 0.52rem;
                 letter-spacing: 0.2em;
                 text-transform: uppercase;
@@ -65,8 +65,8 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 text-decoration: none;
               }
               #science-article-page .science-article-hero {
-                padding-top: clamp(2.35rem, 4vw, 3.5rem);
-                padding-bottom: clamp(2.75rem, 5vw, 4.5rem);
+                padding-top: clamp(1.9rem, 3vw, 2.75rem);
+                padding-bottom: clamp(2.2rem, 4vw, 3.4rem);
                 padding-left: clamp(1.5rem, 5vw, 4rem);
                 padding-right: clamp(1.5rem, 5vw, 4rem);
                 height: auto;
@@ -83,8 +83,8 @@ export default async function CienciaArticlePage({ params }: PageProps) {
               }
               #science-article-page .article-hero-grid {
                 display: grid;
-                grid-template-columns: minmax(0, 0.7fr) minmax(0, 0.3fr);
-                gap: clamp(1.5rem, 4vw, 3.5rem);
+                grid-template-columns: minmax(0, 1fr) clamp(4rem, 8vw, 6rem);
+                gap: clamp(0.9rem, 2vw, 1.6rem);
                 height: auto;
                 overflow: visible;
                 align-items: start;
@@ -92,9 +92,9 @@ export default async function CienciaArticlePage({ params }: PageProps) {
               }
               #science-article-page .article-hero-content {
                 display: grid;
-                gap: 0.8rem;
+                gap: 0.65rem;
                 height: auto;
-                max-width: 40rem;
+                max-width: 44rem;
                 overflow: visible;
                 text-align: left;
               }
@@ -104,8 +104,8 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 justify-content: flex-start;
                 gap: 0.6rem 1rem;
                 margin-bottom: 0;
-                padding-bottom: 0.55rem;
-                border-bottom: 1px solid rgba(252,251,240,0.12);
+                padding-bottom: 0;
+                border-bottom: none;
                 overflow: visible;
               }
               #science-article-page .science-tag,
@@ -113,11 +113,11 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 font-size: 0.5rem;
                 letter-spacing: 0.24em;
                 text-transform: uppercase;
-                color: rgba(245,243,236,0.46);
+                color: rgba(245,243,236,0.6);
                 font-weight: 500;
               }
               #science-article-page .science-article-title {
-                max-width: 14ch;
+                max-width: 16ch;
                 margin: 0;
                 font-size: clamp(2.2rem, 4.4vw, 4rem);
                 line-height: 0.98;
@@ -132,7 +132,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                 display: block;
               }
               #science-article-page .science-article-intro {
-                max-width: 31rem;
+                max-width: 34rem;
                 margin-top: 0;
                 font-size: clamp(0.96rem, 1.3vw, 1.08rem);
                 line-height: 1.9;
@@ -141,26 +141,27 @@ export default async function CienciaArticlePage({ params }: PageProps) {
               }
               #science-article-page .article-hero-aside {
                 position: relative;
-                min-height: 100%;
+                min-height: clamp(8rem, 20vw, 14rem);
+                align-self: stretch;
                 overflow: visible;
               }
               #science-article-page .article-hero-aside::before {
                 content: '';
                 position: absolute;
-                top: 0;
-                bottom: 0;
+                top: 0.25rem;
+                bottom: 0.25rem;
                 right: 0;
                 width: 1px;
-                background: linear-gradient(180deg, rgba(252,251,240,0.22) 0%, rgba(252,251,240,0.02) 100%);
+                background: linear-gradient(180deg, rgba(252,251,240,0.16) 0%, rgba(252,251,240,0.02) 100%);
               }
               #science-article-page .article-hero-aside::after {
                 content: '';
                 position: absolute;
                 right: 0;
                 bottom: 0;
-                width: clamp(5rem, 10vw, 8rem);
+                width: clamp(3.5rem, 7vw, 5.5rem);
                 height: 1px;
-                background: rgba(252,251,240,0.22);
+                background: rgba(252,251,240,0.16);
               }
               #science-article-page .science-prose-section,
               #science-article-page .science-data-section,
@@ -379,11 +380,8 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                   text-align: left;
                   padding-left: 0;
                   padding-right: 0;
-                  gap: 0.7rem;
+                  gap: 0.55rem;
                   max-width: none;
-                }
-                #science-article-page .science-article-kicker-row {
-                  padding-bottom: 0.5rem;
                 }
                 #science-article-page .science-article-title {
                   max-width: none;
@@ -401,7 +399,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
                   width: 100%;
                 }
                 #science-article-page .science-crumb {
-                  margin-bottom: 0.75rem;
+                  margin-bottom: 0.5rem;
                 }
                 #science-article-page .science-article-hero,
                 #science-article-page .science-data-section,
