@@ -14,11 +14,11 @@ export default function RevealObserver() {
     const observer =
       typeof window !== 'undefined' && 'IntersectionObserver' in window
         ? new IntersectionObserver(
-            (entries) => {
+            (entries, io) => {
               entries.forEach((e) => {
                 if (e.isIntersecting) {
                   e.target.classList.add('visible')
-                  observer.unobserve(e.target)
+                  io.unobserve(e.target)
                 }
               })
             },
