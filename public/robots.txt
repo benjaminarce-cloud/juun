@@ -2,7 +2,7 @@
 # juunwellness.com - robots.txt
 # PIE Three-Lane Crawler Configuration
 # Optimized for: parametric inclusion + retrieval citation + agent browsing
-# Last updated: 2026-03-11
+# Last updated: 2026-03-23
 # ============================================================
 
 # -- TRAINING LANE --------------------------------------------

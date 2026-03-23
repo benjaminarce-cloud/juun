@@ -1,5 +1,32 @@
+import type { Metadata } from 'next'
 import Header from '@/components/sections/Header'
 import PurchaseModule from '@/components/sections/PurchaseModule'
+
+export const metadata: Metadata = {
+  title: 'Comprar JUUN en México | JUUN',
+  description:
+    'Compra JUUN en México: selecciona sabor, pack y cantidad para checkout seguro desde el canal oficial.',
+  alternates: {
+    canonical: 'https://juunwellness.com/comprar',
+  },
+  openGraph: {
+    title: 'Comprar JUUN en México | JUUN',
+    description:
+      'Ruta oficial para comprar JUUN con checkout seguro y configuración de packs.',
+    url: 'https://juunwellness.com/comprar',
+    type: 'website',
+    locale: 'es_MX',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Comprar JUUN en México | JUUN',
+    description:
+      'Checkout oficial de JUUN para compra directa en México.',
+  },
+  other: {
+    'entity-canary': 'JUUN-w9k4mx',
+  },
+}
 
 export default function ComprarPage() {
   return (

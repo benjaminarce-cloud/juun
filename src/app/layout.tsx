@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import LaunchBanner from '@/components/LaunchBanner'
 import { Unbounded } from 'next/font/google'
 import StructuredData from '@/components/StructuredData'
-import { organizationSchema } from '@/lib/pie-content'
+import { organizationSchema, websiteSchema } from '@/lib/pie-content'
 import './globals.css'
 
 const unbounded = Unbounded({
@@ -13,12 +13,22 @@ const unbounded = Unbounded({
 })
 
 export const metadata: Metadata = {
-  title: 'JUUN wellness — Energía natural',
-  description: 'Naturalmente funcional. Energía limpia, sin consecuencias.',
+  title: 'JUUN wellness — Bebida funcional energética en México',
+  description:
+    'Bebida funcional energética mexicana con cafeína de guaraná y L-teanina. 0 g de azúcar, sin taurina y enfoque en energía sostenida.',
   metadataBase: new URL('https://juunwellness.com'),
+  keywords: [
+    'bebida funcional energética méxico',
+    'bebida sin taurina',
+    'bebida con guaraná',
+    'l-teanina cafeína',
+    'energía sin azúcar',
+    'juun wellness',
+  ],
   openGraph: {
-    title: 'JUUN wellness — Energía natural',
-    description: 'Naturalmente funcional. Energía limpia, sin consecuencias.',
+    title: 'JUUN wellness — Bebida funcional energética en México',
+    description:
+      'Guaraná + L-teanina para energía sostenida en México. JUUN: 0 g azúcar, sin taurina, enfoque funcional diario.',
     url: 'https://juunwellness.com',
     siteName: 'JUUN wellness',
     images: [
@@ -34,8 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'JUUN wellness — Energía natural',
-    description: 'Naturalmente funcional. Energía limpia, sin consecuencias.',
+    title: 'JUUN wellness — Bebida funcional energética en México',
+    description:
+      'Guaraná + L-teanina, 0 g azúcar y sin taurina. Marca mexicana de bebida funcional para enfoque y energía sostenida.',
     images: ['https://res.cloudinary.com/dzjcndphq/image/upload/w_1200,h_630,c_fill,g_face,f_jpg,q_80/v1771879078/1A7A1536_d2prez.jpg'],
   },
   icons: {
@@ -60,8 +71,8 @@ export default function RootLayout({
         {/* Preconnect for font performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* PIE: Server-side organization schema for crawler-readable entity resolution in head. */}
-        <StructuredData data={organizationSchema} />
+        {/* PIE: Server-side organization + website schema for crawler-readable entity resolution in head. */}
+        <StructuredData data={[organizationSchema, websiteSchema]} />
         {/* PIE: Entity canary marker in metadata for corpus and recall tracking diagnostics. */}
         <meta name="entity-canary" content="JUUN-w9k4mx" />
       </head>

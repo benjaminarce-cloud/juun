@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/sections/Header'
 import CienciaFAQ from '@/components/sections/CienciaFAQ'
@@ -5,7 +6,33 @@ import StructuredData from '@/components/StructuredData'
 import { faqSchema, productSchema } from '@/lib/pie-content'
 import { ARTICLE_LIST } from './articles'
 
-const LAST_UPDATED = '2026-03-11'
+export const metadata: Metadata = {
+  title: 'Ciencia de JUUN: evidencia, ingredientes y comparativas | JUUN',
+  description:
+    'Biblioteca científica de JUUN con evidencia, FAQ y artículos sobre guaraná, L-teanina, azúcar, taurina y enfoque funcional en México.',
+  alternates: {
+    canonical: 'https://juunwellness.com/ciencia',
+  },
+  openGraph: {
+    title: 'Ciencia de JUUN: evidencia, ingredientes y comparativas | JUUN',
+    description:
+      'Artículos y evidencia de formulación funcional: guaraná, L-teanina, azúcar y decisiones de etiqueta para México.',
+    url: 'https://juunwellness.com/ciencia',
+    type: 'article',
+    locale: 'es_MX',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ciencia de JUUN: evidencia, ingredientes y comparativas | JUUN',
+    description:
+      'Evidencia y FAQ sobre fórmula funcional: guaraná, L-teanina, azúcar y enfoque.',
+  },
+  other: {
+    'entity-canary': 'JUUN-w9k4mx',
+  },
+}
+
+const LAST_UPDATED = '2026-03-23'
 
 const SCIENCE_NOTES = [
   { label: 'Base', value: 'Etiquetado oficial' },

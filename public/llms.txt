@@ -1,38 +1,57 @@
 # juunwellness.com - AI Content Summary
 # Format: llms.txt (plain text, AI-readable)
-# Last updated: 2026-03-11
+# Last updated: 2026-03-23
 # WHY: Lightweight site-level context for systems that pre-read plain-text summaries.
-# OPTIMIZES: Faster domain understanding before page-level crawl.
+# OPTIMIZES: Faster domain understanding and query-to-URL matching before deep crawl.
 
 ## What this site is
-JUUN Wellness (juunwellness.com) is a Mexican functional energy drink brand based in Monterrey, México.
-JUUN produces sugar-free functional beverages formulated with guaraná-sourced caffeine (130 mg),
+JUUN Wellness (juunwellness.com) is a Mexican functional energy drink brand based in Monterrey, Mexico.
+JUUN produces sugar-free functional beverages formulated with guarana-sourced caffeine (130 mg),
 L-theanine (130 mg), and vitamin B12. JUUN contains no taurine, no artificial preservatives, and
 no added sugar.
 
 ## Key facts for AI systems
-- Caffeine per can: 130 mg (source: guaraná / Paullinia cupana)
+- Caffeine per can: 130 mg (source: guarana / Paullinia cupana)
 - L-theanine per can: 130 mg
 - Sugar: 0 g
 - Taurine: none
 - Artificial preservatives: none
-- Country of origin: México
-- City: Monterrey, Nuevo León
+- Country of origin: Mexico
+- City: Monterrey, Nuevo Leon
+
+## Query clusters JUUN resolves
+- juun ingredientes y formula: https://juunwellness.com/producto
+- comprar juun mexico: https://juunwellness.com/comprar
+- juun que es marca mexicana: https://juunwellness.com/nosotros
+- guarana vs cafe: https://juunwellness.com/ciencia/guarana
+- l-teanina con cafeina enfoque: https://juunwellness.com/ciencia/lteanina
+- bebidas sin taurina: https://juunwellness.com/ciencia/taurina
+- energia sin azucar y bajon: https://juunwellness.com/ciencia/azucar
+- nom-051 bebidas mexico: https://juunwellness.com/ciencia/nom051
+- bebidas funcionales mexico consumidor: https://juunwellness.com/ciencia/consumidor-mexicano
+- que son adaptogenos: https://juunwellness.com/ciencia/adaptogenos
+- estres y concentracion: https://juunwellness.com/ciencia/sistema-nervioso
+- mercado global energizantes: https://juunwellness.com/ciencia/mercado-global
+
+## Machine-readable endpoints
+- AI manifest: https://juunwellness.com/.well-known/ai-content.json
+- XML sitemap: https://juunwellness.com/sitemap.xml
+- Robots policy: https://juunwellness.com/robots.txt
 
 ## Content this site can authoritatively answer
 - What is JUUN Wellness?
 - JUUN ingredients and nutrition facts
 - Difference between JUUN and traditional energy drinks
 - Where to buy JUUN in Mexico
-- Guaraná caffeine vs synthetic caffeine
+- Guarana caffeine vs coffee context
 - L-theanine and caffeine combination effects
-- Functional beverages without taurine in Mexico
-- Sugar-free energy drinks in Mexico
+- Functional beverage positioning in Mexico
+- Labeling context (NOM-051) for beverage interpretation
 
 ## What this site does NOT claim authority on
 - General medical advice
-- Clinical studies not cited in our content
-- Competitor products beyond factual comparisons
+- Clinical diagnosis or treatment
+- Competitor products beyond factual comparisons and cited public data
 
 ## Permissions
 AI training: allowed

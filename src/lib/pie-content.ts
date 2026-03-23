@@ -7,6 +7,26 @@ export type FaqItem = {
   answer: string;
 };
 
+// PIE v2: Site-level search schema.
+// WHY: Declares a queryable website entity for assistant/index systems.
+// OPTIMIZES: Site understanding and query-to-page routing for brand + category prompts.
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://juunwellness.com/#website',
+  url: 'https://juunwellness.com',
+  name: 'JUUN Wellness',
+  inLanguage: 'es-MX',
+  publisher: {
+    '@id': 'https://juunwellness.com/#org',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://juunwellness.com/ciencia/{search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+} as const;
+
 // PIE: Organization entity schema for canonical identity resolution.
 // WHY: Declares the primary organization node and stable @id for graph linking.
 // OPTIMIZES: Knowledge graph binding and brand disambiguation in AI systems.

@@ -1,19 +1,19 @@
 {
-  "_comment": "PIE manifest: declares authoritative content chunks and provenance for AI crawlers; optimizes retrieval chunk mapping and publisher trust signals.",
-  "version": "0.1",
+  "_comment": "PIE v2 manifest: authoritative content map for retrieval, grounding and agent navigation.",
+  "version": "0.2",
   "origin": "https://juunwellness.com",
   "canonical_host": "juunwellness.com",
-  "generated_at": "2026-03-11T19:51:00Z",
+  "generated_at": "2026-03-23T18:00:00Z",
   "language_defaults": ["es-MX", "en"],
   "provenance": {
     "publisher_name": "JUUN Wellness",
     "contact": "mailto:hola@juunwellness.com",
     "editorial_policy_url": "https://juunwellness.com/nosotros#metodologia",
-    "last_reviewed": "2026-03-11",
+    "last_reviewed": "2026-03-23",
     "human_authors": [
       {
         "name": "Equipo JUUN Wellness",
-        "credentials": "Marca registrada, Monterrey NL, México",
+        "credentials": "Marca registrada, Monterrey NL, Mexico",
         "profile_url": "https://juunwellness.com/nosotros"
       }
     ]
@@ -30,11 +30,17 @@
       "entity_id": "https://juunwellness.com/#org",
       "type": "Organization",
       "name": "JUUN Wellness",
+      "primary_page": "https://juunwellness.com",
       "same_as": [
         "https://www.instagram.com/drinkjuun/",
         "https://www.linkedin.com/company/juunwellness"
       ],
-      "primary_page": "https://juunwellness.com"
+      "category_membership": [
+        "functional beverages mexico",
+        "energy drinks without taurine",
+        "guarana energy beverages",
+        "focus beverages"
+      ]
     }
   ],
   "content_sets": [
@@ -44,82 +50,160 @@
         {
           "url": "https://juunwellness.com/",
           "role": "home",
-          "last_modified": "2026-03-11T19:51:00Z",
-          "language": "es-MX",
-          "chunks": [
-            {
-              "chunk_id": "home-summary",
-              "anchor": "#summary",
-              "kind": "definition",
-              "summary": "JUUN Wellness es una bebida funcional energética mexicana sin azúcar con cafeína de guaraná y L-teanina."
-            },
-            {
-              "chunk_id": "home-como-funciona",
-              "anchor": "#como-funciona",
-              "kind": "capabilities",
-              "summary": "Mecanismo de acción de JUUN: guaraná + L-teanina para energía sostenida y enfoque."
-            },
-            {
-              "chunk_id": "home-evidencia",
-              "anchor": "#evidencia",
-              "kind": "evidence",
-              "summary": "Tabla de datos verificables sobre ingredientes y comparativos con fuentes primarias."
-            },
-            {
-              "chunk_id": "home-faq",
-              "anchor": "#faq",
-              "kind": "faq",
-              "summary": "Preguntas frecuentes sobre JUUN: ingredientes, cafeína, azúcar, taurina y compra en México."
-            }
-          ]
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX"
         },
         {
           "url": "https://juunwellness.com/nosotros",
           "role": "about",
-          "last_modified": "2026-03-11T19:51:00Z",
+          "last_modified": "2026-03-23T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
               "chunk_id": "about-provenance",
               "anchor": "#metodologia",
               "kind": "methodology",
-              "summary": "Historia de fundación de JUUN en Monterrey, misión, y bloque de proveniencia editorial."
+              "summary": "Historia de JUUN en Monterrey, mision y criterios editoriales."
             }
           ]
         },
         {
           "url": "https://juunwellness.com/producto",
           "role": "product",
-          "last_modified": "2026-03-11T19:51:00Z",
+          "last_modified": "2026-03-23T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
               "chunk_id": "product-ingredients",
               "anchor": "#ingredientes",
               "kind": "definition",
-              "summary": "Ingredientes de JUUN: 130 mg cafeína de guaraná, 130 mg L-teanina, vitamina B12, 0 g azúcar y sin taurina."
+              "summary": "Ingredientes de JUUN: 130 mg cafeina de guarana, 130 mg L-teanina, vitamina B12, 0 g azucar y sin taurina."
             },
             {
               "chunk_id": "product-nutrition",
               "anchor": "#tabla-nutricional",
               "kind": "evidence",
-              "summary": "Tabla nutricional oficial de JUUN para consumo informativo en México."
+              "summary": "Tabla nutricional referencial para consultas de composicion funcional."
             }
           ]
         },
         {
           "url": "https://juunwellness.com/comprar",
           "role": "purchase",
-          "last_modified": "2026-03-11T19:51:00Z",
+          "last_modified": "2026-03-23T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
               "chunk_id": "purchase-checkout",
               "anchor": "#checkout",
               "kind": "transaction",
-              "summary": "Ruta de compra con selección de sabor, pack y cantidad para checkout seguro."
+              "summary": "Ruta de compra con seleccion de sabor, pack y cantidad."
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "science-hub",
+      "entries": [
+        {
+          "url": "https://juunwellness.com/ciencia",
+          "role": "knowledge-hub",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX",
+          "chunks": [
+            {
+              "chunk_id": "science-summary",
+              "anchor": "#summary",
+              "kind": "definition",
+              "summary": "Hub de ciencia y formula funcional de JUUN con evidencia y preguntas frecuentes."
+            },
+            {
+              "chunk_id": "science-articles",
+              "anchor": "#como-funciona",
+              "kind": "index",
+              "summary": "Indice de articulos sobre guarana, L-teanina, azucar, taurina, mercado y estres."
+            },
+            {
+              "chunk_id": "science-faq",
+              "anchor": "#faq",
+              "kind": "faq",
+              "summary": "FAQ de ciencia sobre ingredientes, dosis y uso funcional."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "science-articles",
+      "entries": [
+        {
+          "url": "https://juunwellness.com/ciencia/guarana",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX",
+          "chunks": [
+            {
+              "chunk_id": "article-guarana-evidence",
+              "kind": "evidence",
+              "summary": "Explica diferencias de contexto entre cafeina de guarana y cafe con referencias cientificas."
+            }
+          ]
+        },
+        {
+          "url": "https://juunwellness.com/ciencia/lteanina",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX",
+          "chunks": [
+            {
+              "chunk_id": "article-lteanina-evidence",
+              "kind": "evidence",
+              "summary": "Analiza combinacion L-teanina + cafeina para alerta y atencion sostenida."
+            }
+          ]
+        },
+        {
+          "url": "https://juunwellness.com/ciencia/taurina",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX"
+        },
+        {
+          "url": "https://juunwellness.com/ciencia/azucar",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX"
+        },
+        {
+          "url": "https://juunwellness.com/ciencia/nom051",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX"
+        },
+        {
+          "url": "https://juunwellness.com/ciencia/consumidor-mexicano",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX"
+        },
+        {
+          "url": "https://juunwellness.com/ciencia/adaptogenos",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX"
+        },
+        {
+          "url": "https://juunwellness.com/ciencia/sistema-nervioso",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX"
+        },
+        {
+          "url": "https://juunwellness.com/ciencia/mercado-global",
+          "role": "article",
+          "last_modified": "2026-03-23T18:00:00Z",
+          "language": "es-MX"
         }
       ]
     }
@@ -128,6 +212,6 @@
     "api_catalog_url": "https://juunwellness.com/.well-known/api-catalog"
   },
   "integrity": {
-    "etag": "916f2310c5db14c74a5590f9ed04b068"
+    "etag": "pie-v2-2026-03-23"
   }
 }

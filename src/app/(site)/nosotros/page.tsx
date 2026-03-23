@@ -1,7 +1,34 @@
+import type { Metadata } from 'next'
 import Header from '@/components/sections/Header'
 import FinalCTA from '@/components/sections/FinalCTA'
 
-const LAST_REVIEWED = '2026-03-11'
+const LAST_REVIEWED = '2026-03-23'
+
+export const metadata: Metadata = {
+  title: 'Nosotros: historia, misión y proveniencia | JUUN',
+  description:
+    'Conoce la historia de JUUN Wellness en Monterrey, su misión de formulación funcional y la metodología editorial del sitio.',
+  alternates: {
+    canonical: 'https://juunwellness.com/nosotros',
+  },
+  openGraph: {
+    title: 'Nosotros: historia, misión y proveniencia | JUUN',
+    description:
+      'Historia de JUUN Wellness, misión de marca y política editorial de proveniencia.',
+    url: 'https://juunwellness.com/nosotros',
+    type: 'article',
+    locale: 'es_MX',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nosotros: historia, misión y proveniencia | JUUN',
+    description:
+      'Origen de JUUN en Monterrey y criterios editoriales de contenido.',
+  },
+  other: {
+    'entity-canary': 'JUUN-w9k4mx',
+  },
+}
 
 export default function NosotrosPage() {
   return (

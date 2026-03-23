@@ -1,6 +1,8 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Header from '@/components/sections/Header'
+import StructuredData from '@/components/StructuredData'
 import { ARTICLE_LIST, ARTICLE_SLUGS, getArticleBySlug } from '../articles'
 
 type PageProps = {
@@ -13,6 +15,70 @@ export function generateStaticParams() {
   return ARTICLE_SLUGS.map((slug) => ({ slug }))
 }
 
+function toIsoDate(spanishDate: string) {
+  const match = spanishDate.match(/^(\d{1,2}) de ([a-záéíóú]+), (\d{4})$/i)
+  if (!match) return '2026-03-11'
+
+  const day = Number(match[1])
+  const monthName = match[2].toLowerCase()
+  const year = Number(match[3])
+
+  const monthMap: Record<string, number> = {
+    enero: 1,
+    febrero: 2,
+    marzo: 3,
+    abril: 4,
+    mayo: 5,
+    junio: 6,
+    julio: 7,
+    agosto: 8,
+    septiembre: 9,
+    setiembre: 9,
+    octubre: 10,
+    noviembre: 11,
+    diciembre: 12,
+  }
+
+  const month = monthMap[monthName]
+  if (!month || !day || !year) return '2026-03-11'
+
+  return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params
+  const article = getArticleBySlug(slug)
+
+  if (!article) return {}
+
+  const pageUrl = `https://juunwellness.com/ciencia/${slug}`
+  const description =
+    article.intro.length > 160 ? `${article.intro.slice(0, 157)}...` : article.intro
+
+  return {
+    title: `${article.title} | JUUN Ciencia`,
+    description,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: `${article.title} | JUUN Ciencia`,
+      description,
+      url: pageUrl,
+      type: 'article',
+      locale: 'es_MX',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${article.title} | JUUN Ciencia`,
+      description,
+    },
+    other: {
+      'entity-canary': 'JUUN-w9k4mx',
+    },
+  }
+}
+
 export default async function CienciaArticlePage({ params }: PageProps) {
   const { slug } = await params
   const article = getArticleBySlug(slug)
@@ -22,6 +88,90 @@ export default async function CienciaArticlePage({ params }: PageProps) {
   }
 
   const relatedArticles = ARTICLE_LIST.filter((candidate) => candidate.slug !== article.slug)
+  const pageUrl = `https://juunwellness.com/ciencia/${article.slug}`
+  const publishedAt = toIsoDate(article.date)
+  const description =
+    article.intro.length > 180 ? `${article.intro.slice(0, 177)}...` : article.intro
+  const citations = Array.from(
+    new Set(
+      [...article.evidenceRows.map((row) => row.href), ...article.references.map((item) => item.href)].filter(
+        (value): value is string => Boolean(value),
+      ),
+    ),
+  )
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${pageUrl}#article`,
+    headline: article.title,
+    description,
+    inLanguage: 'es-MX',
+    datePublished: publishedAt,
+    dateModified: publishedAt,
+    mainEntityOfPage: pageUrl,
+    author: {
+      '@type': 'Organization',
+      '@id': 'https://juunwellness.com/#org',
+      name: 'JUUN Wellness',
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': 'https://juunwellness.com/#org',
+      name: 'JUUN Wellness',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://juunwellness.com/logo-black.png',
+      },
+    },
+    citation: citations,
+    keywords: [article.tag, 'JUUN Wellness', 'ciencia', 'bebida funcional', 'México'],
+  } as const
+
+  const faqSchema =
+    article.faq.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: article.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.a,
+            },
+          })),
+        }
+      : null
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Inicio',
+        item: 'https://juunwellness.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Ciencia',
+        item: 'https://juunwellness.com/ciencia',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: article.title,
+        item: pageUrl,
+      },
+    ],
+  } as const
+
+  const articleStructuredData = faqSchema
+    ? [articleSchema, faqSchema, breadcrumbSchema]
+    : [articleSchema, breadcrumbSchema]
 
   return (
     <div
@@ -34,6 +184,7 @@ export default async function CienciaArticlePage({ params }: PageProps) {
       }}
     >
       <Header startOnLight />
+      <StructuredData data={articleStructuredData} />
       <main style={{ paddingTop: 'clamp(6.25rem, 10vw, 7.5rem)', overflow: 'visible' }}>
         <style
           dangerouslySetInnerHTML={{

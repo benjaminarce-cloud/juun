@@ -1,22 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- PIE: XML sitemap for deterministic URL discovery.
+<!-- PIE v2: XML sitemap for deterministic URL discovery.
      WHY: Gives crawlers an authoritative route set and last-modified signals.
-     OPTIMIZES: Crawl coverage and update latency for core pages. -->
+     OPTIMIZES: Crawl coverage and update latency for science + commerce pages. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://juunwellness.com/</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-03-23</lastmod>
   </url>
   <url>
     <loc>https://juunwellness.com/nosotros</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-03-23</lastmod>
   </url>
   <url>
     <loc>https://juunwellness.com/producto</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-03-23</lastmod>
   </url>
   <url>
     <loc>https://juunwellness.com/comprar</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/guarana</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/lteanina</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/taurina</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/azucar</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/nom051</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/consumidor-mexicano</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/adaptogenos</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/sistema-nervioso</loc>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://juunwellness.com/ciencia/mercado-global</loc>
+    <lastmod>2026-03-23</lastmod>
   </url>
 </urlset>

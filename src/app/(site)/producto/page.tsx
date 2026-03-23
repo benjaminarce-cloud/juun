@@ -1,7 +1,34 @@
+import type { Metadata } from 'next'
 import Header from '@/components/sections/Header'
 import FinalCTA from '@/components/sections/FinalCTA'
 import StructuredData from '@/components/StructuredData'
 import { productSchema } from '@/lib/pie-content'
+
+export const metadata: Metadata = {
+  title: 'Producto JUUN: ingredientes, nutrición y fórmula | JUUN',
+  description:
+    'Ingredientes funcionales de JUUN: 130 mg cafeína de guaraná, 130 mg L-teanina, vitamina B12, 0 g azúcar y sin taurina.',
+  alternates: {
+    canonical: 'https://juunwellness.com/producto',
+  },
+  openGraph: {
+    title: 'Producto JUUN: ingredientes, nutrición y fórmula | JUUN',
+    description:
+      'Ficha de producto de JUUN con ingredientes y tabla nutricional referencial para México.',
+    url: 'https://juunwellness.com/producto',
+    type: 'article',
+    locale: 'es_MX',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Producto JUUN: ingredientes, nutrición y fórmula | JUUN',
+    description:
+      'Ficha técnica de JUUN: guaraná, L-teanina, 0 g azúcar y sin taurina.',
+  },
+  other: {
+    'entity-canary': 'JUUN-w9k4mx',
+  },
+}
 
 export default function ProductoPage() {
   return (
