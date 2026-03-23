@@ -5,6 +5,56 @@ import { faqItems } from '@/lib/pie-content'
 
 export default function CienciaFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [showAll, setShowAll] = useState(false)
+
+  const renderFaqItem = (
+    item: (typeof faqItems)[number],
+    index: number
+  ) => {
+    const isOpen = openIndex === index
+    const panelId = `science-faq-panel-${index}`
+
+    return (
+      <article
+        key={item.question}
+        className={`science-faq-item${isOpen ? ' open' : ''}`}
+        itemScope
+        itemType="https://schema.org/Question"
+      >
+        <button
+          type="button"
+          className="science-faq-trigger"
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          onClick={() => setOpenIndex((current) => (current === index ? null : index))}
+        >
+          <span itemProp="name" className="science-faq-question">
+            {item.question}
+          </span>
+          <span aria-hidden="true" className="science-faq-icon">
+            +
+          </span>
+        </button>
+        <div
+          id={panelId}
+          className="science-faq-panel"
+          itemScope
+          itemProp="acceptedAnswer"
+          itemType="https://schema.org/Answer"
+          style={{
+            maxHeight: isOpen ? 420 : 0,
+            opacity: isOpen ? 1 : 0,
+          }}
+        >
+          <div className="science-faq-answer-wrap">
+            <p itemProp="text" className="science-faq-answer">
+              {item.answer}
+            </p>
+          </div>
+        </div>
+      </article>
+    )
+  }
 
   return (
     <section id="faq" aria-labelledby="faq-title" className="science-faq-section">
@@ -138,51 +188,44 @@ export default function CienciaFAQ() {
         </div>
 
         <div className="science-faq-list">
-          {faqItems.map((item, index) => {
-            const isOpen = openIndex === index
-            const panelId = `science-faq-panel-${index}`
+          {faqItems.slice(0, 3).map((item, index) => renderFaqItem(item, index))}
 
-            return (
-              <article
-                key={item.question}
-                className={`science-faq-item${isOpen ? ' open' : ''}`}
-                itemScope
-                itemType="https://schema.org/Question"
+          {faqItems.length > 3 && (
+            <>
+              <div
+                style={{
+                  overflow: 'hidden',
+                  transition: 'max-height 0.4s ease',
+                  maxHeight: showAll ? 2000 : 0,
+                }}
               >
-                <button
-                  type="button"
-                  className="science-faq-trigger"
-                  aria-expanded={isOpen}
-                  aria-controls={panelId}
-                  onClick={() => setOpenIndex((current) => (current === index ? null : index))}
-                >
-                  <span itemProp="name" className="science-faq-question">
-                    {item.question}
-                  </span>
-                  <span aria-hidden="true" className="science-faq-icon">
-                    +
-                  </span>
-                </button>
-                <div
-                  id={panelId}
-                  className="science-faq-panel"
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
-                  style={{
-                    maxHeight: isOpen ? 420 : 0,
-                    opacity: isOpen ? 1 : 0,
-                  }}
-                >
-                  <div className="science-faq-answer-wrap">
-                    <p itemProp="text" className="science-faq-answer">
-                      {item.answer}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            )
-          })}
+                {faqItems
+                  .slice(3)
+                  .map((item, index) => renderFaqItem(item, index + 3))}
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowAll((current) => !current)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  borderBottom: '1px solid rgba(14,12,11,0.25)',
+                  padding: '0 0 2px',
+                  fontFamily: "'Unbounded', sans-serif",
+                  fontWeight: 600,
+                  fontSize: '9px',
+                  letterSpacing: '2px',
+                  color: 'var(--black)',
+                  cursor: 'pointer',
+                  display: 'inline-block',
+                  marginTop: '1.5rem',
+                  textDecoration: 'none',
+                }}
+              >
+                {showAll ? 'Ver menos ↑' : 'Ver más preguntas →'}
+              </button>
+            </>
+          )}
         </div>
       </div>
     </section>
