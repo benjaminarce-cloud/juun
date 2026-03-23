@@ -30,7 +30,7 @@ export default function Page() {
         </section>
         <section className="landing-photo-break landing-photo-break--community reveal">
           <img
-            className="landing-photo-break__image landing-photo-break__image--community"
+            className="landing-photo-break__image landing-photo-break__image--community sunglasses-photo"
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879033/1A7A2184_bm4koh.jpg"
             alt="JUUN community"
             loading="eager"
@@ -57,6 +57,13 @@ export default function Page() {
         </section>
         <FinalCTA />
       </main>
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .sunglasses-photo {
+            object-position: right center !important;
+          }
+        }
+      `}</style>
     </>
   )
 }

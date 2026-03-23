@@ -121,6 +121,13 @@ export default function Hero() {
           ))}
         </div>
       </div>
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .hero .hero-bg-video {
+            object-position: center center;
+          }
+        }
+      `}</style>
     </section>
   )
 }
