@@ -61,7 +61,7 @@ export default function Page() {
       <style>{`
         @media (max-width: 768px) {
           .sunglasses-photo {
-            object-position: left center !important;
+            object-position: 20% center !important;
           }
         }
       `}</style>
