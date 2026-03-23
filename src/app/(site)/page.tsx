@@ -34,6 +34,7 @@ export default function Page() {
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879033/1A7A2184_bm4koh.jpg"
             alt="JUUN community"
             loading="eager"
+            style={{ height: '100vh', objectPosition: 'center 20%' }}
           />
         </section>
         <section className="landing-diptych">
