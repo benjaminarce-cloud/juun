@@ -57,7 +57,7 @@ export default function Page() {
         </section>
         <FinalCTA />
       </main>
-      <style jsx global>{`
+      <style>{`
         @media (max-width: 768px) {
           .sunglasses-photo {
             object-position: right center !important;
