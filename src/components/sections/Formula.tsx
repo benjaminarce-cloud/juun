@@ -10,7 +10,7 @@ export default function Formula() {
     { name: 'Prebióticos · 1B UFC', note: 'Promueve el crecimiento y equilibrio de microbiota.' },
     { name: 'Vitamina D, complejo B y C', note: 'El complejo que el cuerpo usa de verdad.' },
     { name: 'Saborizantes naturales', note: 'Nada artificial. El sabor viene de ingredientes reales.' },
-    { name: 'Alulosa + Stevia', note: 'Dulzura limpia con un perfil más balanceado.' },
+    { name: 'Alulosa + Monkfruit', note: 'Dulzura limpia con un perfil más balanceado.' },
   ]
 
   return (

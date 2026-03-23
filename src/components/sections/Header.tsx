@@ -58,9 +58,10 @@ export default function Header({ startOnLight = false }: HeaderProps) {
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60)
+    handler()
     window.addEventListener('scroll', handler, { passive: true })
     return () => window.removeEventListener('scroll', handler)
-  }, [])
+  }, [pathname])
 
   useEffect(() => {
     const closeOnDesktop = () => {

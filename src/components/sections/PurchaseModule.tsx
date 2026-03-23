@@ -12,6 +12,12 @@ const FLAVORS = {
 type FlavorKey = keyof typeof FLAVORS
 type Pack = '6' | '12' | '24'
 
+const PACK_OPTIONS: Array<{ key: Pack; note: string; disabled?: boolean }> = [
+  { key: '6', note: 'Más popular' },
+  { key: '12', note: 'Mejor valor', disabled: true },
+  { key: '24', note: 'El ritual', disabled: true },
+]
+
 export default function PurchaseModule() {
   const [flavor, setFlavor] = useState<FlavorKey>('frambuesa')
   const [pack,   setPack]   = useState<Pack>('6')
@@ -84,16 +90,20 @@ export default function PurchaseModule() {
           <div className="config-group">
             <span className="config-label">Pack</span>
             <div className="pack-pills">
-              {(['6', '12', '24'] as Pack[]).map((p) => (
+              {PACK_OPTIONS.map(({ key, note, disabled }) => (
                 <button
-                  key={p}
-                  className={'pack-pill' + (pack === p ? ' active' : '')}
-                  onClick={() => setPack(p)}
+                  key={key}
+                  className={'pack-pill' + (pack === key && !disabled ? ' active' : '')}
+                  onClick={() => {
+                    if (disabled) return
+                    setPack(key)
+                  }}
+                  disabled={disabled}
+                  aria-disabled={disabled}
+                  style={disabled ? { pointerEvents: 'none', opacity: 0.3 } : undefined}
                 >
-                  {p + ' Pack'}
-                  <span className="pack-note">
-                    {p === '6' ? 'Más popular' : p === '12' ? 'Mejor valor' : 'El ritual'}
-                  </span>
+                  {key + ' Pack'}
+                  <span className="pack-note">{note}</span>
                 </button>
               ))}
             </div>
