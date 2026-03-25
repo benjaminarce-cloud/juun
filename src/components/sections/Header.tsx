@@ -142,7 +142,7 @@ export default function Header({ startOnLight = false }: HeaderProps) {
         <div className="header-mobile-menu-inner">
           <div className="header-mobile-menu-top">
             <Link href="/" onClick={handleLogoClick} aria-label="Ir al inicio" style={{ display:'flex', alignItems:'center', textDecoration:'none' }}>
-              <img src="/logo-white.png" alt="JUUN wellness" style={{ height:'44px', width:'auto' }} />
+              <img src="/logo-white.png" alt="JUUN wellness" style={{ height:'56px', width:'auto' }} />
             </Link>
             <button className="header-mobile-menu-close" aria-label="Cerrar menú" onClick={() => setMenuOpen(false)}>✕</button>
           </div>
