@@ -149,9 +149,9 @@ export default function Header({ startOnLight = false }: HeaderProps) {
           <div className="header-mobile-menu-mid">
             <div className="header-mobile-menu-primary">
               <button type="button" onClick={() => handleSectionLink('comprar')}>Comprar</button>
-              <Link href="/ciencia" onClick={() => setMenuOpen(false)}>Ciencia</Link>
             </div>
             <div className="header-mobile-menu-secondary">
+              <Link href="/ciencia" onClick={() => setMenuOpen(false)}>Ciencia</Link>
               <button type="button" onClick={() => handleSectionLink('formula')}>Fórmula</button>
               <button type="button" onClick={() => handleSectionLink('hablan')}>Hablan</button>
               <button type="button" onClick={handleAuthClick}>Entrar</button>
