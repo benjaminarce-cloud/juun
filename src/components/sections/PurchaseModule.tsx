@@ -12,10 +12,16 @@ const FLAVORS = {
 type FlavorKey = keyof typeof FLAVORS
 type Pack = '6' | '12' | '24'
 
-const PACK_OPTIONS: Array<{ key: Pack; note: string; disabled?: boolean }> = [
-  { key: '6', note: 'Más popular' },
-  { key: '12', note: 'Mejor valor', disabled: true },
-  { key: '24', note: 'El ritual', disabled: true },
+const PACK_OPTIONS: Array<{
+  key: Pack
+  note: string
+  price: string
+  shippingLabel: string
+  freeShipping?: boolean
+}> = [
+  { key: '6', note: 'Más popular', price: '$240.00 MXN', shippingLabel: 'Envío: $109.99 MXN' },
+  { key: '12', note: 'Mejor valor', price: '$436.99 MXN', shippingLabel: 'Envío: $149.99 MXN' },
+  { key: '24', note: 'El ritual', price: '$998.99 MXN', shippingLabel: 'Envío: Gratis', freeShipping: true },
 ]
 
 export default function PurchaseModule() {
@@ -25,6 +31,7 @@ export default function PurchaseModule() {
   const { add } = useCart()
 
   const f = FLAVORS[flavor]
+  const selectedPack = PACK_OPTIONS.find(({ key }) => key === pack) ?? PACK_OPTIONS[0]
 
   const cssVars = {
     '--f-from': f.from,
@@ -34,7 +41,7 @@ export default function PurchaseModule() {
   } as React.CSSProperties
 
   const packLabel = pack + ' Pack'
-  const summary = packLabel + ' · ' + f.label + ' · Qty ' + qty + ' · Precio y envío en el checkout.'
+  const summary = packLabel + ' · ' + f.label + ' · Cantidad ' + qty
 
   function handleAdd() {
     add({ flavorKey: flavor, flavorLabel: f.label, packKey: pack, qty })
@@ -90,19 +97,35 @@ export default function PurchaseModule() {
           <div className="config-group">
             <span className="config-label">Pack</span>
             <div className="pack-pills">
-              {PACK_OPTIONS.map(({ key, note, disabled }) => (
+              {PACK_OPTIONS.map(({ key, note, freeShipping }) => (
                 <button
                   key={key}
-                  className={'pack-pill' + (pack === key && !disabled ? ' active' : '')}
-                  onClick={() => {
-                    if (disabled) return
-                    setPack(key)
-                  }}
-                  disabled={disabled}
-                  aria-disabled={disabled}
-                  style={disabled ? { pointerEvents: 'none', opacity: 0.3 } : undefined}
+                  className={'pack-pill' + (pack === key ? ' active' : '')}
+                  onClick={() => setPack(key)}
                 >
-                  {key + ' Pack'}
+                  <span>
+                    {key}
+                    {freeShipping ? (
+                      <span
+                        style={{
+                          display: 'inline-block',
+                          background: 'var(--black)',
+                          color: 'var(--linen)',
+                          fontSize: '7px',
+                          letterSpacing: '2px',
+                          padding: '2px 6px',
+                          borderRadius: '2px',
+                          fontFamily: 'Unbounded',
+                          fontWeight: 300,
+                          marginLeft: '6px',
+                          verticalAlign: 'middle',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        ENVÍO GRATIS
+                      </span>
+                    ) : null}
+                  </span>
                   <span className="pack-note">{note}</span>
                 </button>
               ))}
@@ -120,6 +143,55 @@ export default function PurchaseModule() {
 
           <div>
             <p className="config-summary">{summary}</p>
+            <div style={{ marginTop: '1rem' }}>
+              <div
+                style={{
+                  fontFamily: 'Unbounded',
+                  fontWeight: 300,
+                  fontSize: 'clamp(24px, 4vw, 34px)',
+                  letterSpacing: '-0.04em',
+                  color: 'var(--black)',
+                }}
+              >
+                {selectedPack.price}
+              </div>
+              <div
+                style={{
+                  fontFamily: 'Unbounded',
+                  fontWeight: 300,
+                  fontSize: '10px',
+                  letterSpacing: '1px',
+                  color: selectedPack.freeShipping ? 'var(--black)' : 'rgba(14,12,11,0.5)',
+                  marginTop: '0.5rem',
+                }}
+              >
+                {selectedPack.shippingLabel}
+              </div>
+              <div
+                style={{
+                  fontFamily: 'Unbounded',
+                  fontWeight: 300,
+                  fontSize: '9px',
+                  color: 'rgba(14,12,11,0.35)',
+                  letterSpacing: '1px',
+                  marginTop: '0.25rem',
+                }}
+              >
+                Precios incluyen IVA
+              </div>
+              <div
+                style={{
+                  fontFamily: 'Unbounded',
+                  fontWeight: 300,
+                  fontSize: '9px',
+                  color: 'rgba(14,12,11,0.35)',
+                  letterSpacing: '1px',
+                  marginTop: '0.25rem',
+                }}
+              >
+                Envíos a Monterrey y Mexicali
+              </div>
+            </div>
             <button className="btn-buy" onClick={handleAdd}>
               Agregar al carrito
             </button>

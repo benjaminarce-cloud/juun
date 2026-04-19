@@ -9,6 +9,8 @@ export default function Formula() {
     { name: 'Cafeína de guaraná · 130 mg', note: 'Aumenta la energía, alerta y concentración mental, de manera natural.' },
     { name: 'Prebióticos · 1B UFC', note: 'Promueve el crecimiento y equilibrio de microbiota.' },
     { name: 'Vitamina D, complejo B y C', note: 'El complejo que el cuerpo usa de verdad.' },
+    { name: 'Potasio', note: 'Electrolito esencial para la función muscular y nerviosa. Apoya la contracción muscular y el balance de fluidos durante la actividad física.' },
+    { name: 'Magnesio', note: 'Mineral clave en más de 300 reacciones enzimáticas. Contribuye a la función muscular normal, la reducción del cansancio y el metabolismo energético.' },
     { name: 'Saborizantes naturales', note: 'Nada artificial. El sabor viene de ingredientes reales.' },
     { name: 'Alulosa + Monkfruit', note: 'Dulzura limpia con un perfil más balanceado.' },
   ]
@@ -36,7 +38,7 @@ export default function Formula() {
                   <div
                     className={'formula-note-wrap' + (openIndex === idx ? ' open' : '')}
                     style={{
-                      maxHeight: openIndex === idx ? '120px' : '0',
+                      maxHeight: openIndex === idx ? '180px' : '0',
                       overflow: 'hidden',
                       opacity: openIndex === idx ? 1 : 0,
                       transition: 'max-height 0.35s ease, opacity 0.25s ease',
