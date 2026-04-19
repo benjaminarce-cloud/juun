@@ -97,7 +97,7 @@ export default function PurchaseModule() {
           <div className="config-group">
             <span className="config-label">Pack</span>
             <div className="pack-pills">
-              {PACK_OPTIONS.map(({ key, note, freeShipping }) => (
+              {PACK_OPTIONS.map(({ key, note }) => (
                 <button
                   key={key}
                   className={'pack-pill' + (pack === key ? ' active' : '')}
@@ -105,24 +105,20 @@ export default function PurchaseModule() {
                 >
                   <span>
                     {key}
-                    {freeShipping ? (
+                    {key === '24' ? (
                       <span
                         style={{
-                          display: 'inline-block',
-                          background: 'var(--black)',
-                          color: 'var(--linen)',
-                          fontSize: '7px',
-                          letterSpacing: '2px',
-                          padding: '2px 6px',
-                          borderRadius: '2px',
-                          fontFamily: 'Unbounded',
+                          display: 'block',
+                          fontSize: '8px',
+                          letterSpacing: '1px',
                           fontWeight: 300,
-                          marginLeft: '6px',
-                          verticalAlign: 'middle',
+                          marginTop: '3px',
+                          opacity: pack === '24' ? 1 : 0.45,
+                          color: pack === '24' ? 'inherit' : 'rgba(14,12,11,0.5)',
                           whiteSpace: 'nowrap',
                         }}
                       >
-                        ENVÍO GRATIS
+                        envío gratis
                       </span>
                     ) : null}
                   </span>

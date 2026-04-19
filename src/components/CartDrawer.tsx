@@ -7,6 +7,15 @@ const PACK_LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '12'
 
 export default function CartDrawer() {
   const { items, remove, clear, isOpen, closeCart, total } = useCart()
+  const totalUnitCount = items.reduce((sum, item) => sum + Number(item.packKey) * item.qty, 0)
+
+  const shippingSummary = totalUnitCount === 24
+    ? { label: 'Envío: Gratis', color: 'var(--black)' }
+    : totalUnitCount === 12
+      ? { label: 'Envío: $149.99 MXN', color: 'rgba(14,12,11,0.6)' }
+      : totalUnitCount === 6
+        ? { label: 'Envío: $109.99 MXN', color: 'rgba(14,12,11,0.6)' }
+        : { label: 'Envío: calculado al finalizar', color: 'rgba(14,12,11,0.6)' }
 
   async function handleCheckout() {
     const res = await fetch('/api/checkout', {
@@ -69,6 +78,43 @@ export default function CartDrawer() {
               <div className="cart-total">
                 <span>Total</span>
                 <span>${total.toLocaleString('es-MX')} MXN</span>
+              </div>
+              <div>
+                <div
+                  style={{
+                    fontFamily: 'Unbounded',
+                    fontWeight: 300,
+                    fontSize: '11px',
+                    letterSpacing: '1px',
+                    color: shippingSummary.color,
+                  }}
+                >
+                  {shippingSummary.label}
+                </div>
+                <div
+                  style={{
+                    fontFamily: 'Unbounded',
+                    fontWeight: 300,
+                    fontSize: '9px',
+                    color: 'rgba(14,12,11,0.35)',
+                    letterSpacing: '1px',
+                    marginTop: '0.25rem',
+                  }}
+                >
+                  Precios incluyen IVA
+                </div>
+                <div
+                  style={{
+                    fontFamily: 'Unbounded',
+                    fontWeight: 300,
+                    fontSize: '9px',
+                    color: 'rgba(14,12,11,0.35)',
+                    letterSpacing: '1px',
+                    marginTop: '0.25rem',
+                  }}
+                >
+                  Envíos a Monterrey y Mexicali
+                </div>
               </div>
               <button className="btn-checkout" onClick={handleCheckout}>
                 Proceder al checkout
