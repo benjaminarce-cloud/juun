@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
-const PRICES: Record<string, number> = { '1': 8900, '6': 47900, '12': 89900 }
-const LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '12': '12 Pack' }
+const PRICES: Record<string, number> = { '1': 8900, '6': 24000, '12': 43699, '24': 99899 }
+const LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '12': '12 Pack', '24': '24 Pack' }
 
 export async function POST(req: NextRequest) {
   const secretKey = process.env.STRIPE_SECRET_KEY

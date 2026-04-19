@@ -16,12 +16,10 @@ const PACK_OPTIONS: Array<{
   key: Pack
   note: string
   price: string
-  shippingLabel: string
-  freeShipping?: boolean
 }> = [
-  { key: '6', note: 'Más popular', price: '$240.00 MXN', shippingLabel: 'Envío: $109.99 MXN' },
-  { key: '12', note: 'Mejor valor', price: '$436.99 MXN', shippingLabel: 'Envío: $149.99 MXN' },
-  { key: '24', note: 'El ritual', price: '$998.99 MXN', shippingLabel: 'Envío: Gratis', freeShipping: true },
+  { key: '6', note: 'Más popular', price: '$240.00 MXN' },
+  { key: '12', note: 'Mejor valor', price: '$436.99 MXN' },
+  { key: '24', note: 'El ritual', price: '$998.99 MXN' },
 ]
 
 export default function PurchaseModule() {
@@ -95,6 +93,34 @@ export default function PurchaseModule() {
           </div>
 
           <div className="config-group">
+            <div
+              style={{
+                width: '100%',
+                background: 'var(--black)',
+                padding: '10px 16px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                marginBottom: '1rem',
+                marginTop: '0.5rem',
+              }}
+            >
+              <span style={{ color: 'rgba(245,243,236,0.4)', fontSize: '8px' }}>✦</span>
+              <span
+                style={{
+                  fontFamily: 'Unbounded',
+                  fontWeight: 300,
+                  fontSize: '9px',
+                  letterSpacing: '3px',
+                  color: 'rgba(245,243,236,0.7)',
+                  textTransform: 'uppercase',
+                }}
+              >
+                24 latas · envío gratis · el mejor valor
+              </span>
+              <span style={{ color: 'rgba(245,243,236,0.4)', fontSize: '8px' }}>✦</span>
+            </div>
             <span className="config-label">Pack</span>
             <div className="pack-pills">
               {PACK_OPTIONS.map(({ key, note }) => (
@@ -150,42 +176,6 @@ export default function PurchaseModule() {
                 }}
               >
                 {selectedPack.price}
-              </div>
-              <div
-                style={{
-                  fontFamily: 'Unbounded',
-                  fontWeight: 300,
-                  fontSize: '10px',
-                  letterSpacing: '1px',
-                  color: selectedPack.freeShipping ? 'var(--black)' : 'rgba(14,12,11,0.5)',
-                  marginTop: '0.5rem',
-                }}
-              >
-                {selectedPack.shippingLabel}
-              </div>
-              <div
-                style={{
-                  fontFamily: 'Unbounded',
-                  fontWeight: 300,
-                  fontSize: '9px',
-                  color: 'rgba(14,12,11,0.35)',
-                  letterSpacing: '1px',
-                  marginTop: '0.25rem',
-                }}
-              >
-                Precios incluyen IVA
-              </div>
-              <div
-                style={{
-                  fontFamily: 'Unbounded',
-                  fontWeight: 300,
-                  fontSize: '9px',
-                  color: 'rgba(14,12,11,0.35)',
-                  letterSpacing: '1px',
-                  marginTop: '0.25rem',
-                }}
-              >
-                Envíos a Monterrey y Mexicali
               </div>
             </div>
             <button className="btn-buy" onClick={handleAdd}>

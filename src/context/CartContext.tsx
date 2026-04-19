@@ -22,7 +22,7 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | null>(null)
 
-const PACK_PRICES: Record<string, number> = { '1': 89, '6': 479, '12': 899 }
+const PACK_PRICES: Record<string, number> = { '1': 89, '6': 240, '12': 436.99, '24': 998.99 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items,  setItems]  = useState<CartItem[]>([])
