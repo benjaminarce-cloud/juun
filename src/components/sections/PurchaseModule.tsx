@@ -10,16 +10,15 @@ const FLAVORS = {
 } as const
 
 type FlavorKey = keyof typeof FLAVORS
-type Pack = '6' | '12' | '24'
+type Pack = '6' | '18' | '24'
 
 const PACK_OPTIONS: Array<{
   key: Pack
-  note: string
   price: string
 }> = [
-  { key: '6', note: 'Más popular', price: '$240.00 MXN' },
-  { key: '12', note: 'Mejor valor', price: '$436.99 MXN' },
-  { key: '24', note: 'El ritual', price: '$998.99 MXN' },
+  { key: '6', price: '$240.00 MXN' },
+  { key: '18', price: '$649.99 MXN' },
+  { key: '24', price: '$799.99 MXN' },
 ]
 
 export default function PurchaseModule() {
@@ -117,13 +116,12 @@ export default function PurchaseModule() {
                   textTransform: 'uppercase',
                 }}
               >
-                24 latas · envío gratis · el mejor valor
+                ✦ 24 LATAS · MEJOR VALOR · MÁXIMO AHORRO ✦
               </span>
-              <span style={{ color: 'rgba(245,243,236,0.4)', fontSize: '8px' }}>✦</span>
             </div>
             <span className="config-label">Pack</span>
             <div className="pack-pills">
-              {PACK_OPTIONS.map(({ key, note }) => (
+              {PACK_OPTIONS.map(({ key }) => (
                 <button
                   key={key}
                   className={'pack-pill' + (pack === key ? ' active' : '')}
@@ -131,24 +129,22 @@ export default function PurchaseModule() {
                 >
                   <span>
                     {key}
-                    {key === '24' ? (
+                    {key === '18' || key === '24' ? (
                       <span
                         style={{
                           display: 'block',
-                          fontSize: '8px',
-                          letterSpacing: '1px',
-                          fontWeight: 300,
+                          fontSize: '7px',
+                          letterSpacing: '2px',
+                          fontWeight: 600,
                           marginTop: '3px',
-                          opacity: pack === '24' ? 1 : 0.45,
-                          color: pack === '24' ? 'inherit' : 'rgba(14,12,11,0.5)',
+                          color: pack === key ? 'var(--linen)' : 'rgba(14,12,11,0.5)',
                           whiteSpace: 'nowrap',
                         }}
                       >
-                        envío gratis
+                        {key === '18' ? '15% OFF' : '20% OFF'}
                       </span>
                     ) : null}
                   </span>
-                  <span className="pack-note">{note}</span>
                 </button>
               ))}
             </div>

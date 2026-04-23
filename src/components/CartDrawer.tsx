@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
-const PACK_PRICES: Record<string, number> = { '1': 89, '6': 240, '12': 436.99, '24': 998.99 }
-const PACK_LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '12': '12 Pack', '24': '24 Pack' }
+const PACK_PRICES: Record<string, number> = { '1': 89, '6': 240, '18': 649.99, '24': 799.99 }
+const PACK_LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '18': '18 Pack', '24': '24 Pack' }
 
 export default function CartDrawer() {
   const { items, remove, clear, isOpen, closeCart, total } = useCart()
@@ -13,11 +13,11 @@ export default function CartDrawer() {
   const totalUnitCount = items.reduce((sum, item) => sum + Number(item.packKey) * item.qty, 0)
 
   const shippingSummary = totalUnitCount === 24
-    ? { label: 'Envío: Gratis', color: 'var(--black)' }
-    : totalUnitCount === 12
-      ? { label: 'Envío: $149.99 MXN', color: 'rgba(14,12,11,0.6)' }
+    ? { label: 'Envío: $180.80 MXN', color: 'rgba(14,12,11,0.6)' }
+    : totalUnitCount === 18
+      ? { label: 'Envío: $167.99 MXN', color: 'rgba(14,12,11,0.6)' }
       : totalUnitCount === 6
-        ? { label: 'Envío: $109.99 MXN', color: 'rgba(14,12,11,0.6)' }
+        ? { label: 'Envío: $119.99 MXN', color: 'rgba(14,12,11,0.6)' }
         : { label: 'Envío: calculado al finalizar', color: 'rgba(14,12,11,0.6)' }
 
   async function proceedToCheckout() {
@@ -25,7 +25,7 @@ export default function CartDrawer() {
     const res = await fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items }),
+      body: JSON.stringify({ items, totalUnitCount }),
     })
     const data = await res.json()
     if (data.url) window.location.href = data.url
