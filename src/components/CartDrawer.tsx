@@ -12,14 +12,6 @@ export default function CartDrawer() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const totalUnitCount = items.reduce((sum, item) => sum + Number(item.packKey) * item.qty, 0)
 
-  const shippingSummary = totalUnitCount === 24
-    ? { label: 'Envío: $180.80 MXN', color: 'rgba(14,12,11,0.6)' }
-    : totalUnitCount === 18
-      ? { label: 'Envío: $167.99 MXN', color: 'rgba(14,12,11,0.6)' }
-      : totalUnitCount === 6
-        ? { label: 'Envío: $119.99 MXN', color: 'rgba(14,12,11,0.6)' }
-        : { label: 'Envío: calculado al finalizar', color: 'rgba(14,12,11,0.6)' }
-
   async function proceedToCheckout() {
     setIsSubmitting(true)
     const res = await fetch('/api/checkout', {
@@ -88,31 +80,6 @@ export default function CartDrawer() {
                 <span>Total</span>
                 <span>${total.toLocaleString('es-MX')} MXN</span>
               </div>
-              <div>
-                <div
-                  style={{
-                    fontFamily: 'Unbounded',
-                    fontWeight: 300,
-                    fontSize: '11px',
-                    letterSpacing: '1px',
-                    color: shippingSummary.color,
-                  }}
-                >
-                  {shippingSummary.label}
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'Unbounded',
-                    fontWeight: 300,
-                    fontSize: '9px',
-                    color: 'rgba(14,12,11,0.35)',
-                    letterSpacing: '1px',
-                    marginTop: '0.25rem',
-                  }}
-                >
-                  Precios incluyen IVA
-                </div>
-              </div>
               <button className="btn-checkout" onClick={handleCheckout}>
                 Proceder al checkout
               </button>
@@ -128,16 +95,17 @@ export default function CartDrawer() {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(14,12,11,0.28)',
+            background: 'rgba(14,12,11,0.75)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '24px',
-            zIndex: 80,
+            zIndex: 99999,
           }}
         >
           <div
             style={{
+              zIndex: 100000,
+              position: 'relative',
               width: '100%',
               maxWidth: '420px',
               background: 'var(--linen)',

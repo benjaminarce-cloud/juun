@@ -516,7 +516,7 @@ body::before {
   backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
 }
 .cart-drawer {
-  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 1000;
   width: min(420px, 100vw); background: var(--linen, #fcfbf0);
   display: flex; flex-direction: column;
   transform: translateX(100%);
