@@ -22,11 +22,11 @@ const PACK_OPTIONS: Array<{
 ]
 
 export default function PurchaseModule() {
-  const [flavor, setFlavor] = useState<FlavorKey>('frambuesa')
   const [pack,   setPack]   = useState<Pack>('6')
   const [qty,    setQty]    = useState(1)
   const { add } = useCart()
 
+  const flavor: FlavorKey = 'frambuesa'
   const f = FLAVORS[flavor]
   const selectedPack = PACK_OPTIONS.find(({ key }) => key === pack) ?? PACK_OPTIONS[0]
 
@@ -38,10 +38,10 @@ export default function PurchaseModule() {
   } as React.CSSProperties
 
   const packLabel = pack + ' Pack'
-  const summary = packLabel + ' · ' + f.label + ' · Cantidad ' + qty
+  const summary = packLabel + ' · Variedad · Cantidad ' + qty
 
   function handleAdd() {
-    add({ flavorKey: flavor, flavorLabel: f.label, packKey: pack, qty })
+    add({ flavorKey: 'variedad', flavorLabel: 'JUUN Wellness · Variedad', packKey: pack, qty })
   }
 
   return (
@@ -77,48 +77,57 @@ export default function PurchaseModule() {
           </div>
 
           <div className="config-group">
-            <span className="config-label">Sabor</span>
-            <div className="flavor-pills">
-              {(Object.keys(FLAVORS) as FlavorKey[]).map((key) => (
-                <button
-                  key={key}
-                  className={'flavor-pill' + (flavor === key ? ' active' : '')}
-                  onClick={() => setFlavor(key)}
-                >
-                  {FLAVORS[key].label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="config-group">
-            <div
+            <span
               style={{
-                width: '100%',
-                background: 'var(--black)',
-                padding: '10px 16px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                marginBottom: '1rem',
-                marginTop: '0.5rem',
+                fontFamily: 'Unbounded',
+                fontWeight: 300,
+                fontSize: '9px',
+                letterSpacing: '3px',
+                textTransform: 'uppercase',
+                color: 'rgba(14,12,11,0.45)',
+                marginBottom: '0.75rem',
+                display: 'block',
               }}
             >
-              <span style={{ color: 'rgba(245,243,236,0.4)', fontSize: '8px' }}>✦</span>
+              Sabor
+            </span>
+            <div>
+              {(Object.keys(FLAVORS) as FlavorKey[]).map((key) => (
+                <span
+                  key={key}
+                  style={{
+                    display: 'inline-block',
+                    padding: '6px 14px',
+                    border: '1px solid rgba(14,12,11,0.15)',
+                    fontSize: '11px',
+                    fontFamily: 'inherit',
+                    fontWeight: 300,
+                    color: 'rgba(14,12,11,0.5)',
+                    marginRight: '6px',
+                    marginBottom: '6px',
+                    cursor: 'default',
+                  }}
+                >
+                  {FLAVORS[key].label}
+                </span>
+              ))}
               <span
                 style={{
                   fontFamily: 'Unbounded',
                   fontWeight: 300,
                   fontSize: '9px',
-                  letterSpacing: '3px',
-                  color: 'rgba(245,243,236,0.7)',
-                  textTransform: 'uppercase',
+                  color: 'rgba(14,12,11,0.35)',
+                  letterSpacing: '1px',
+                  marginTop: '0.5rem',
+                  display: 'block',
                 }}
               >
-                ✦ 24 LATAS · MEJOR VALOR · MÁXIMO AHORRO ✦
+                Cada pack incluye variedad de los tres sabores.
               </span>
             </div>
+          </div>
+
+          <div className="config-group">
             <span className="config-label">Pack</span>
             <div className="pack-pills">
               {PACK_OPTIONS.map(({ key }) => (
@@ -126,25 +135,31 @@ export default function PurchaseModule() {
                   key={key}
                   className={'pack-pill' + (pack === key ? ' active' : '')}
                   onClick={() => setPack(key)}
+                  style={{ position: 'relative' }}
                 >
                   <span>
                     {key}
-                    {key === '18' || key === '24' ? (
-                      <span
-                        style={{
-                          display: 'block',
-                          fontSize: '7px',
-                          letterSpacing: '2px',
-                          fontWeight: 600,
-                          marginTop: '3px',
-                          color: pack === key ? 'var(--linen)' : 'rgba(14,12,11,0.5)',
-                          whiteSpace: 'nowrap',
-                        }}
-                      >
-                        {key === '18' ? '15% OFF' : '20% OFF'}
-                      </span>
-                    ) : null}
                   </span>
+                  {key === '18' || key === '24' ? (
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: '-1px',
+                        right: '-1px',
+                        background: pack === key ? '#f5f3ec' : '#0e0c0b',
+                        color: pack === key ? '#0e0c0b' : '#f5f3ec',
+                        fontSize: '7px',
+                        fontWeight: 700,
+                        letterSpacing: '1.5px',
+                        padding: '3px 6px',
+                        lineHeight: 1,
+                        fontFamily: 'inherit',
+                        pointerEvents: 'none',
+                      }}
+                    >
+                      {key === '18' ? '15% OFF' : '20% OFF'}
+                    </span>
+                  ) : null}
                 </button>
               ))}
             </div>

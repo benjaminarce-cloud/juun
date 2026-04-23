@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     price_data: {
       currency: 'mxn',
       product_data: {
-        name: 'JUUN wellness ' + item.flavorLabel,
+        name: 'JUUN Wellness · Variedad',
         description: LABELS[item.packKey],
       },
       unit_amount: PRICES[item.packKey] ?? 8900,

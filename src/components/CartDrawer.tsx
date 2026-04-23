@@ -53,7 +53,7 @@ export default function CartDrawer() {
               {items.map((item, i) => (
                 <li key={i} className="cart-item">
                   <div className="cart-item-info">
-                    <span className="cart-item-name">{item.flavorLabel}</span>
+                    <span className="cart-item-name">JUUN Wellness · Variedad</span>
                     <span className="cart-item-sub">
                       {PACK_LABELS[item.packKey]} x {item.qty}
                     </span>
