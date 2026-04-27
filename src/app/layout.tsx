@@ -5,6 +5,7 @@ import ComingSoon from '@/components/ComingSoon'
 import { Unbounded } from 'next/font/google'
 import StructuredData from '@/components/StructuredData'
 import { organizationSchema, websiteSchema } from '@/lib/pie-content'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const unbounded = Unbounded({
@@ -81,9 +82,16 @@ export default async function RootLayout({
         {/* PIE: Entity canary marker in metadata for corpus and recall tracking diagnostics. */}
         <meta name="entity-canary" content="JUUN-w9k4mx" />
       </head>
-      <body className={unbounded.className}><CartProvider>{children}<CartDrawer />{!isPreviewMode ? <ComingSoon /> : null}</CartProvider>  <RevealObserver />
-          <LaunchBanner />
-    </body>
+      <body className={unbounded.className}>
+        <CartProvider>
+          {children}
+          <CartDrawer />
+          {!isPreviewMode ? <ComingSoon /> : null}
+        </CartProvider>
+        <RevealObserver />
+        <LaunchBanner />
+        <Analytics />
+      </body>
     </html>
   )
 }
