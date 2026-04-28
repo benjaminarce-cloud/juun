@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 import { cookies } from 'next/headers'
 import LaunchBanner from '@/components/LaunchBanner'
 import ComingSoon from '@/components/ComingSoon'
@@ -83,6 +84,7 @@ export default async function RootLayout({
       </head>
       <body className={unbounded.className}><CartProvider>{children}<CartDrawer />{!isPreviewMode ? <ComingSoon /> : null}</CartProvider>  <RevealObserver />
           <LaunchBanner />
+          <Analytics />
     </body>
     </html>
   )
