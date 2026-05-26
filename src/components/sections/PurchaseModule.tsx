@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
 const FLAVORS = {
-  frambuesa: { from: '#c94b8b', to: '#7a1538', glow: 'rgba(201,75,139,0.25)', text: '#b03070', label: 'frambuesa · acai', photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1772580639/acai_cfpbet.jpg' },
-  fresa:     { from: '#dba0b8', to: '#5a9e72', glow: 'rgba(90,158,114,0.25)',  text: '#3e8055', label: 'fresa · menta',    photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1772579093/LAU02926_yevizb.jpg' },
-  naranja:   { from: '#f5a623', to: '#c97c10', glow: 'rgba(245,166,35,0.25)',  text: '#b06010', label: 'naranja · mango',  photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1772580639/mango_zdhx4z.jpg' },
+  frambuesa: { from: '#c94b8b', to: '#7a1538', glow: 'rgba(201,75,139,0.25)', text: '#b03070', label: 'frambuesa · acai', photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1779741177/WhatsApp_Image_2026-05-25_at_14.22.28_umi2il.jpg' },
+  fresa:     { from: '#dba0b8', to: '#5a9e72', glow: 'rgba(90,158,114,0.25)',  text: '#3e8055', label: 'fresa · menta',    photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1779741177/WhatsApp_Image_2026-05-25_at_14.22.28_umi2il.jpg' },
+  naranja:   { from: '#f5a623', to: '#c97c10', glow: 'rgba(245,166,35,0.25)',  text: '#b06010', label: 'naranja · mango',  photo: 'https://res.cloudinary.com/dzjcndphq/image/upload/v1779741177/WhatsApp_Image_2026-05-25_at_14.22.28_umi2il.jpg' },
 } as const
 
 type FlavorKey = keyof typeof FLAVORS
