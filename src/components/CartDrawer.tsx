@@ -3,12 +3,13 @@
 import { useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
-const PACK_PRICES: Record<string, number> = { '1': 89, '6': 240, '18': 649.99, '24': 799.99 }
+const PACK_PRICES: Record<string, number> = { '1': 89, '6': 239.99, '18': 659.99, '24': 799.99 }
 const PACK_LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '18': '18 Pack', '24': '24 Pack' }
 
 export default function CartDrawer() {
   const { items, remove, clear, isOpen, closeCart, total } = useCart()
   const [isCityGateOpen, setIsCityGateOpen] = useState(false)
+  const [city, setCity] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const totalUnitCount = items.reduce((sum, item) => sum + Number(item.packKey) * item.qty, 0)
 
@@ -17,7 +18,7 @@ export default function CartDrawer() {
     const res = await fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items, totalUnitCount }),
+      body: JSON.stringify({ items, totalUnitCount, city }),
     })
     const data = await res.json()
     if (data.url) window.location.href = data.url
@@ -25,6 +26,7 @@ export default function CartDrawer() {
   }
 
   function handleCheckout() {
+    setCity('')
     setIsCityGateOpen(true)
   }
 
@@ -124,8 +126,44 @@ export default function CartDrawer() {
                 margin: 0,
               }}
             >
-              ¿Tu pedido es para Monterrey o Mexicali? Por el momento solo enviamos a estas ciudades.
+              Por el momento solo enviamos a Mexicali. Selecciona tu ciudad para continuar.
             </p>
+            <label
+              style={{
+                display: 'block',
+                fontFamily: 'Unbounded',
+                fontWeight: 300,
+                fontSize: '10px',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'rgba(14,12,11,0.65)',
+                marginTop: '1.5rem',
+                marginBottom: '8px',
+              }}
+            >
+              Ciudad
+            </label>
+            <select
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              disabled={isSubmitting}
+              style={{
+                width: '100%',
+                appearance: 'none',
+                border: '1px solid rgba(14,12,11,0.2)',
+                background: 'var(--linen)',
+                color: 'var(--black)',
+                fontFamily: 'Unbounded',
+                fontWeight: 300,
+                fontSize: '12px',
+                letterSpacing: '0.04em',
+                padding: '12px 14px',
+                cursor: isSubmitting ? 'default' : 'pointer',
+              }}
+            >
+              <option value="">Selecciona tu ciudad</option>
+              <option value="Mexicali">Mexicali</option>
+            </select>
             <div
               style={{
                 display: 'flex',
@@ -136,7 +174,7 @@ export default function CartDrawer() {
             >
               <button
                 onClick={proceedToCheckout}
-                disabled={isSubmitting}
+                disabled={isSubmitting || city !== 'Mexicali'}
                 style={{
                   border: 'none',
                   background: 'var(--black)',
@@ -147,11 +185,11 @@ export default function CartDrawer() {
                   letterSpacing: '0.18em',
                   textTransform: 'uppercase',
                   padding: '12px 18px',
-                  cursor: isSubmitting ? 'default' : 'pointer',
-                  opacity: isSubmitting ? 0.7 : 1,
+                  cursor: isSubmitting || city !== 'Mexicali' ? 'default' : 'pointer',
+                  opacity: isSubmitting || city !== 'Mexicali' ? 0.5 : 1,
                 }}
               >
-                Sí, continuar
+                Continuar
               </button>
               <button
                 onClick={() => setIsCityGateOpen(false)}

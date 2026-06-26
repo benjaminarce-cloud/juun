@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
-const PRICES: Record<string, number> = { '1': 8900, '6': 24000, '18': 64999, '24': 79999 }
+const PRICES: Record<string, number> = { '1': 8900, '6': 23999, '18': 65999, '24': 79999 }
 const LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '18': '18 Pack', '24': '24 Pack' }
-const SHIPPING_COSTS: Record<number, number> = { 6: 11999, 18: 16799, 24: 18080 }
+const SHIPPING_COSTS: Record<number, number> = { 6: 11999, 18: 18499, 24: 19900 }
 
 export async function POST(req: NextRequest) {
   const secretKey = process.env.STRIPE_SECRET_KEY
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     apiVersion: '2026-01-28.clover',
   })
 
-  const { items, totalUnitCount } = await req.json()
+  const { items, totalUnitCount, city } = await req.json()
   const origin = req.headers.get('origin') ?? 'http://localhost:3000'
 
   const line_items = items.map((item: {
@@ -54,6 +54,7 @@ export async function POST(req: NextRequest) {
     cancel_url:  origin + '/#comprar',
     locale: 'es',
     shipping_address_collection: { allowed_countries: ['MX'] },
+    metadata: { shipping_city: city ?? '' },
   })
 
   return NextResponse.json({ url: session.url })
