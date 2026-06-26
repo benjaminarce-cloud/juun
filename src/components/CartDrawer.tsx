@@ -6,19 +6,37 @@ import { useCart } from '@/context/CartContext'
 const PACK_PRICES: Record<string, number> = { '1': 89, '6': 239.99, '18': 659.99, '24': 799.99 }
 const PACK_LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '18': '18 Pack', '24': '24 Pack' }
 
+// Delivery is restricted to a single city. These are fixed on the client and
+// re-forced on the server so the customer can never ship anywhere else.
+const FIXED_CITY = 'Mexicali'
+const FIXED_STATE = 'Baja California'
+
+const EMPTY_SHIPPING = { name: '', line1: '', colonia: '', postalCode: '' }
+
 export default function CartDrawer() {
   const { items, remove, clear, isOpen, closeCart, total } = useCart()
   const [isCityGateOpen, setIsCityGateOpen] = useState(false)
-  const [city, setCity] = useState('')
+  const [shipping, setShipping] = useState(EMPTY_SHIPPING)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const totalUnitCount = items.reduce((sum, item) => sum + Number(item.packKey) * item.qty, 0)
 
+  const isShippingValid =
+    shipping.name.trim().length > 1 &&
+    shipping.line1.trim().length > 2 &&
+    shipping.colonia.trim().length > 1 &&
+    /^\d{5}$/.test(shipping.postalCode.trim())
+
+  function setField(field: keyof typeof EMPTY_SHIPPING, value: string) {
+    setShipping((prev) => ({ ...prev, [field]: value }))
+  }
+
   async function proceedToCheckout() {
+    if (!isShippingValid) return
     setIsSubmitting(true)
     const res = await fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items, totalUnitCount, city }),
+      body: JSON.stringify({ items, totalUnitCount, shipping }),
     })
     const data = await res.json()
     if (data.url) window.location.href = data.url
@@ -26,8 +44,33 @@ export default function CartDrawer() {
   }
 
   function handleCheckout() {
-    setCity('')
+    setShipping(EMPTY_SHIPPING)
     setIsCityGateOpen(true)
+  }
+
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    fontFamily: 'Unbounded',
+    fontWeight: 300,
+    fontSize: '10px',
+    letterSpacing: '0.18em',
+    textTransform: 'uppercase',
+    color: 'rgba(14,12,11,0.65)',
+    marginBottom: '6px',
+  }
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    boxSizing: 'border-box',
+    appearance: 'none',
+    border: '1px solid rgba(14,12,11,0.2)',
+    background: 'var(--linen)',
+    color: 'var(--black)',
+    fontFamily: 'Unbounded',
+    fontWeight: 300,
+    fontSize: '12px',
+    letterSpacing: '0.04em',
+    padding: '12px 14px',
   }
 
   const drawerClass = 'cart-drawer' + (isOpen ? ' cart-drawer--open' : '')
@@ -110,6 +153,8 @@ export default function CartDrawer() {
               position: 'relative',
               width: '100%',
               maxWidth: '420px',
+              maxHeight: '90vh',
+              overflowY: 'auto',
               background: 'var(--linen)',
               padding: '28px 24px',
               boxShadow: '0 24px 60px rgba(14,12,11,0.16)',
@@ -126,44 +171,88 @@ export default function CartDrawer() {
                 margin: 0,
               }}
             >
-              Por el momento solo enviamos a Mexicali. Selecciona tu ciudad para continuar.
+              Por el momento solo enviamos a Mexicali. Ingresa tu dirección de envío.
             </p>
-            <label
-              style={{
-                display: 'block',
-                fontFamily: 'Unbounded',
-                fontWeight: 300,
-                fontSize: '10px',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: 'rgba(14,12,11,0.65)',
-                marginTop: '1.5rem',
-                marginBottom: '8px',
-              }}
-            >
-              Ciudad
-            </label>
-            <select
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              disabled={isSubmitting}
-              style={{
-                width: '100%',
-                appearance: 'none',
-                border: '1px solid rgba(14,12,11,0.2)',
-                background: 'var(--linen)',
-                color: 'var(--black)',
-                fontFamily: 'Unbounded',
-                fontWeight: 300,
-                fontSize: '12px',
-                letterSpacing: '0.04em',
-                padding: '12px 14px',
-                cursor: isSubmitting ? 'default' : 'pointer',
-              }}
-            >
-              <option value="">Selecciona tu ciudad</option>
-              <option value="Mexicali">Mexicali</option>
-            </select>
+
+            <div style={{ marginTop: '1.5rem' }}>
+              <label style={labelStyle} htmlFor="ship-name">Nombre de quien recibe</label>
+              <input
+                id="ship-name"
+                type="text"
+                autoComplete="name"
+                value={shipping.name}
+                onChange={(e) => setField('name', e.target.value)}
+                disabled={isSubmitting}
+                style={inputStyle}
+              />
+            </div>
+
+            <div style={{ marginTop: '14px' }}>
+              <label style={labelStyle} htmlFor="ship-line1">Calle y número</label>
+              <input
+                id="ship-line1"
+                type="text"
+                autoComplete="address-line1"
+                value={shipping.line1}
+                onChange={(e) => setField('line1', e.target.value)}
+                disabled={isSubmitting}
+                style={inputStyle}
+              />
+            </div>
+
+            <div style={{ marginTop: '14px' }}>
+              <label style={labelStyle} htmlFor="ship-colonia">Colonia</label>
+              <input
+                id="ship-colonia"
+                type="text"
+                autoComplete="address-line2"
+                value={shipping.colonia}
+                onChange={(e) => setField('colonia', e.target.value)}
+                disabled={isSubmitting}
+                style={inputStyle}
+              />
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px', marginTop: '14px' }}>
+              <div style={{ flex: 1 }}>
+                <label style={labelStyle} htmlFor="ship-cp">Código postal</label>
+                <input
+                  id="ship-cp"
+                  type="text"
+                  inputMode="numeric"
+                  autoComplete="postal-code"
+                  maxLength={5}
+                  value={shipping.postalCode}
+                  onChange={(e) => setField('postalCode', e.target.value.replace(/\D/g, ''))}
+                  disabled={isSubmitting}
+                  style={inputStyle}
+                />
+              </div>
+              <div style={{ flex: 1 }}>
+                <label style={labelStyle} htmlFor="ship-city">Ciudad</label>
+                <input
+                  id="ship-city"
+                  type="text"
+                  value={FIXED_CITY}
+                  readOnly
+                  aria-readonly="true"
+                  style={{ ...inputStyle, color: 'rgba(14,12,11,0.55)', cursor: 'not-allowed' }}
+                />
+              </div>
+            </div>
+
+            <div style={{ marginTop: '14px' }}>
+              <label style={labelStyle} htmlFor="ship-state">Estado</label>
+              <input
+                id="ship-state"
+                type="text"
+                value={FIXED_STATE}
+                readOnly
+                aria-readonly="true"
+                style={{ ...inputStyle, color: 'rgba(14,12,11,0.55)', cursor: 'not-allowed' }}
+              />
+            </div>
+
             <div
               style={{
                 display: 'flex',
@@ -174,7 +263,7 @@ export default function CartDrawer() {
             >
               <button
                 onClick={proceedToCheckout}
-                disabled={isSubmitting || city !== 'Mexicali'}
+                disabled={isSubmitting || !isShippingValid}
                 style={{
                   border: 'none',
                   background: 'var(--black)',
@@ -185,8 +274,8 @@ export default function CartDrawer() {
                   letterSpacing: '0.18em',
                   textTransform: 'uppercase',
                   padding: '12px 18px',
-                  cursor: isSubmitting || city !== 'Mexicali' ? 'default' : 'pointer',
-                  opacity: isSubmitting || city !== 'Mexicali' ? 0.5 : 1,
+                  cursor: isSubmitting || !isShippingValid ? 'default' : 'pointer',
+                  opacity: isSubmitting || !isShippingValid ? 0.5 : 1,
                 }}
               >
                 Continuar

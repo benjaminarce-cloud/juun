@@ -15,8 +15,22 @@ export async function POST(req: NextRequest) {
     apiVersion: '2026-01-28.clover',
   })
 
-  const { items, totalUnitCount, city } = await req.json()
+  const { items, totalUnitCount, shipping } = await req.json()
   const origin = req.headers.get('origin') ?? 'http://localhost:3000'
+
+  // Delivery is restricted to a single city. The city/state are forced here and
+  // never taken from the client, so the shipping address can only ever be Mexicali.
+  const SHIPPING_CITY = 'Mexicali'
+  const SHIPPING_STATE = 'Baja California'
+
+  const name = typeof shipping?.name === 'string' ? shipping.name.trim() : ''
+  const line1 = typeof shipping?.line1 === 'string' ? shipping.line1.trim() : ''
+  const colonia = typeof shipping?.colonia === 'string' ? shipping.colonia.trim() : ''
+  const postalCode = typeof shipping?.postalCode === 'string' ? shipping.postalCode.trim() : ''
+
+  if (!name || !line1 || !colonia || !/^\d{5}$/.test(postalCode)) {
+    return NextResponse.json({ error: 'Dirección de envío incompleta.' }, { status: 400 })
+  }
 
   const line_items = items.map((item: {
     flavorLabel: string
@@ -53,8 +67,28 @@ export async function POST(req: NextRequest) {
     success_url: origin + '/gracias?session_id={CHECKOUT_SESSION_ID}',
     cancel_url:  origin + '/#comprar',
     locale: 'es',
-    shipping_address_collection: { allowed_countries: ['MX'] },
-    metadata: { shipping_city: city ?? '' },
+    // No shipping_address_collection: Stripe never shows an editable address
+    // form, so the customer cannot change the destination city. We attach the
+    // delivery address ourselves with the city forced to Mexicali.
+    payment_intent_data: {
+      shipping: {
+        name,
+        address: {
+          line1,
+          line2: colonia,
+          city: SHIPPING_CITY,
+          state: SHIPPING_STATE,
+          postal_code: postalCode,
+          country: 'MX',
+        },
+      },
+    },
+    metadata: {
+      shipping_city: SHIPPING_CITY,
+      shipping_line1: line1,
+      shipping_colonia: colonia,
+      shipping_postal_code: postalCode,
+    },
   })
 
   return NextResponse.json({ url: session.url })
