@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
-const PACK_PRICES: Record<string, number> = { '1': 89, '6': 239.99, '18': 659.99, '24': 799.99 }
+const PACK_PRICES: Record<string, number> = { '1': 89, '6': 240, '18': 720, '24': 900 }
 const PACK_LABELS: Record<string, string> = { '1': '1 lata', '6': '6 Pack', '18': '18 Pack', '24': '24 Pack' }
 
 // Delivery is restricted to a single city. These are fixed on the client and

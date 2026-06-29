@@ -17,8 +17,8 @@ const PACK_OPTIONS: Array<{
   price: string
 }> = [
   { key: '6', price: '$240.00 MXN' },
-  { key: '18', price: '$649.99 MXN' },
-  { key: '24', price: '$799.99 MXN' },
+  { key: '18', price: '$720.00 MXN' },
+  { key: '24', price: '$900.00 MXN' },
 ]
 
 export default function PurchaseModule() {
