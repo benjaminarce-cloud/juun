@@ -150,7 +150,7 @@ export async function POST(req: NextRequest) {
 </html>`
 
   await resend.emails.send({
-    from: 'JUUN Wellness <pedidos@juunwellness.com>',
+    from: 'JUUN Wellness <hola@juunwellness.com>',
     to: email,
     subject: `Pedido confirmado · ${reference}`,
     html,
