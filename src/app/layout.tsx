@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import LaunchBanner from '@/components/LaunchBanner'
+import CookieBanner from '@/components/CookieBanner'
 import { Unbounded } from 'next/font/google'
 import StructuredData from '@/components/StructuredData'
 import { organizationSchema, websiteSchema } from '@/lib/pie-content'
@@ -80,6 +81,7 @@ export default function RootLayout({
       <body className={unbounded.className}><CartProvider>{children}<CartDrawer /></CartProvider>  <RevealObserver />
           <LaunchBanner />
           <Analytics />
+          <CookieBanner />
     </body>
     </html>
   )
