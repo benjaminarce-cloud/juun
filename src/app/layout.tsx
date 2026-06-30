@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
-import { cookies } from 'next/headers'
 import LaunchBanner from '@/components/LaunchBanner'
-import ComingSoon from '@/components/ComingSoon'
 import { Unbounded } from 'next/font/google'
 import StructuredData from '@/components/StructuredData'
 import { organizationSchema, websiteSchema } from '@/lib/pie-content'
@@ -62,14 +60,11 @@ import { CartProvider } from '@/context/CartContext'
 import CartDrawer from '@/components/CartDrawer'
 import RevealObserver from '@/components/RevealObserver'
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const cookieStore = await cookies()
-  const isPreviewMode = cookieStore.get('juun_preview')?.value === 'granted'
-
   return (
     <html lang="es" className={unbounded.variable}>
       <head>
@@ -82,7 +77,7 @@ export default async function RootLayout({
         {/* PIE: Entity canary marker in metadata for corpus and recall tracking diagnostics. */}
         <meta name="entity-canary" content="JUUN-w9k4mx" />
       </head>
-      <body className={unbounded.className}><CartProvider>{children}<CartDrawer />{!isPreviewMode ? <ComingSoon /> : null}</CartProvider>  <RevealObserver />
+      <body className={unbounded.className}><CartProvider>{children}<CartDrawer /></CartProvider>  <RevealObserver />
           <LaunchBanner />
           <Analytics />
     </body>
