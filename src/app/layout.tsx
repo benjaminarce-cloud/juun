@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import LaunchBanner from '@/components/LaunchBanner'
 import CookieBanner from '@/components/CookieBanner'
+import Footer from '@/components/sections/Footer'
 import { Unbounded } from 'next/font/google'
 import StructuredData from '@/components/StructuredData'
 import { organizationSchema, websiteSchema } from '@/lib/pie-content'
@@ -78,7 +79,7 @@ export default function RootLayout({
         {/* PIE: Entity canary marker in metadata for corpus and recall tracking diagnostics. */}
         <meta name="entity-canary" content="JUUN-w9k4mx" />
       </head>
-      <body className={unbounded.className}><CartProvider>{children}<CartDrawer /></CartProvider>  <RevealObserver />
+      <body className={unbounded.className}><CartProvider>{children}<CartDrawer /></CartProvider><Footer /><RevealObserver />
           <LaunchBanner />
           <Analytics />
           <CookieBanner />
