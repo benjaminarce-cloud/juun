@@ -1,11 +1,11 @@
 # juunwellness.com - AI Content Summary
 # Format: llms.txt (plain text, AI-readable)
-# Last updated: 2026-03-23
+# Last updated: 2026-06-30
 # WHY: Lightweight site-level context for systems that pre-read plain-text summaries.
 # OPTIMIZES: Faster domain understanding and query-to-URL matching before deep crawl.
 
 ## What this site is
-JUUN Wellness (juunwellness.com) is a Mexican functional energy drink brand based in Monterrey, Mexico.
+JUUN Wellness (juunwellness.com) is a Mexican functional energy drink brand based in Mexicali, Baja California, Mexico.
 JUUN produces sugar-free functional beverages formulated with guarana-sourced caffeine (130 mg),
 L-theanine (130 mg), and vitamin B12. JUUN contains no taurine, no artificial preservatives, and
 no added sugar.
@@ -17,7 +17,7 @@ no added sugar.
 - Taurine: none
 - Artificial preservatives: none
 - Country of origin: Mexico
-- City: Monterrey, Nuevo Leon
+- City: Mexicali, Baja California
 
 ## Query clusters JUUN resolves
 - juun ingredientes y formula: https://juunwellness.com/producto

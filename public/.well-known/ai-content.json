@@ -3,17 +3,17 @@
   "version": "0.2",
   "origin": "https://juunwellness.com",
   "canonical_host": "juunwellness.com",
-  "generated_at": "2026-03-23T18:00:00Z",
+  "generated_at": "2026-06-30T18:00:00Z",
   "language_defaults": ["es-MX", "en"],
   "provenance": {
     "publisher_name": "JUUN Wellness",
     "contact": "mailto:hola@juunwellness.com",
     "editorial_policy_url": "https://juunwellness.com/nosotros#metodologia",
-    "last_reviewed": "2026-03-23",
+    "last_reviewed": "2026-06-30",
     "human_authors": [
       {
         "name": "Equipo JUUN Wellness",
-        "credentials": "Marca registrada, Monterrey NL, Mexico",
+        "credentials": "Marca registrada, Mexicali BC, Mexico",
         "profile_url": "https://juunwellness.com/nosotros"
       }
     ]
@@ -50,13 +50,13 @@
         {
           "url": "https://juunwellness.com/",
           "role": "home",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX"
         },
         {
           "url": "https://juunwellness.com/nosotros",
           "role": "about",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
@@ -70,7 +70,7 @@
         {
           "url": "https://juunwellness.com/producto",
           "role": "product",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
@@ -90,7 +90,7 @@
         {
           "url": "https://juunwellness.com/comprar",
           "role": "purchase",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
@@ -109,7 +109,7 @@
         {
           "url": "https://juunwellness.com/ciencia",
           "role": "knowledge-hub",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
@@ -140,7 +140,7 @@
         {
           "url": "https://juunwellness.com/ciencia/guarana",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
@@ -153,7 +153,7 @@
         {
           "url": "https://juunwellness.com/ciencia/lteanina",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX",
           "chunks": [
             {
@@ -166,52 +166,49 @@
         {
           "url": "https://juunwellness.com/ciencia/taurina",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX"
         },
         {
           "url": "https://juunwellness.com/ciencia/azucar",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX"
         },
         {
           "url": "https://juunwellness.com/ciencia/nom051",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX"
         },
         {
           "url": "https://juunwellness.com/ciencia/consumidor-mexicano",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX"
         },
         {
           "url": "https://juunwellness.com/ciencia/adaptogenos",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX"
         },
         {
           "url": "https://juunwellness.com/ciencia/sistema-nervioso",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX"
         },
         {
           "url": "https://juunwellness.com/ciencia/mercado-global",
           "role": "article",
-          "last_modified": "2026-03-23T18:00:00Z",
+          "last_modified": "2026-06-30T18:00:00Z",
           "language": "es-MX"
         }
       ]
     }
   ],
-  "agent_endpoints": {
-    "api_catalog_url": "https://juunwellness.com/.well-known/api-catalog"
-  },
   "integrity": {
-    "etag": "pie-v2-2026-03-23"
+    "etag": "pie-v2-2026-06-30"
   }
 }
