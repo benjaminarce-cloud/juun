@@ -20,8 +20,10 @@ export default function Page() {
           <img
             className="landing-photo-break__image landing-photo-break__image--track"
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879034/1A7A2258_lpbzr1.jpg"
+            srcSet="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_800/v1771879034/1A7A2258_lpbzr1.jpg 800w, https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879034/1A7A2258_lpbzr1.jpg 1400w"
+            sizes="100vw"
             alt="JUUN track session"
-            loading="eager"
+            loading="lazy"
           />
         </section>
         <Formula />
@@ -32,8 +34,10 @@ export default function Page() {
           <img
             className="landing-photo-break__image landing-photo-break__image--community sunglasses-photo"
             src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879033/1A7A2184_bm4koh.jpg"
+            srcSet="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_800/v1771879033/1A7A2184_bm4koh.jpg 800w, https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_1400/v1771879033/1A7A2184_bm4koh.jpg 1400w"
+            sizes="100vw"
             alt="JUUN community"
-            loading="eager"
+            loading="lazy"
             style={{ height: '100vh', objectPosition: 'center 20%' }}
           />
         </section>
@@ -42,8 +46,10 @@ export default function Page() {
             <img
               className="landing-diptych__image landing-diptych__image--left"
               src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879163/1A7A1317_mvd47a.jpg"
+              srcSet="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_600/v1771879163/1A7A1317_mvd47a.jpg 600w, https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879163/1A7A1317_mvd47a.jpg 900w"
+              sizes="50vw"
               alt="JUUN"
-              loading="eager"
+              loading="lazy"
               style={{ objectPosition: 'center 65%' }}
             />
           </div>
@@ -51,8 +57,10 @@ export default function Page() {
             <img
               className="landing-diptych__image landing-diptych__image--right"
               src="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879148/1A7A2447_pcwzk5.jpg"
+              srcSet="https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_600/v1771879148/1A7A2447_pcwzk5.jpg 600w, https://res.cloudinary.com/dzjcndphq/image/upload/f_auto,q_auto,w_900/v1771879148/1A7A2447_pcwzk5.jpg 900w"
+              sizes="50vw"
               alt="JUUN"
-              loading="eager"
+              loading="lazy"
             />
           </div>
         </section>
